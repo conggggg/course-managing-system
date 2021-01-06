@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 
 .b1 {
     background-image: url(back2.png);  
@@ -10,42 +9,25 @@
 }
 
 .d1{
-=======
-*{
-    margin: 0;
-    padding: 0;
-}
-.d1{
-    
-    position: absolute;
-    /* left:50px; */
-    /* width: 910px; */
->>>>>>> Stashed changes
     height: 220px;
      width: 100%;
     margin-top: 20px;
     
 }
-<<<<<<< Updated upstream
 .p1{
-     position: absolute;  
-=======
- .p1{
-    position: absolute; 
->>>>>>> Stashed changes
-     left: 510px;  
+     /* position: absolute;   */
+     margin-left: 510px;  
      width: 200px; 
      height: 200px;
      margin-top: 20px;
      border-radius: 50%;
-<<<<<<< Updated upstream
      border: solid 1px #B5B5B5;
      background-color:white;
 
 }
 .d2{
-     position: absolute;  
-    left: 510px;  
+     /* position: absolute;   */
+   margin-left: 510px;  
     width: 200px; 
     height: 20px;
     margin-top: 20px;
@@ -66,45 +48,14 @@
     border-radius: 3%;
 }
 .dd1{
-    position: absolute;  
-    left: 430px;  
+    /* position: absolute;  
+    left: 430px;   */
     width: 250px; 
     height: 300px;
     margin-top: 90px;
- 
+    margin-left: 430px;
     text-align: right;
     
-=======
-     border:1px solid #6e6e6e;
-
-} 
-.f1{
-    margin-top: 20px;
-    height: 220px;
-    width: 100%;
-    
-}
-.f2{
-    left: 520px;  
-    width: 200px; 
-    height: 30px;
-     margin-top: 20px; 
-}
-.d2{
-  
-    position: absolute; 
-    left: 510px;  
-    width: 200px; 
-    height: 30px;
-    margin-top: 20px;
-    background-color:#54B7FF;
-    text-align: center;
-}
-.boder{
-    border:1px solid #DED5C6;
-     box-shadow: 3px 0 8px -4px #000; 
-    border-radius: 4%;
->>>>>>> Stashed changes
 }
 
 
