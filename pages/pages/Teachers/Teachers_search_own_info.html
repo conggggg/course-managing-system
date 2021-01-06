@@ -4,24 +4,50 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="Teachers_manage.css">
+    <script src="Teacher_main.js"></script>
     <style>
         .info{
-            margin: 0 auto;
-            width: 1000px;
-            height: 600px;
-            background-color: blueviolet;
+            width: 100%;
+            height: 400px;
+            /* background-color: blueviolet; */
             display: block;
             text-align: center;
         }
-        .info_message{
-            width: 800px;
-            height: 500px;
-            margin: 0 auto;
-            background-color: aquamarine;
+        .info_message1{
+            width: 1000px;
+            height: 400px;
+            margin-left: 100px;
+            /* background-color: aquamarine; */
         }
+        .info_message2{
+            width: 800px;
+            height: 200px;
+            margin-left: 100px;
+            /* background-color: beige; */
+        }
+        .Teachers_id{
+			margin-left: 10px;
+            margin-top: 30px;
+        }
+        .Teachers_name{
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+        .Teachers_sex{
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+		._input{
+			margin-left: 10px;
+        }
+        /* .image{
+            border-radius: 50%;
+            border: black;
+        } */
     </style>
+
 </head>
-<body>
+<body onpageshow="myFunction()">
     <nav>
         <p>学生专业选课系统</p>
         <ul>
@@ -49,12 +75,21 @@
             </li>
         </ul>
     </nav>
-    <div class="info" style="position: absolute;top:100px;">
-        <div class="info_message" style="position: absolute;">
+    <div class="info" style="position: absolute;top:50px;">
+        <div class="info_message1" style="position: absolute;top:50px;">
              <img src="Teachers.png"/>
+             <div class="info_message2" style="position: absolute;" >
+                <form>
+			    	<text class="Teachers_id" >教师编号：</text>
+			    	<text id="demo1"></text> <br/><br/>
+			    	<text class="Teachers_name">教师姓名：</text>
+                    <text id="demo2"></text>  <br/><br/>
+                    <text class="Teachers_sex">教师性别：</text>
+                    <text id="demo3"></text>  <br/><br/>
+                    <br />
+                </form>
+            </div>
         </div>
-        
     </div>
-   
 </body>
 </html>
