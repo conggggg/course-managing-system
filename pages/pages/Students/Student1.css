@@ -9,6 +9,7 @@
 }
 
 nav {
+    z-index: 50px;
     width: 100%;
     height: 60px;
     background-color:#54B7FF;
@@ -29,6 +30,7 @@ nav ul {
 }
 
 nav ul li {
+   
     float: left;
     list-style: none;
     position: relative;
@@ -56,6 +58,7 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li {
+    z-index: 50px;
     width: 160px;
     border-radius: 4px;
 }

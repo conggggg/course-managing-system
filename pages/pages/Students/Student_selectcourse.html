@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		学生选课/退课
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生专业选课系统</title>
+	<link rel="stylesheet" type="text/css" href="Student1.css">
+	<link rel="stylesheet" type="text/css" href="Student3.css">
+</head>
+<body>  
+    <nav>
+        <p>学生专业选课系统</p>
+        <ul>
+            <li><a href="#">个人信息管理</a>
+                <ul>
+                    <li><a href="#">查询个人信息</a></li>
+                    <li><a href="#">修改密码</a></li>
+                </ul>
+            </li>
+            <li><a href="#">选课</a></li>
+            <li><a href="#">查询信息</a>
+                <ul>
+                    <li><a href="#">查询课表</a></li>
+                    <li><a href="#">查询成绩</a></li>
+                    <li><a href="#">查询绩点排名</a></li>
+                </ul>
+            </li>   
+        </ul>
+	</nav>
+	<div class="d1">
+		课程名称：<input type="text" />
+		<input type="button" value="搜索" />  
+	</div>
+	<div class="f1">	</div>
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>课程编号</td>
+			<td>课程名称</td>
+			<td>课程学分</td>
+			<td>课时</td>
+			<td>课程类型</td>
+			<td>操作</td>
+		</tr>
+	</table>
+</body>
 </html>
