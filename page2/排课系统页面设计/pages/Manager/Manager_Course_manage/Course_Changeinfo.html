@@ -3,20 +3,49 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+		body{
+				background: url(../../../magic/backgroudpicture.png);
+				background-size:cover;
+			}
+		.Write_buttun{
+					background-color:lightskyblue;
+					margin-left: 50px;
+					margin-top: 20px;
+					}
+		.Write_form{
+					width:300px;
+					height:300px;
+					height:350px;
+					background-color: aliceblue;
+					background-position:right;
+					border-style: groove;
+					position: absolute;
+					left: 450px;
+					top: 100px;
+					padding-left: 20px;
+				}
+		.Write_input{
+					margin-left: 10px;
+					margin-top: 30px;
+				}
+		</style>
 	</head>
 	<body>
 		<div>
-			<form style="width:300px"><!--添加学生表单-->
-				<fieldset>
-					<legend>课程信息</legend>
-					<label>课程编号：<input type="text"/></label><br/><br />
-					<label>课程名称：<input type="text"/></label><br/><br />
-					<label>课程学分：<input type="number"/></label><br/><br />
-					<label>课程课时：<input type="text"/></label><br /><br />
-					<label>课程类型：<input type="text"/></label><br /><br />
-					<input type="button" value="修改课程"/>
-				</fieldset>
+			<div style="position: absolute;left:500px;">
+				<h1>修改课程信息</h1>
+			</div>
+			<form class="Write_form"><!--添加学生表单-->
+					课程编号：<input type="text" name="Course_Id" class="Write_input"/><br/>
+					课程名称：<input type="text" name="Course_Name" class="Write_input"/><br/>
+					课程学分：<input type="number" name="Course_Mark" class="Write_input"/><br/>
+					课程课时：<input type="text" name="Coure_Time"/ class="Write_input"><br/>
+					课程类型：<input type="text" name="Course_Type" class="Write_input"/><br/><br />
+					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程"/>
+					<input type="button" class="Write_buttun" name="return_to_main" value="返回"/>
 			</form>
 		</div>
 	</body>
 </html>
+

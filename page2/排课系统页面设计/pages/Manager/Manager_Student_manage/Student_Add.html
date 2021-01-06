@@ -3,25 +3,51 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+		body{
+				background: url(../../../magic/backgroudpicture.png);
+				background-size:cover;
+			}
+		.Write_buttun{
+					background-color:lightskyblue;
+					margin-left: 50px;
+					margin-top: 20px;
+					}
+		.Write_form{
+					width:300px;
+					height:450px;
+					background-color: aliceblue;
+					background-position:right;
+					border-style: groove;
+					position: absolute;
+					left: 450px;
+					top: 100px;
+					padding-left: 20px;
+				}
+		.Write_input{
+					margin-left: 10px;
+					margin-top: 30px;
+				}
+		</style>
 	</head>
 	<body>
 		<div>
-			<form style="width:300px"><!--添加学生表单-->
-				<fieldset>
-					<legend>学生信息</legend>
-					<label>姓名：<input type="text"/></label><br/><br />
-					<label>学号：<input type="text"/></label><br/><br />
-					<label>性别：<input type="text"/></label><br/><br />
-					<label>年级：<input type="text"/></label><br /><br />
-					<label>专业：<input type="text" placeholder="专业" list="zhuanye"/>
+			<div style="position: absolute;left:500px;">
+				<h1>填写学生信息</h1>
+			</div>
+			<form class="Write_form"><!--添加学生表单-->
+					姓名：<input type="text" name="Student_Name" class="Write_input"/><br/><br />
+					学号：<input type="text" name="Student_Id" class="Write_input"/><br/><br />
+					性别：<input type="text" name="Student_Sex" class="Write_input"/><br/><br />
+					年级：<input type="text" name="Student_Grade" class="Write_input"/><br /><br />
+					专业：<input type="text" name="Student_Profession" placeholder="专业" list="zhuanye" class="Write_input"/>
 					<datalist id="zhuanye">
 						<option>计算机科学</option>
 						<option>网络工程</option>
 						<option>软件工程</option>
-					</datalist></label><br /><br />
-					<input type="button" value="添加学生"/>
-					<input type="button" value="返回"/>
-				</fieldset>
+					</datalist><br /><br />
+					<input type="button" value="添加学生" class="Write_buttun"/>
+					<input type="button" value="返回" class="Write_buttun"/>
 			</form>
 		</div>
 	</body>

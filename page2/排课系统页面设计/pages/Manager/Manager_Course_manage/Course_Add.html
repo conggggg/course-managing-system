@@ -3,19 +3,51 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+		body{
+				background: url(../../../magic/backgroudpicture.png);
+				background-size:cover;
+			}
+		
+		.Add_buttun{
+					background-color:lightskyblue;
+					margin-left: 50px;
+					margin-top: 20px;
+					}
+		.Add_form{
+					width:300px;
+					height:300px;
+					height:350px;
+					background-color: aliceblue;
+					background-position:right;
+					border-style: groove;
+					position: absolute;
+					left: 450px;
+					top: 100px;
+					padding-left: 20px;
+				}
+		.Add_input{
+					margin-left: 10px;
+					margin-top: 30px;
+				}
+		.Add_input_text{
+						margin-left: 40px;
+						}
+		</style>
 	</head>
 	<body>
 		<div>
-			<form style="width:300px"><!--添加学生表单-->
-				<fieldset>
-					<legend>课程信息</legend>
-					<label>课程编号：<input type="text"/></label><br/><br />
-					<label>课程名称：<input type="text"/></label><br/><br />
-					<label>课程学分：<input type="number"/></label><br/><br />
-					<label>课程课时：<input type="text"/></label><br /><br />
-					<label>课程类型：<input type="text"/></label><br /><br />
-					<input type="button" value="添加课程"/>
-				</fieldset>
+			<div style="position: absolute;left:500px;">
+				<h1>填写课程信息</h1>
+			</div>
+			<form class="Add_form"><!--添加学生表单-->
+					课程编号：<input type="text" name="Course_Id" class="Add_input"/><br/>
+					课程名称：<input type="text" name="Course_Name" class="Add_input"/><br/>
+					课程学分：<input type="number" name="Course_Mark" class="Add_input"/><br/>
+					课程课时：<input type="text" name="Coure_Time"/ class="Add_input"><br/>
+					课程类型：<input type="text" name="Course_Type" class="Add_input"/><br/><br />
+					<input type="button" class="Add_buttun" name="Course_Add" value="添加课程"/>
+					<input type="button" class="Add_buttun" name="return_to_main" value="返回"/>
 			</form>
 		</div>
 	</body>

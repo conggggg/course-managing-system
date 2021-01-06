@@ -3,19 +3,46 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+		body{
+				background: url(../../../magic/backgroudpicture.png);
+				background-size:cover;
+			}
+		.Write_buttun{
+					background-color:lightskyblue;
+					margin-left: 50px;
+					margin-top: 20px;
+					}
+		.Write_form{
+					width:300px;
+					height:450px;
+					background-color: aliceblue;
+					background-position:right;
+					border-style: groove;
+					position: absolute;
+					left: 450px;
+					top: 100px;
+					padding-left: 20px;
+				}
+		.Write_input{
+					margin-left: 10px;
+					margin-top: 30px;
+				}
+		</style>
 	</head>
 	<body>
 		<div>
-			<form style="width:300px"><!--添加学生表单-->
-				<fieldset>
-					<legend>教师信息</legend>
-					<label>姓名：<input type="text"/></label><br/><br />
-					<label>教师工号：<input type="text"/></label><br/><br />
-					<label>性别：<input type="text"/></label><br/><br />
-					<label>教授课程：<input type="text"/></label><br /><br />
-					<label>教授课程：<input type="text"/></label><br /><br />
-					<input type="button" value="修改教师信息"/>
-				</fieldset>
+			<div style="position: absolute;left:500px;">
+				<h1>修改教师信息</h1>
+			</div>
+			<form class="Write_form"><!--添加学生表单-->
+					教师工号：<input type="text" name="Teacher_Id" class="Write_input"/><br/><br />
+					教师姓名：<input type="text" name="Teacher_Name" class="Write_input"/><br/><br />
+					性别	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<input type="text" name="Teacher_Sex" class="Write_input"/><br/><br />
+					教授课程：<input type="text" name="Teache_Course" class="Write_input"/><br /><br />
+					管理班级：<input type="text" name="Teache_Course" class="Write_input"/><br /><br />
+					<input type="button" value="修改教师信息" class="Write_buttun"/>
+					<input type="button" value="返回" class="Write_buttun"/>
 			</form>
 		</div>
 	</body>
