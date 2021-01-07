@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
+		<script src="../common_js/Teachers_manage.js"></script>
 		<style>
 			.tabtop13 {
 				margin-top: 13px;
@@ -99,43 +100,43 @@
 			    </tr>
 			    <tr>
 			      <td>08：30~09：15</td>
+			      <td>&nbsp;计算机网络实验</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			    </tr>
 			    <tr>
 			      <td>09：20~10：05</td>
+			      <td>&nbsp;计算机网络实验</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			    </tr>
 			    <tr>
 			      <td>10：25~11：10</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;机器学习实验</td>
+			      <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			    </tr>
 			    <tr>
 			      <td>11：15~12：00</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;机器学习实验</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			      
 			    </tr>
 			    <tr>
@@ -143,20 +144,20 @@
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			    </tr>
 			    <tr>
 			      <td>14：40~15：25</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
 			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
+			  	  <td>&nbsp;</td>
 			    </tr>
 			    <tr>
 			      <td>15：45~16：30</td>
@@ -176,8 +177,7 @@
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    
+			  	<td>&nbsp;</td>	    
 			  </tr>
 			  <tr>
 			  	<td>18：20~19：05</td>
@@ -185,13 +185,13 @@
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	<td>&nbsp;机器学习</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  </tr>
 			  <tr>
 			  	<td>19：10~19：55</td>
-			  	<td>&nbsp;</td>
+			  	<td>&nbsp;计算机网络</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
@@ -201,19 +201,19 @@
 			  </tr>
 			  <tr>
 			  	<td>20：00~20：45</td>
+			  	<td>&nbsp;计算机网络</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
+			  	<td>&nbsp;机器学习</td>
 			  	<td>&nbsp;</td>
 			  	<td>&nbsp;</td>
 			  </tr>
 		</div>
 		<div>
 			<form>
-				<input type="button" value="刷新" style="margin-left: 900px;background-color: #54B7FF;color: white;width: 50px;"/>
-				<input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;"/>
+				<input type="button" value="刷新" style="margin-left: 900px;background-color: #54B7FF;color: white;width: 50px;" onclick="get_teacher_course()"/>
+				<input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;" onclick="export_teacher_course()"/>
 			</form>
 		</div>
 	</body>
