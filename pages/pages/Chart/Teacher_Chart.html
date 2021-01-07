@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="Chart.css">
+		<script type="text/javascript" src="../Manager/Manager_main/Manager_all.js"></script>
 	</head>
 	<body>
 		<div>
@@ -23,28 +24,28 @@
 			    <td width="20%" class="btbg font-center titfont">教授课程</td>
 				<td width="20%" class="btbg font-center titfont">管理班级</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
@@ -52,21 +53,21 @@
 				<td>&nbsp;</td>
 			    
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 				<td>&nbsp;</td>
 			  </tr>
-			  <tr>
+			  <tr onclick="teacher_chart_rowonlick()">
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
 			    <td>&nbsp;</td>
@@ -79,9 +80,9 @@
 				教师工号：<input type="text" />
 				教师姓名：<input type="text" />
 				教授课程：<input type="text" />
-				<input type="button" value="刷新"/>
-				<input type="button" value="删除" />
-				<input type="button" value="导出" />
+				<input type="button" value="刷新" onclick="get_newteacher()"/>
+				<input type="button" value="删除" onclick="teacher_delect()"/>
+				<input type="button" value="导出" onclick="teacher_chart_export()"/>
 			</form>
 		</div>
 	</body>
