@@ -3,57 +3,52 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
-		<style>
-		body{
-				background: url(../../../magic/backgroudpicture.png);
-				background-size:cover;
-			}
-		
-		.Add_buttun{
-					background-color:lightskyblue;
-					margin-left: 50px;
-					margin-top: 20px;
-					}
-		.Add_form{
-					width:300px;
-					height:300px;
-					height:350px;
-					background-color: aliceblue;
-					background-position:right;
-					border-style: groove;
-					position: absolute;
-					left: 450px;
-					top: 100px;
-					padding-left: 20px;
-				}
-		.Add_input{
-					margin-left: 10px;
-					margin-top: 30px;
-				}
-		.Add_input_text{
-						margin-left: 40px;
-						}
-		</style>
-	
 	</head>
 	<body>
 		<div>
-			<div style="position: absolute;left:500px;">
-				<h1>填写课程信息</h1>
-			</div>
-			<form class="Add_form"><!--添加学生表单-->
-					课程编号：<input type="text" name="Course_Id" class="Add_input" id="Course_Id"/><br/>
-					课程名称：<input type="text" name="Course_Name" class="Add_input" id="Course_Name"/><br/>
-					课程学分：<input type="number" name="Course_Mark" class="Add_input" id="Course_Mark"/><br/>
-					课程课时：<input type="text" name="Coure_Time" class="Add_input" id="Coure_Time"/><br/>
-					课程类型：<input type="text" name="Course_Type" class="Add_input" id="Course_Type"/><br/><br />
-					<input type="button" class="Add_buttun" name="Course_Add" onclick="course_add()" value="添加课程"/>
-					<input type="button" class="Add_buttun" name="return_to_main" value="返回" onclick="to_return_mian()"/>
-			</form>
+		<nav>
+			<p>学生专业选课系统</p>
+			<ul>
+				<li><a href="#">学生信息管理</a>
+					<ul>
+						<li><a href="../Manager_Student_manage/Student_Add.html">添加学生</a></li>
+						<li><a href="../Manager_Student_manage/Student_changeinfo.html">修改学生信息</a></li>
+						<li><a href="../../Chart/Student_Chart.html">学生信息表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">教师信息管理</a>
+					<ul>
+						<li><a href="../Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
+						<li><a href="../Manager_Teacher_manage/Teacher_Changeinfo.html">修改教师信息</a></li>
+						<li><a href="../../Chart/Teacher_Chart.html">教师信息表</a></li>
+						<li><a href="../../Chart/Teacher_Course.html">导出教师课程安排表</a></li>
+						<li><a href="../../Chart/Select_Course_Student.html">导出选课学生表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">课程信息管理</a>
+					<ul>
+						<li><a href="../Manager_Course_manage/Course_Add.html">添加课程</a></li>
+						<li><a href="../Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
+						<li><a href="../Manager_Course_manage/Course_chart.html">查询课程</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 		</div>
 		<div>
-			<p id="demo"></p>
+			<div style="position: absolute;left:850px;top:100px;">
+				<h1>添加课程信息</h1>
+			</div>
+			<form class="Write_form"><!--添加学生表单-->
+					课程编号：<input type="text" name="Course_Id" class="Write_input" id="Course_Id"/><br/>
+					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
+					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
+					课程课时：<input type="text" name="Coure_Time" class="Write_input" id="Coure_Time"/><br/>
+					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
+					<input type="button" class="Write_buttun" name="Course_Add" onclick="course_add()" value="添加课程"/>
+			</form>
 		</div>
 	</body>
 </html>
