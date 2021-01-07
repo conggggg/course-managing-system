@@ -4,9 +4,40 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="Chart.css">
+		<link rel="stylesheet" type="text/css" href="../Manager/Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../Manager/Manager_main/Manager_all.js"></script>
 	</head>
 	<body>
+		<div>
+		<nav>
+			<p>学生专业选课系统</p>
+			<ul>
+				<li><a href="#">学生信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_Student_manage/Student_Add.html">添加学生</a></li>
+						<li><a href="../Manager/Manager_Student_manage/Student_changeinfo.html">修改学生信息</a></li>
+						<li><a href="Student_Chart.html">学生信息表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">教师信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
+						<li><a href="../Manager/Manager_Teacher_manage/Teacher_Changeinfo.html">修改教师信息</a></li>
+						<li><a href="Teacher_Chart.html">教师信息表</a></li>
+						<li><a href="Teacher_Course.html">查询教师课程安排表</a></li>
+						<li><a href="Select_Course_Student.html">查询选课学生表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">课程信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_Course_manage/Course_Add.html">添加课程</a></li>
+						<li><a href="../Manager/Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
+						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">查询课程</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		</div>
 		<div>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 			  <tr>
@@ -24,54 +55,72 @@
 			    <td width="25%" class="btbg font-center titfont">专业</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1001</td>
+			    <td>小a</td>
+			    <td>18</td>
+			    <td>软件工程</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1002</td>
+			    <td>小b</td>
+			    <td>20</td>
+			    <td>计算机科学</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1003</td>
+			    <td>小红</td>
+			    <td>19</td>
+			    <td>网络工程</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1004</td>
+			    <td>小明</td>
+			    <td>18</td>
+			    <td>网络工程</td>
 			    
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1005</td>
+			    <td>小光</td>
+			    <td>18</td>
+			    <td>计算机科学</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1006</td>
+			    <td>小强</td>
+			    <td>19</td>
+			    <td>网络工程;</td>
 			  </tr>
 			  <tr>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
-			    <td>&nbsp;</td>
+			    <td>1007</td>
+			    <td>小磊</td>
+			    <td>20</td>
+			    <td>软件工程</td>
+			  </tr>
+			  <tr>
+			    <td>1008</td>
+			    <td>小清</td>
+			    <td>19</td>
+			    <td>软件工程</td>
+			  </tr>
+			  <tr>
+			    <td>1009</td>
+			    <td>小杰</td>
+			    <td>18</td>
+			    <td>网络工程</td>
+			  </tr>
+			  <tr>
+			    <td>1010</td>
+			    <td>小叶</td>
+			    <td>19</td>
+			    <td>计算机科学</td>
 			  </tr>
 		</div>
 		<div>
 			<form>
-				课程号：<input type="text" />
-				<input type="button" value="刷新" onclick="get_select_student()"/>
-				<input type="button" value="导出"  onclick="select_course_chart_export()"/>
+				课程号：<input type="text" class="chart_input" />
+				<input type="button" value="刷新"class="chart_buttun" onclick="get_select_student()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="select_course_chart_export()"/>
 			</form>
 		</div>
 	</body>
