@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		body{
+				background: url(../../../magic/backgroudpicture.png);
+				background-size:cover;
+			}
+		.Write_buttun{
+					background-color:lightskyblue;
+					margin-left: 50px;
+					margin-top: 20px;
+					}
+		.Write_form{
+					width:300px;
+					height:400px;
+					background-color: aliceblue;
+					background-position:right;
+					border-style: groove;
+					position: absolute;
+					left: 450px;
+					top: 100px;
+					padding-left: 20px;
+				}
+		.Write_input{
+					margin-left: 10px;
+					margin-top: 30px;
+				}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div style="position: absolute;left:500px;">
+				<h1>修改学生信息</h1>
+			</div>
+			<form class="Write_form"><!--添加学生表单-->
+					学号：<input type="text" name="Student_Id" class="Write_input"/><br/>
+					姓名：<input type="text" name="Student_Name" class="Write_input"/><br/>
+					性别：<input type="text" name="Student_Sex" class="Write_input"/><br/>
+					年级：<input type="text" name="Student_Grade" class="Write_input"/><br />
+					专业：<input type="text" name="Student_Profession" placeholder="专业" list="zhuanye" class="Write_input"/>
+					<datalist id="zhuanye">
+						<option>计算机科学</option>
+						<option>网络工程</option>
+						<option>软件工程</option>
+					</datalist><br /><br /><br />
+					<input type="button" value="修改学生信息" class="Write_buttun"/>
+					<input type="button" value="返回" class="Write_buttun"/>
+			</form>
+		</div>
+	</body>
+</html>
