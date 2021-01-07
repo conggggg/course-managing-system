@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
+    <style>
+        body{
+            background: url(../source/change_grade.png);
+            /* background-size:cover; */
+        }
+        .Write_buttun{
+            background-color:lightskyblue;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .Write_form{
+            width:280px;
+            height:380px;
+            background-color: aliceblue;
+            background-position:right;
+            border-style: groove;
+            left: 450px;
+            top: 100px;
+            padding-left: 30px;
+        }
+        .Write_input{
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+        </style>
 </head>
 <body>
     <nav>
@@ -30,6 +55,23 @@
             </li>
         </ul>
     </nav>
-    <text>修改学生成绩</text>
+    <div>
+        <div style="margin-left:750px;">
+            <br/>
+            <h1>修改学生成绩</h1>
+            <br/>
+        </div>
+        <div style="margin-left: 700px;">
+            <form class="Write_form"><!--修改学生成绩表单-->
+                学号：<input type="text" name="Student_Id" class="Write_input"/><br/>
+                姓名：<input type="text" name="Student_Name" class="Write_input"/><br/>
+                课程编号：<input type="text" name="Student_Course" class="Write_input"/><br/>
+                班级：<input type="text" name="Student_Class" class="Write_input"/><br/>
+                成绩：<input type="text" name="Student_Class" class="Write_input"/><br/>
+                <input type="button" value="修改" class="Write_buttun" style="margin-left: 50px;"/>
+                <input type="button" value="返回" class="Write_buttun"/>
+            </form>
+        </div>    
+    </div>
 </body>
 </html>
