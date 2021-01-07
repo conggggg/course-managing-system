@@ -21,8 +21,12 @@ function grade_return(){
     alert("返回查看学生成绩表");
 }
 
+//获取输入的课程名和课程编号
 //查询刷新选课学生表
 function get_student(){
+    var search_course_id,search_course_name;
+    search_course_id = document.getElementById("search_course_Id");
+    search_course_name = document.getElementById("search_course_Name");
 	alert("刷新选课学生表");
 }
 
@@ -31,8 +35,12 @@ function export_student(){
 	alert("导出选课学生表");
 }
 
+//获取输入的课程名和课程编号
 //查询刷新学生成绩表
 function get_student_grade(){
+    var search_course_id,search_course_name;
+    search_course_id = document.getElementById("search_course_Id");
+    search_course_name = document.getElementById("search_course_Name");
 	alert("刷新学生成绩表");
 }
 
@@ -41,7 +49,8 @@ function export_student_grade(){
 	alert("导出学生信息表");
 }
 
-//查询教师排课表
+//获取输入的课程名和课程编号
+//查询教师排课表 
 function get_teacher_course(){
 	alert("刷新教师排课表");
 }
@@ -69,5 +78,3 @@ function student_grade_chart_rowonlick(){
 function course_student_chart_rowonlick(){
 	alert("该行课程选课学生信息被选中");
 }
-
-//
