@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>登录界面</title>
+		<script type="text/javascript" src="Manager_all.js"></script>
 		<style>
 			.login_buttun{
 				background-color: skyblue;
@@ -25,7 +26,7 @@
 		</style>
 	</head>
 	<body>
-		<img src="../magic/2032090.jpg" alt="Pulpit rock" width=100% height=100% />
+		<img src="../source/2032090.jpg" alt="Pulpit rock" width=100% height=100% />
 		<div class="title" style="position: absolute;left:200px;top:200px;">
 		<h1>
 			专业选课系统
@@ -35,17 +36,17 @@
 		<div class="login_form" style="position: absolute;left: 700px;top: 100px;">
 			<form><br />
 			<text class="login_input_text">账号：</text>
-			<input class="login_input" type="text" name="number"/><br />
+			<input class="login_input" type="text" name="number" id="Manage_id"/><br />
 			<text class="login_input_text">密码：</text>
-			<input class="login_input" name="password" type="password" /><br /><br />
+			<input class="login_input" name="password" type="password" id="Manage_password"/><br /><br />
 		<div class="login_choose" style="position: absolute;left:40px;top:150px;">
 			<from action="" method="get">
-				<label><input name="login_radio" type="radio" value="" />管理员 </label> 
-				<label><input name="login_radio" type="radio" value="" />教师 </label> 
-				<label><input name="login_radio" type="radio" value="" />学生 </label> 
+				<label><input name="login_radio" type="radio" value="manager" id="login_manager"/>管理员 </label> 
+				<label><input name="login_radio" type="radio" value="teacher" id="login_teacher"/>教师 </label> 
+				<label><input name="login_radio" type="radio" value="student" id="login_student"/>学生 </label> 
 			</from>
 		</div>
-			<input class="login_buttun" name="login" value="登陆" type="button" color="red" margin-left="50px"/>
+			<input class="login_buttun" name="login" value="登陆" type="button" color="red" margin-left="50px" onclick="to_manage_main()"/>
 			<input class="login_buttun" name="forget" value="忘记密码" type="button" />
 		</form>
 		</div>

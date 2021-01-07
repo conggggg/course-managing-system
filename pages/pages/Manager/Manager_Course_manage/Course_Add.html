@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 		<style>
 		body{
 				background: url(../../../magic/backgroudpicture.png);
@@ -34,6 +35,7 @@
 						margin-left: 40px;
 						}
 		</style>
+	
 	</head>
 	<body>
 		<div>
@@ -41,14 +43,17 @@
 				<h1>填写课程信息</h1>
 			</div>
 			<form class="Add_form"><!--添加学生表单-->
-					课程编号：<input type="text" name="Course_Id" class="Add_input"/><br/>
-					课程名称：<input type="text" name="Course_Name" class="Add_input"/><br/>
-					课程学分：<input type="number" name="Course_Mark" class="Add_input"/><br/>
-					课程课时：<input type="text" name="Coure_Time"/ class="Add_input"><br/>
-					课程类型：<input type="text" name="Course_Type" class="Add_input"/><br/><br />
-					<input type="button" class="Add_buttun" name="Course_Add" value="添加课程"/>
-					<input type="button" class="Add_buttun" name="return_to_main" value="返回"/>
+					课程编号：<input type="text" name="Course_Id" class="Add_input" id="Course_Id"/><br/>
+					课程名称：<input type="text" name="Course_Name" class="Add_input" id="Course_Name"/><br/>
+					课程学分：<input type="number" name="Course_Mark" class="Add_input" id="Course_Mark"/><br/>
+					课程课时：<input type="text" name="Coure_Time" class="Add_input" id="Coure_Time"/><br/>
+					课程类型：<input type="text" name="Course_Type" class="Add_input" id="Course_Type"/><br/><br />
+					<input type="button" class="Add_buttun" name="Course_Add" onclick="course_add()" value="添加课程"/>
+					<input type="button" class="Add_buttun" name="return_to_main" value="返回" onclick="to_return_mian()"/>
 			</form>
+		</div>
+		<div>
+			<p id="demo"></p>
 		</div>
 	</body>
 </html>

@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 		<style>
 		body{
 				background: url(../../../magic/backgroudpicture.png);
@@ -37,13 +38,13 @@
 				<h1>修改课程信息</h1>
 			</div>
 			<form class="Write_form"><!--添加学生表单-->
-					课程编号：<input type="text" name="Course_Id" class="Write_input"/><br/>
-					课程名称：<input type="text" name="Course_Name" class="Write_input"/><br/>
-					课程学分：<input type="number" name="Course_Mark" class="Write_input"/><br/>
-					课程课时：<input type="text" name="Coure_Time"/ class="Write_input"><br/>
-					课程类型：<input type="text" name="Course_Type" class="Write_input"/><br/><br />
-					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程"/>
-					<input type="button" class="Write_buttun" name="return_to_main" value="返回"/>
+					课程编号：<input type="text" name="Course_Id" class="Write_input" id="Course_Id"/><br/>
+					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
+					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
+					课程课时：<input type="text" name="Coure_Time"/ class="Write_input" id="Coure_Time"><br/>
+					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
+					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程" onclick="course_change()"/>
+					<input type="button" class="Write_buttun" name="return_to_main" value="返回" onclick="to_return_mian()"/>
 			</form>
 		</div>
 	</body>
