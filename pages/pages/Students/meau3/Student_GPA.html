@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>查询学生成绩</title>
+	<script type="text/javascript" src="../Student_js/Student.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/Student1.css">
+	<link rel="stylesheet" type="text/css" href="../css/Student3.css">
+</head>
+<body>  
+    <nav>
+        <p>学生专业选课系统</p>
+        <ul>
+            <li><a>个人信息管理</a>
+                <ul>
+                    <li><a href="../meau1/Student_info.html">查询个人信息</a></li>
+                    <li><a href="../meau1/Student_password.html">修改密码</a></li>
+                    <li><a href="../../login.html">退出登录</a></li>
+                </ul>
+            </li>
+            <li><a href="../meau2/Student_selectcourse.html">选课</a></li>
+            <li><a href="#">查询信息</a>
+                <ul>
+                    <li><a href="../meau3/Student_course.html">查询课表</a></li>
+                    <li><a href="../meau3/Student_GPA.html">查询成绩</a></li>
+                </ul>
+            </li>   
+        </ul>
+    </nav>
+	<div class="biaoti">学生成绩</div>
+	<div class="d1">		
+		<button class="b1" onclick="export_grade()">导出</button>
+	</div>
+    <table class="t2">
+		 <thead>
+			<td>课程编号</td>
+			<td>课程名称</td>
+			<td>成绩</td>
+		</thead>
+		   <tr>
+			<td>01</td>
+			<td>计算机网络</td>
+			<td>90</td>
+		  </tr>
+		</tr>
+		   <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		  </tr>
+	</table>
+	<table class="t2">
+		<thead>
+		   <td>学号</td>
+		   <td>绩点</td>
+		   <td>排名</td>
+	   </thead>
+	      <tr>
+		   <td>18063</td>
+		   <td>4.0</td>
+		   <td>1</td>
+		 </tr>
+	   </tr>
+	      <tr>
+		   <td>&nbsp;</td>
+		   <td>&nbsp;</td>
+		   <td>&nbsp;</td>
+		 </tr>
+   </table>
+</body>
+</html>

@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
     <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
+    <title>demoPage</title>
     <link rel="stylesheet" type="text/css" href="mystyle.css">
     <script src="myScript.js"></script>
 </head>
 
 <body>
 
-    <h1 class="hc">我的第一个标题</h1>
+    <h1 id="t" class="hc">我的第一个标题</h1>
     <p id="demo">我的第一个段落。</p>
     <button type="button" onclick="displayDate()">显示日期</button>
+    <form>
+        <input id="un" name="username" type="text">
+        <input id="pw" name="password" type="password">
+        <button style="height: auto;width: auto;" type="button" onclick="loginfunc()">提交</button>
+    </form>
 </body>
 
 </html>
