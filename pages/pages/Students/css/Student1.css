@@ -5,6 +5,7 @@
 
 .b {
      background-image: url(../image/back1.png);  
+     background-repeat: no-repeat;
       /* background-size: cover;    */
 }
 
