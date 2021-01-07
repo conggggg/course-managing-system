@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
+    <script src="../common_js/Teachers_manage.js"></script>
     <style>
         body{
             background: url(../source/change_grade.png);
@@ -64,13 +65,14 @@
         </div>
         <div style="margin-left: 700px;">
             <form class="Write_form"><!--修改学生成绩表单-->
-                学号：<input type="text" name="Student_Id" class="Write_input"/><br/>
-                姓名：<input type="text" name="Student_Name" class="Write_input"/><br/>
-                课程编号：<input type="text" name="Student_Course" class="Write_input"/><br/>
-                班级：<input type="text" name="Student_Class" class="Write_input"/><br/>
-                成绩：<input type="text" name="Student_Class" class="Write_input"/><br/>
-                <input type="button" value="修改" class="Write_buttun" style="margin-left: 50px;"/>
-                <input type="button" value="返回" class="Write_buttun"/>
+                学号：<input type="text" name="Student_Id" class="Write_input" id="Student_Id"/><br/>
+                姓名：<input type="text" name="Student_Name" class="Write_input" id="Student_Name"/><br/>
+                课程编号：<input type="text" name="Student_Course_id" class="Write_input" id="Student_Course_id"/><br/>
+                班级：<input type="text" name="Student_Class" class="Write_input" id="Student_Class"/><br/>
+                成绩：<input type="text" name="Student_Grade" class="Write_input" id="Student_Grade"/><br/>
+                
+                <input type="button" value="修改" class="Write_buttun" style="margin-left: 50px;"onclick="grade_change()"/>
+                <input type="button" value="返回" class="Write_buttun" onclick="grade_return()"/>
             </form>
         </div>    
     </div>

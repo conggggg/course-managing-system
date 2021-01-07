@@ -122,7 +122,7 @@ function to_manage_main(){
 	var id = document.getElementById("Manage_id");
 	var password = document.getElementById("Manage_password");
 	if(id.value == 'root'&& password.value == 'admin'){//如果账号密码正确则登陆到主页面去
-		window.location.href='Manager_main.html';
+		window.location.href='Manager/Manager_main/Manager_main.html';
 	}
 	else{
 		alert("账号和密码不匹配!");
