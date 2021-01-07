@@ -27,6 +27,16 @@ function select_course(){
 
 }
 
+//进入查询课表界面会显示课表
+function show_course(){
+    //这个函数没有调用，跟表相关不太清楚怎么写
+}
+
+//进入查询成绩界面会显示成绩表和绩点
+function show_grade(){
+    //这个函数没有调用，跟表相关不太清楚怎么写
+}
+
 //导出课表
 function export_course(){
 
