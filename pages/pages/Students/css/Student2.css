@@ -1,10 +1,10 @@
 
 .b1 {
-    background-image: url(back2.png);  
+    background-image: url(../image/back2.png);  
 }
 
 .b2{
-    background-image: url(back3.png);  
+    background-image: url(../image/back3.png);  
     background-size: cover; 
 }
 
