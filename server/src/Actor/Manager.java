@@ -194,7 +194,7 @@ public class Manager extends User {
             while (rs.next()){
                 JSONObject obj = new JSONObject();
                 for (int i = 1; i<=meta.getColumnCount();i++){
-                    obj.put(meta.getColumnName(i),rs.getString(i));
+                    obj.put(meta.getColumnName(i).toLowerCase(),rs.getString(i));
                 }
                 ary.add(obj);
             }

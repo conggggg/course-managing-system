@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerDeleteServlet")
+@WebServlet(name = "ManagerDeleteServlet",urlPatterns = "/managerdelete")
 public class ManagerDeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
-
+        response.setHeader("Access-Control-Allow-Origin","*");
         String type = request.getParameter("type");
         JSONArray ary = JSON.parseArray(request.getParameter("data"));
 

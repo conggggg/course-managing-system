@@ -17,7 +17,7 @@ public class ManagerInsertServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
-
+        response.setHeader("Access-Control-Allow-Origin","*");
         String type = request.getParameter("type");
         JSONArray ary = JSON.parseArray(request.getParameter("data"));
 
