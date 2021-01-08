@@ -3,13 +3,11 @@ package Actor;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.annotation.JSONField;
 import dataItemModel.CourseItem;
 import database.DBInfo;
 
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class Manager extends User {
 
@@ -62,6 +60,53 @@ public class Manager extends User {
                     pstmt.setString(4, tmp.getCtype());
                     pstmt.setString(5, tmp.getDate());
                     pstmt.setString(6, tmp.getCcredit());
+                    pstmt.execute();
+                }
+                return pstmt.getUpdateCount()!=0;
+            }
+            else return false;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean Delete(String tablename,JSONArray ary){
+        try {
+            int len = ary.size();
+            if (len == 0) return false;
+            Class.forName(DBInfo.DRIVER);
+            Connection conn = DriverManager.getConnection(DBInfo.URL, DBInfo.USER, DBInfo.PASSWORD);
+            conn.createStatement().execute("use coursedesign");
+            if (tablename.equals("teacher")) {
+                String sql = "delete from teacher where Tid = ? ";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                for (int i = 0; i < len; i++) {
+                    JSONObject obj = ary.getJSONObject(i);
+                    Teacher tmp = JSON.toJavaObject(obj, Teacher.class);
+                    pstmt.setString(1, tmp.getTid());
+                    pstmt.execute();
+                }
+                return pstmt.getUpdateCount()!=0;
+            }
+            else if (tablename.equals("student")){
+                String sql = "delete from student where Sid = ? ";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                for (int i = 0; i < len; i++) {
+                    JSONObject obj = ary.getJSONObject(i);
+                    Student tmp = JSON.toJavaObject(obj, Student.class);
+                    pstmt.setString(1, tmp.getSid());
+                    pstmt.execute();
+                }
+                return pstmt.getUpdateCount()!=0;
+            }
+            else if (tablename.equals("course")){
+                String sql = "delete course where Cid = ? ";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                for (int i = 0; i < len; i++) {
+                    JSONObject obj = ary.getJSONObject(i);
+                    CourseItem tmp = JSON.toJavaObject(obj, CourseItem.class);
+                    pstmt.setString(1, tmp.getCid());
                     pstmt.execute();
                 }
                 return pstmt.getUpdateCount()!=0;

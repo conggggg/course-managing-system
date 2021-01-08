@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerQueryServlet" , urlPatterns = "/managerquery")
-
-public class ManagerQueryServlet extends HttpServlet {
+@WebServlet(name = "ManagerDeleteServlet")
+public class ManagerDeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
 
         String type = request.getParameter("type");
+        JSONArray ary = JSON.parseArray(request.getParameter("data"));
+
         JSONObject res = new JSONObject();
-        res.put("data",Manager.Query(type));
-        response.getWriter().print(JSON.toJSONString(res));
+        res.put("result", Manager.Delete("type",ary));
+        response.getWriter().print(res);
     }
 }
