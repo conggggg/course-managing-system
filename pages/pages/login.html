@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>登录界面</title>
-		<script type="text/javascript" src="./Manager/Manager_main/Manager_all.js"></script>
+		<script type="text/javascript" src="Script/login.js"></script>
 		<style>
 			.login_buttun{
 				background-color: #54B7FF;
@@ -52,9 +52,9 @@
 		<div class="login_form boder" style="position: absolute;left: 700px;top: 100px;">
 			<form><br />
 			<text class="login_input_text">账号：</text>
-			<input class="login_input" type="text" name="number" id="Manage_id"/><br />
+			<input class="login_input" type="text" name="number" id="un"/><br />
 			<text class="login_input_text">密码：</text>
-			<input class="login_input" name="password" type="password" /><br /><br />
+			<input class="login_input" type="password" name="password" id="pw"/><br /><br />
 		<!-- <div class="login_choose" style="position: absolute;left:40px;top:150px;">
 			<from action="" method="get">
 				<label><input name="login_radio" type="radio" value="manager" id="login_manager"/>管理员 </label> 
@@ -62,7 +62,7 @@
 				<label><input name="login_radio" type="radio" value="student" id="login_student"/>学生 </label> 
 			</from>
 		</div> -->
-			<input class="login_buttun boder" name="login" value="登陆" type="button" color="red" margin-left="50px"/>
+			<input class="login_buttun boder" name="login" value="登陆" type="button" color="red" margin-left="50px" onclick="loginfunc()"/>
 			<input class="login_buttun boder" name="forget" value="忘记密码" type="button" />
 		</form>
 		</div>
