@@ -1,0 +1,8 @@
+INSERT INTO class
+VALUES('11181','软件181','软件工程','2018','101048');
+
+INSERT INTO class
+VALUES('11182','软件182','软件工程','2018','100276');
+
+INSERT INTO class
+VALUES('13181','计科181','计算机科学','2018','100755');
