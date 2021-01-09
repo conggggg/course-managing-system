@@ -1,15 +1,15 @@
 package model;
 
-public class Class {
+public class TheClass {
     private String classId;
     private String className;
     private String profession;
     private String grade;
 
-    public Class() {
+    public TheClass() {
     }
 
-    public Class(String className,String classId,String profession, String grade) {
+    public TheClass(String classId, String className, String profession, String grade) {
         this.classId = classId;
         this.className = className;
         this.profession = profession;
