@@ -1,49 +1,50 @@
 package model;
 
-public class Teacher extends User implements Individual{
+public class Teacher {
+    private String teacherId;
+    private String teacherName;
+    private String teacherSex;
+    private String account;
 
-    private String tid;
-
-    private String tname;
-
-    private String tsex;
-
-    public String getTid() {
-        return tid;
+    public Teacher() {
     }
 
-    public void setTid(String tid) {
-        this.tid = tid;
+    public Teacher(String teacherId,String teacherName,String teacherSex,String account) {
+        this.teacherId = teacherId;
+        this.teacherName = teacherName;
+        this.teacherSex = teacherSex;
+        this.account = account;
     }
 
-    public String getTname() {
-        return tname;
+    public String getTeacherId() {
+        return teacherId;
     }
 
-    public void setTname(String tname) {
-        this.tname = tname;
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
 
-    public String getTsex() {
-        return tsex;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setTsex(String tsex) {
-        this.tsex = tsex;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
-    @Override
-    public void queryInfo() {
-
+    public String getTeacherSex() {
+        return teacherSex;
     }
 
-    @Override
-    public void QueryScore() {
-
+    public void setTeacherSex(String teacherSex) {
+        this.teacherSex = teacherSex;
     }
 
-    @Override
-    public void queryTimeTable() {
+    public String getAccount() {
+        return account;
+    }
 
+    public void setAccount(String account) {
+        this.account = account;
     }
 }

@@ -6,19 +6,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao implements ClassDao<User,String>{
+public class UserDao implements ClassDao<Account,String>{
 
     @Override
-    public List<User> query() throws Exception{
+    public List<Account> query() throws Exception{
 
-        String sql="select username,password,account_type from user_account";
+        String sql="select account,password,accountType from account";
         ResultSet rs = DBcontroller.getConnection().createStatement().executeQuery(sql);
-        List<User> list = new ArrayList<>();
+        List<Account> list = new ArrayList<>();
         while(rs.next()){
-            User tmp = new User();
-            tmp.setUserName(rs.getString(1));
+            Account tmp = new Account();
+            tmp.setAccount(rs.getString(1));
             tmp.setPassWord(rs.getString(2));
-            tmp.setAccount_type(rs.getString(3));
+            tmp.setAccountType(rs.getString(3));
             list.add(tmp);
         }
 
@@ -26,27 +26,27 @@ public class UserDao implements ClassDao<User,String>{
     }
 
     @Override
-    public boolean insert(List<User> objs) throws Exception{
-        String sql = "insert into user_account (username,password,account_type) value (?,?,?)";
+    public boolean insert(List<Account> objs) throws Exception{
+        String sql = "insert into account (account,password,accountType) value (?,?,?)";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
-        for (User u :objs){
-            pst.setString(1,u.getUserName());
+        for (Account u :objs){
+            pst.setString(1,u.getAccount());
             pst.setString(2,u.getPassWord());
-            pst.setString(3,u.getAccount_type());
+            pst.setString(3,u.getAccountType());
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;
     }
 
     @Override
-    public boolean update(List<User> objs) throws Exception{
-        String sql = "update user_account set username = ? ,password = ?,account_type = ? where username = ?";
+    public boolean update(List<Account> objs) throws Exception{
+        String sql = "update account set account = ? ,password = ?,accountType = ? where account = ?";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
-        for (User u :objs){
-            pst.setString(1,u.getUserName());
+        for (Account u :objs){
+            pst.setString(1,u.getAccount());
             pst.setString(2,u.getPassWord());
-            pst.setString(3,u.getAccount_type());
-            pst.setString(4,u.getUserName());
+            pst.setString(3,u.getAccountType());
+            pst.setString(4,u.getAccount());
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;
@@ -54,7 +54,7 @@ public class UserDao implements ClassDao<User,String>{
 
     @Override
     public boolean delete(List<String> keys) throws Exception{
-        String sql = "delete from user_account where username = ?";
+        String sql = "delete from account where account = ?";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (String key :keys){
             pst.setString(1,key);

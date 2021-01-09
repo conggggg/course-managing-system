@@ -1,60 +1,49 @@
 package model;
 
-import dataItemModel.ClassItem;
+public class Student {
+    private String studentId;
+    private String studentName;
+    private String studentSex;
+    private String classId;
+    private String account;
 
-public class Student extends User implements Individual{
-    private String CLid;
-
-    private String Sid;
-
-    private String Sname;
-
-    private String Ssex;
-
-    public String getCLid() {
-        return CLid;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setCLid(String CLid) {
-        this.CLid = CLid;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public String getSid() {
-        return Sid;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setSid(String sid) {
-        Sid = sid;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public String getSname() {
-        return Sname;
+    public String getStudentSex() {
+        return studentSex;
     }
 
-    public void setSname(String sname) {
-        Sname = sname;
+    public void setStudentSex(String studentSex) {
+        this.studentSex = studentSex;
     }
 
-    public String getSsex() {
-        return Ssex;
+    public String getClassId() {
+        return classId;
     }
 
-    public void setSsex(String ssex) {
-        Ssex = ssex;
+    public void setClassId(String classId) {
+        this.classId = classId;
     }
 
-    @Override
-    public void queryInfo() {
-
+    public String getAccount() {
+        return account;
     }
 
-    @Override
-    public void QueryScore() {
-
-    }
-
-    @Override
-    public void queryTimeTable() {
-
+    public void setAccount(String account) {
+        this.account = account;
     }
 }
