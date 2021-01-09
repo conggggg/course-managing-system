@@ -3,7 +3,7 @@ function myFunction() {
     document.getElementById("teacherId").innerHTML = "1806300144";
     document.getElementById("teacherName").innerHTML = "王五";
     document.getElementById("teacherSex").innerHTML = "男";
-    document.getElementById("manage_Class").innerHTML = "软件185";
+    // document.getElementById("manage_Class").innerHTML = "软件185";
 }
 
 //点击修改学生成绩按钮,实现修改学生成绩功能,更新数据库学生成绩表
