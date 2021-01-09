@@ -15,11 +15,9 @@ function loginfunc() {
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            if(xmlhttp.responseText=="ture"){
+            if(xmlhttp.responseText=="true"){
 				document.getElementById("t").innerHTML="登录成功";
-				setTimeout(function(){
-					window.location.href="../pages/main.html"; 
-				},1000)
+				window.location.href="../pages/login.html"; 
 			}
 			else{
 				document.getElementById("t").innerHTML="登录失败";
