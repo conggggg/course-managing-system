@@ -1,19 +1,14 @@
-package Actor;
+package model;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import dataItemModel.ClassItem;
 
 public class Student extends User implements Individual{
-    @JSONField(name = "clid")
     private String CLid;
-    @JSONField(name = "sgrade")
-    private String Sgrade;
-    @JSONField(name = "sid")
+
     private String Sid;
-    @JSONField(name = "smajor")
-    private String Smajor;
-    @JSONField(name = "sname")
+
     private String Sname;
-    @JSONField(name = "ssex")
+
     private String Ssex;
 
     public String getCLid() {
@@ -24,28 +19,12 @@ public class Student extends User implements Individual{
         this.CLid = CLid;
     }
 
-    public String getSgrade() {
-        return Sgrade;
-    }
-
-    public void setSgrade(String sgrade) {
-        Sgrade = sgrade;
-    }
-
     public String getSid() {
         return Sid;
     }
 
     public void setSid(String sid) {
         Sid = sid;
-    }
-
-    public String getSmajor() {
-        return Smajor;
-    }
-
-    public void setSmajor(String smajor) {
-        Smajor = smajor;
     }
 
     public String getSname() {

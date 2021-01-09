@@ -1,16 +1,16 @@
-package Actor;
+package model;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import dataItemModel.CourseItem;
 import database.DBInfo;
+import database.DBcontroller;
 
 import java.sql.*;
 
 
 public class Manager extends User {
-
 
     public static boolean Insert(String tablename,JSONArray ary){
         try {
@@ -33,17 +33,15 @@ public class Manager extends User {
                 return pstmt.getUpdateCount()!=0;
             }
             else if (tablename.equals("student")){
-                String sql = "insert into student(CLid,Sgrade,Sid,Smajor,Sname,Ssex) value (?,?,?,?,?,?)";
+                String sql = "insert into student(CLid,Sid,Sname,Ssex) value (?,?,?,?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 for (int i = 0; i < len; i++) {
                     JSONObject obj = ary.getJSONObject(i);
                     Student tmp = JSON.toJavaObject(obj, Student.class);
                     pstmt.setString(1, tmp.getCLid());
-                    pstmt.setString(2, tmp.getSgrade());
-                    pstmt.setString(3, tmp.getSid());
-                    pstmt.setString(4, tmp.getSmajor());
-                    pstmt.setString(5, tmp.getSname());
-                    pstmt.setString(6, tmp.getSsex());
+                    pstmt.setString(2, tmp.getSid());
+                    pstmt.setString(3, tmp.getSname());
+                    pstmt.setString(4, tmp.getSsex());
                     pstmt.execute();
                 }
                 return pstmt.getUpdateCount()!=0;
@@ -141,18 +139,16 @@ public class Manager extends User {
                 return pstmt.getUpdateCount()!=0;
             }
             else if (tablename.equals("student")){
-                String sql = "update student set CLid = ? ,Sgrade = ?,Sid = ?, Smajor = ?,Sname = ? ,Ssex = ? where Sid = ? ";
+                String sql = "update student set CLid = ?,Sid = ?,Sname = ? ,Ssex = ? where Sid = ? ";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 for (int i = 0; i < len; i++) {
                     JSONObject obj = ary.getJSONObject(i);
                     Student tmp = JSON.toJavaObject(obj, Student.class);
                     pstmt.setString(1, tmp.getCLid());
-                    pstmt.setString(2, tmp.getSgrade());
-                    pstmt.setString(3, tmp.getSid());
-                    pstmt.setString(4, tmp.getSmajor());
-                    pstmt.setString(5, tmp.getSname());
-                    pstmt.setString(6, tmp.getSsex());
-                    pstmt.setString(7, tmp.getSid());
+                    pstmt.setString(2, tmp.getSid());
+                    pstmt.setString(3, tmp.getSname());
+                    pstmt.setString(4, tmp.getSsex());
+                    pstmt.setString(5, tmp.getSid());
                     pstmt.execute();
                 }
                 return pstmt.getUpdateCount()!=0;
@@ -183,10 +179,12 @@ public class Manager extends User {
 
     public static JSONArray Query(String tablename){
         JSONArray ary = new JSONArray();
+
+
         try{
-            Class.forName(DBInfo.DRIVER);
-            Connection conn = DriverManager.getConnection(DBInfo.URL,DBInfo.USER,DBInfo.PASSWORD);
-            conn.createStatement().execute("use coursedesign");
+
+            Connection conn = DBcontroller.getConnection();
+            //创建SQL语句
             String sql = "select * from "+tablename;
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -198,10 +196,21 @@ public class Manager extends User {
                 }
                 ary.add(obj);
             }
+
+
         }catch (Exception e){
             e.printStackTrace();
         }
         return ary;
+
+
+
+
+
+
+
+
+
     }
 
 }

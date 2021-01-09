@@ -1,7 +1,6 @@
 package demo;
 
-import Actor.AccountProxy;
-import Actor.User;
+import model.AccountProxy;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import database.DBInfo;
@@ -11,11 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 
 @WebServlet(name = "UpdatePasswordServlet",urlPatterns = "/updatepassword")
 public class UpdatePasswordServlet extends HttpServlet {

@@ -1,4 +1,4 @@
-package Actor;
+package model;
 
 import com.sun.istack.internal.Nullable;
 import database.DBInfo;

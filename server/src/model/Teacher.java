@@ -1,13 +1,11 @@
-package Actor;
-
-import com.alibaba.fastjson.annotation.JSONField;
+package model;
 
 public class Teacher extends User implements Individual{
-    @JSONField(name = "tid")
+
     private String tid;
-    @JSONField(name = "tname")
+
     private String tname;
-    @JSONField(name = "tsex")
+
     private String tsex;
 
     public String getTid() {

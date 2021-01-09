@@ -39,8 +39,6 @@ Sid VARCHAR(10) PRIMARY KEY,
 CLid VARCHAR(10) NOT NULL,
 Sname VARCHAR(5),
 Ssex VARCHAR(1) CHECK(Ssex IN('男','女')),
-Smajor VARCHAR(10),
-Sgrade VARCHAR(5),
 `account` VARCHAR(10),
 
 FOREIGN KEY (CLid) REFERENCES class(CLid),

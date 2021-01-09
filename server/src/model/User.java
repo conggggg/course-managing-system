@@ -1,21 +1,23 @@
-package Actor;
+package model;
 
 
-import database.DBInfo;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import com.alibaba.fastjson.annotation.JSONField;
 
 public class User {
-
+    @JSONField(name = "username")
     private String userName;
-
+    @JSONField(name = "password")
     private String passWord;
 
+    private String account_type;
+
+    public String getAccount_type() {
+        return account_type;
+    }
+
+    public void setAccount_type(String account_type) {
+        this.account_type = account_type;
+    }
 
     public User() {
         this.userName = "null";
@@ -28,6 +30,7 @@ public class User {
         this.userName = userName;
 
         this.passWord = passWord;
+
 
     }
 
