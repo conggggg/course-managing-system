@@ -3,6 +3,8 @@ function get_info(){
     document.getElementById("Sid").innerHTML="18063";
     document.getElementById("Sname").innerHTML="张三";
     document.getElementById("Ssex").innerHTML="男";
+    document.getElementById("Smajor").innerHTML="软件工程";
+    document.getElementById("Sgrade").innerHTML="2018级";
     document.getElementById("Sclass").innerHTML="软件185";
 }
 
