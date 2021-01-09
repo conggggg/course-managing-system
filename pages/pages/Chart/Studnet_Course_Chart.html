@@ -35,6 +35,13 @@
 						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">查询课程</a></li>
 					</ul>
 				</li>
+				<li><a href="#">班级信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Add.html">添加班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+					</ul>
+				</li>
 				<li><a href="../login.html">退出登陆</a></li>
 			</ul>
 		</nav>
@@ -174,11 +181,8 @@
 		</div>
 		<div>
 			<form>
-				课程号：<input type="text" class="chart_input"/>
-				课程名：<input type="text" class="chart_input"/>
-				学分：<input type="number" class="chart_input"/>
-				<input type="button" value="刷新" class="chart_buttun" onclick="get_student_chart()" />
-				<input type="button" value="导出" class="chart_buttun" onclick="student_course_chart_export()"/>
+				<input type="button" value="刷新" style="background-color: #54B7FF;color: white;width: 50px;position: absolute;right: 200px;top: 100px;" onclick="get_student_chart()" />
+				<input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;position: absolute;right: 100px;top: 100px;" onclick="student_course_chart_export()"/>
 			</form>
 		</div>
 	</body>

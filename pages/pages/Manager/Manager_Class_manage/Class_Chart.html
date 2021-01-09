@@ -49,7 +49,7 @@
 		<div>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 			  <tr>
-			    <td align="center" class="biaoti" height="60">课程报表</td>
+			    <td align="center" class="biaoti" height="60">班级信息表</td>
 			  </tr>
 			  <tr>
 			    <td align="right" height="25"></td>
@@ -57,72 +57,80 @@
 			</table>
 			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
 			  <tr>
-			    <td width="25%" class="btbg font-center titfont">课程号</td>
-			    <td width="25%" class="btbg font-center titfont" >课程名</td>
-			    <td width="25%" class="btbg font-center titfont" >先行课程</td>
-			    <td width="25%" class="btbg font-center titfont">学分</td>
+			    <td width="25%" class="btbg font-center titfont">班级名称</td>
+			    <td width="25%" class="btbg font-center titfont" >班主任</td>
+			    <td width="25%" class="btbg font-center titfont" >年级</td>
+			    <td width="25%" class="btbg font-center titfont">专业</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+				<td>软件工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			  				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			  				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+				<td>软件工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
 			  </tr>
 		</div>
 		<div>
 			<form>
-				课程号：<input type="text" id="Chart_course_id" class="chart_input"/>
-				课程名：<input type="text" id="Chart_course_name" class="chart_input"/>
-				学分：<input type="number" id="Chart_course_mark" class="chart_input"/>
-				<input type="button" value="刷新" onclick="get_newcourse()" class="chart_buttun"/>
+				学生学号：<input type="text" class="chart_input" />
+				学生姓名：<input type="text" class="chart_input" />
+				专业：<input type="text" class="chart_input" />
+				<input type="button" value="刷新" class="chart_buttun" onclick="get_newclass()"/>
+				<input type="button" value="删除" class="chart_buttun" onclick="class_delect()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="class_chart_export()"/>
 			</form>
 		</div>
 	</body>
