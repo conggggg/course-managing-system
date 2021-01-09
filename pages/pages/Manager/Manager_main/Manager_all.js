@@ -1,3 +1,12 @@
+function logout() {
+	//删除cookie
+	deleteCookie("username");
+	deleteCookie("identity");
+	//转跳回主页面
+	window.location.replace("../../login.html");
+	alert("您已退出登录！")
+}
+
 //点击添加课程按钮,实现添加课程函数,更新数据库的值
 function course_add(){
 	var course_id="",course_name="",course_mark="",course_time="",course_type="";//初始化变量,获取输入的值
@@ -34,33 +43,66 @@ function get_course_info(){
 //根据信息,或者直接获取课程信息表
 function get_course(){
 	//获取搜索框的内容,根据这些属性值筛选课程,从数据库中提取并表现出来
-	course_id = document.getElementById("Chart_course_id");//获取各个属性的值
-	course_name = document.getElementById("Chart_course_name");
-	course_mark = document.getElementById("Chart_course_mark");
+	var course_id = document.getElementById("Chart_course_id");//获取各个属性的值
+	var course_name = document.getElementById("Chart_course_name");
+	var course_mark = document.getElementById("Chart_course_mark");
 	//从数据库中获取数据,表现到表格中
 	alert("查询结果显示!");
 }
 
 //点击添加学生按钮,实现添加学生功能,更新数据库学生信息表
 function student_add(){
-	var student_id,student_name,student_sex,student_grade,zhuanye;
-	student_id = document.getElementById("Student_Id");//获取各个属性的值
-	student_name = document.getElementById("Student_Name");
-	student_sex = document.getElementById("Student_sex");
-	student_grade = document.getElementById("Student_Grade");
-	zhuanye = document.getElementById("zhuanye");
-	alert("添加学生");
+	//获取各个属性的值
+	var type ="student";
+	var student_id = document.getElementById("Student_Id").value;
+	var student_name = document.getElementById("Student_Name").value;
+	var student_sex = document.getElementById("Student_sex").value;
+	var student_grade = document.getElementById("Student_Grade").value;
+	var zhuanye = document.getElementById("zhuanye").value;
+	var data={
+		Sid:student_id,
+		Sname:student_name,
+		Ssex:student_sex,
+		Sclass:student_grade,
+	}
+    //创建AJAX对象
+    var xmlhttp = new XMLHttpRequest();
+    //服务器返回数据回调函数
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //解析json对象
+            let re = JSON.parse(xmlhttp.responseText);
+            console.log(re);
+        }
+    };
+    //设置并提交申请
+    xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/login", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("type=" + type + "&data=" + JSON.stringify(data));
 }
 
 //点击修改学生信息按钮,实现修改学生信息功能,更新数据库学生信息表
 function student_changeinfo(){
-	var student_id,student_name,student_sex,student_grade,zhuanye;
-	student_id = document.getElementById("Student_Id");//获取各个属性的值
-	student_name = document.getElementById("Student_Name");
-	student_sex = document.getElementById("Student_sex");
-	student_grade = document.getElementById("Student_Grade");
-	zhuanye = document.getElementById("zhuanye");
-	alert("修改学生信息");//根据学号在数据库中找到相应学生,并更新该学生的值
+	var student_id = document.getElementById("Student_Id");//获取各个属性的值
+	var student_name = document.getElementById("Student_Name");
+	var student_sex = document.getElementById("Student_sex");
+	var student_grade = document.getElementById("Student_Grade");
+	var zhuanye = document.getElementById("zhuanye");
+
+	//创建AJAX对象
+    var xmlhttp = new XMLHttpRequest();
+    //服务器返回数据回调函数
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //解析json对象
+            let re = JSON.parse(xmlhttp.responseText);
+            console.log(re);
+        }
+    };
+    //设置并提交申请
+    xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/login", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("username=" + username + "&password=" + password);
 }
 
 //点击添加教师按钮,实现添加教师功能,更新数据库教师信息表
@@ -115,22 +157,8 @@ function get_teach_course(){
 	alert("刷新教师授课课程表");
 }
 
-
-//登陆管理员主页,没有完全成功,没有根据单选框获取是哪个身份登陆,只要账号密码正确都可以登陆
-function to_manage_main(){
-	//获取账号及密码信息
-	var id = document.getElementById("Manage_id");
-	var password = document.getElementById("Manage_password");
-	if(id.value == 'root'&& password.value == 'admin'){//如果账号密码正确则登陆到主页面去
-		window.location.href='Manager/Manager_main/Manager_main.html';
-	}
-	else{
-		alert("账号和密码不匹配!");
-	}
-}
-
 //点击返回按钮,返回到主页面
-function to_return_mian(){
+function return_to_main(){
 	window.location.href='../Manager_main/Manager_main.html'
 }
 

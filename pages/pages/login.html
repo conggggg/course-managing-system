@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>登录界面</title>
+		<script type="text/javascript" src="Script/cookie.js"></script>
 		<script type="text/javascript" src="Script/login.js"></script>
 		<style>
 			.login_buttun{
@@ -44,7 +45,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="onLoad()">
 		<img src="./Students/image/back3.png" alt="Pulpit rock" width=100% height=100% />
 		<div class="title" style="position: absolute;left:250px;top:200px;">
 		<h1>
@@ -58,13 +59,6 @@
 			<input class="login_input" type="text" name="number" id="un"/><br />
 			<text class="login_input_text">密码：</text>
 			<input class="login_input" name="password" type="password" id="pw"/><br /><br />
-		<!--<div class="login_choose" style="position: absolute;left:40px;top:150px;">
-			<from action="" method="get">
-				<label><input name="login_radio" type="radio" value="manager" id="login_manager"/>管理员 </label> 
-				<label><input name="login_radio" type="radio" value="teacher" id="login_teacher"/>教师 </label> 
-				<label><input name="login_radio" type="radio" value="student" id="login_student"/>学生 </label> 
-			</from>
-		</div>-->
 			<input class="login_buttun" name="login" value="登陆" type="button" onclick="loginfunc()"/>
 		</form>
 		</div>

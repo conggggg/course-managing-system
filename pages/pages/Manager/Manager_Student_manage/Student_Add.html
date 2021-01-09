@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../common_css/mesage_input.css">
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
+		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
 	<body>
@@ -35,7 +36,7 @@
 						<li><a href="../Manager_Course_manage/Course_chart.html">查询课程</a></li>
 					</ul>
 				</li>
-				<li><a href="../../login.html">退出登陆</a></li>
+				<li><a href="#" onclick="logout()">退出登陆</a></li>
 			</ul>
 		</nav>
 		</div>
@@ -45,7 +46,7 @@
 			</div>
 			<form class="Add_form"><!--添加学生表单-->
 					姓名：<input type="text" name="Student_Name" class="Write_input" id="Student_Name"/><br/><br />
-					学号：<input type="text" name="Student_Id" class="Write_input" id="Student_Id"/><br/><br />
+					学号：<input type="number" name="Student_Id" class="Write_input" id="Student_Id"/><br/><br />
 					性别：<input type="text" name="Student_Sex" class="Write_input" id="Student_sex"/><br/><br />
 					年级：<input type="text" name="Student_Grade" class="Write_input" id="Student_Grade"/><br /><br />
 					专业：<input type="text" name="Student_Profession" placeholder="专业" list="zhuanye" class="Write_input"/>
@@ -55,7 +56,7 @@
 						<option>软件工程</option>
 					</datalist><br /><br />
 					<input type="button" value="添加学生" class="Write_buttun" onclick="student_add()"/>
-					<input type="button" value="返回" class="Write_buttun" onclick="to_return_mian()"/>
+					<input type="button" value="返回" class="Write_buttun" onclick="return_to_main()"/>
 			</form>
 		</div>
 	</body>
