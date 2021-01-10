@@ -1,16 +1,16 @@
-package model;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
-import database.DBInfo;
-import database.DBcontroller;
-
-import java.sql.*;
-
-
-public class Manager extends User {
+//package model;
+//
+//import com.alibaba.fastjson.JSON;
+//import com.alibaba.fastjson.JSONArray;
+//import com.alibaba.fastjson.JSONObject;
+//
+//import database.DBInfo;
+//import database.DBcontroller;
+//
+//import java.sql.*;
+//
+//
+//public class Manager extends User {
 
 //    public static boolean Insert(String tablename,JSONArray ary){
 //        try {
@@ -212,7 +212,7 @@ public class Manager extends User {
 //
 //
 //    }
-
-}
-
+//
+//}
+//
 

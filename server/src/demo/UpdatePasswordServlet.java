@@ -1,6 +1,6 @@
 package demo;
 
-import model.AccountProxy;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import database.DBInfo;
@@ -27,22 +27,22 @@ public class UpdatePasswordServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userName = request.getParameter("username");
-        String newPassWord = request.getParameter("newpassword");
-        response.setCharacterEncoding("UTF-8");
-        response.setHeader("Access-Control-Allow-Origin","*");
-        response.setContentType("text/json");
-        try {
-            boolean result = AccountProxy.updatePassWord(userName,newPassWord);
-            //处理成JSON格式
-            JSONObject obj = new JSONObject();
-            obj.put("result",result);
-            //输出
-            PrintWriter out = response.getWriter();
-            out.print(JSON.toJSONString(obj));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        String userName = request.getParameter("username");
+//        String newPassWord = request.getParameter("newpassword");
+//        response.setCharacterEncoding("UTF-8");
+//        response.setHeader("Access-Control-Allow-Origin","*");
+//        response.setContentType("text/json");
+//        try {
+//            boolean result = AccountProxy.updatePassWord(userName,newPassWord);
+//            //处理成JSON格式
+//            JSONObject obj = new JSONObject();
+//            obj.put("result",result);
+//            //输出
+//            PrintWriter out = response.getWriter();
+//            out.print(JSON.toJSONString(obj));
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
     }
 

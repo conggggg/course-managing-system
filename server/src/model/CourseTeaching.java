@@ -1,13 +1,13 @@
 package model;
 
-public class courseTeaching {
+public class CourseTeaching {
     private String courseId;
     private String teacherId;
 
-    public courseTeaching() {
+    public CourseTeaching() {
     }
 
-    public courseTeaching(String courseId,String teacherId) {
+    public CourseTeaching(String courseId, String teacherId) {
         this.courseId = courseId;
         this.teacherId = teacherId;
     }

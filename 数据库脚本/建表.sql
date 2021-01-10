@@ -1,3 +1,5 @@
+use coursedesign;
+
 CREATE TABLE Account(
 account VARCHAR(10) PRIMARY KEY,
 `passWord` VARCHAR(15),

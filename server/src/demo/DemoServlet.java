@@ -9,21 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import model.*;
-
 @WebServlet(urlPatterns = "/test")
 public class DemoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json");
-        response.getWriter().println(JSON.toJSONString(new User("cc4","123456")));
+        response.getWriter().println();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json");
         response.setCharacterEncoding("UTF-8");
-        User u = new User("cc2","123456");
-        System.out.println(JSON.toJSONString(u));
-        response.getWriter().println(u);
+        try {
+            response.getWriter().println(JSON.toJSONString(new AccountDao().query()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }
