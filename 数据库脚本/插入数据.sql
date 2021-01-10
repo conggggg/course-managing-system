@@ -50,13 +50,13 @@ INSERT INTO Account VALUES
 ('180610010','123456','学生'),
 ('180610011','123456','学生');
 
-INSERT INTO Class
+INSERT INTO TheClass
 VALUES('11181','软件181','软件工程','2018');
 
-INSERT INTO class
+INSERT INTO Theclass
 VALUES('11182','软件182','软件工程','2018');
 
-INSERT INTO class
+INSERT INTO Theclass
 VALUES('13181','计科181','计算机科学','2018');
 
 INSERT INTO Student(student.studentId,student.studentName,student.classId,student.studentSex,student.account) VALUES
