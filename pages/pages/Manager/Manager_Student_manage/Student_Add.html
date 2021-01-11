@@ -36,6 +36,13 @@
 						<li><a href="../Manager_Course_manage/Course_chart.html">查询课程</a></li>
 					</ul>
 				</li>
+				<li><a href="#">班级信息管理</a>
+					<ul>
+						<li><a href="../Manager_CLass_manage/Class_Add.html">添加班级</a></li>
+						<li><a href="../Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
+						<li><a href="../Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+					</ul>
+				</li>
 				<li><a href="#" onclick="logout()">退出登陆</a></li>
 			</ul>
 		</nav>
@@ -45,16 +52,10 @@
 				<h1>填写学生信息</h1>
 			</div>
 			<form class="Add_form"><!--添加学生表单-->
-					姓名：<input type="text" name="Student_Name" class="Write_input" id="Student_Name"/><br/><br />
-					学号：<input type="number" name="Student_Id" class="Write_input" id="Student_Id"/><br/><br />
-					性别：<input type="text" name="Student_Sex" class="Write_input" id="Student_sex"/><br/><br />
-					年级：<input type="text" name="Student_Grade" class="Write_input" id="Student_Grade"/><br /><br />
-					专业：<input type="text" name="Student_Profession" placeholder="专业" list="zhuanye" class="Write_input"/>
-					<datalist id="zhuanye">
-						<option>计算机科学</option>
-						<option>网络工程</option>
-						<option>软件工程</option>
-					</datalist><br /><br />
+					姓名：<input type="text" name="Student_Name" class="Write_input" id="Student_Name"/><br/>
+					学号：<input type="text" name="Student_Id" class="Write_input" id="Student_Id"/><br/>
+					性别：<input type="text" name="Student_Sex" class="Write_input" id="Student_sex"/><br/>
+					班级：<input type="text" name="Student_Class" class="Write_input" id="Student_Class"/><br /><br />
 					<input type="button" value="添加学生" class="Write_buttun" onclick="student_add()"/>
 					<input type="button" value="返回" class="Write_buttun" onclick="return_to_main()"/>
 			</form>
