@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../Chart/Chart.css">
+		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
+		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
+	</head>
+	<body>
+		<div>
+		<nav>
+			<p>学生专业选课系统</p>
+			<ul>
+				<li><a href="#">学生信息管理</a>
+					<ul>
+						<li><a href="../Manager_Student_manage/Student_Add.html">添加学生</a></li>
+						<li><a href="../Manager_Student_manage/Student_changeinfo.html">修改学生信息</a></li>
+						<li><a href="../../Chart/Student_Chart.html">学生信息表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">教师信息管理</a>
+					<ul>
+						<li><a href="../Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
+						<li><a href="../Manager_Teacher_manage/Teacher_Changeinfo.html">修改教师信息</a></li>
+						<li><a href="../../Chart/Teacher_Chart.html">教师信息表</a></li>
+						<li><a href="../../Chart/Teacher_Course.html">导出教师课程安排表</a></li>
+						<li><a href="../../Chart/Select_Course_Student.html">导出选课学生表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">课程信息管理</a>
+					<ul>
+						<li><a href="../Manager_Course_manage/Course_Add.html">添加课程</a></li>
+						<li><a href="../Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
+						<li><a href="../Manager_Course_manage/Course_chart.html">查询课程</a></li>
+					</ul>
+				</li>
+				<li><a href="#">班级信息管理</a>
+					<ul>
+						<li><a href="../Manager_CLass_manage/Class_Add.html">添加班级</a></li>
+						<li><a href="../Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
+						<li><a href="../Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+					</ul>
+				</li>
+				<li><a href="../../login.html">退出登陆</a></li>
+			</ul>
+		</nav>
+		</div>
+		<div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+			  <tr>
+			    <td align="center" class="biaoti" height="60">班级信息表</td>
+			  </tr>
+			  <tr>
+			    <td align="right" height="25"></td>
+			  </tr>
+			</table>
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
+			  <tr>
+			    <td width="25%" class="btbg font-center titfont">班级名称</td>
+			    <td width="25%" class="btbg font-center titfont" >班主任</td>
+			    <td width="25%" class="btbg font-center titfont" >年级</td>
+			    <td width="25%" class="btbg font-center titfont">专业</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+				<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+				<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>软件185</td>
+			    <td>綦科</td>
+			    <td>男</td>
+			  	<td>软件工程</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>网络181</td>
+			    <td>张三</td>
+			    <td>男</td>
+			    <td>网络工程</td>
+			  </tr>
+		</div>
+		<div>
+			<form>
+				学生学号：<input type="text" class="chart_input" />
+				学生姓名：<input type="text" class="chart_input" />
+				专业：<input type="text" class="chart_input" />
+				<input type="button" value="刷新" class="chart_buttun" onclick="get_newclass()"/>
+				<input type="button" value="删除" class="chart_buttun" onclick="class_delect()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="class_chart_export()"/>
+			</form>
+		</div>
+	</body>
+</html>

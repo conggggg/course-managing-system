@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -35,6 +35,13 @@
 						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">查询课程</a></li>
 					</ul>
 				</li>
+				<li><a href="#">班级信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Add.html">添加班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+					</ul>
+				</li>
 				<li><a href="../login.html">退出登陆</a></li>
 			</ul>
 		</nav>
@@ -52,9 +59,10 @@
 			  <tr>
 			    <td width="20%" class="btbg font-center titfont">学生学号</td>
 			    <td width="20%" class="btbg font-center titfont" >学生姓名</td>
-			    <td width="20%" class="btbg font-center titfont" >性别</td>
-			    <td width="20%" class="btbg font-center titfont">年级</td>
+			    <td width="10%" class="btbg font-center titfont" >性别</td>
+			    <td width="10%" class="btbg font-center titfont">年级</td>
 				<td width="20%" class="btbg font-center titfont">专业</td>
+				<td width="20%" class="btbg font-center titfont">班级</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12345</td>
@@ -62,6 +70,7 @@
 			    <td>男</td>
 			    <td>18</td>
 				<td>软件工程</td>
+				<td>软件183</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12346</td>
@@ -69,6 +78,7 @@
 			    <td>女</td>
 			    <td>20</td>
 				<td>网络工程</td>
+				<td>网络181</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12345</td>
@@ -76,6 +86,7 @@
 			    <td>男</td>
 			    <td>18</td>
 			  	<td>软件工程</td>
+				<td>软件183</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12346</td>
@@ -83,6 +94,7 @@
 			    <td>女</td>
 			    <td>20</td>
 			  	<td>网络工程</td>
+				<td>网络182</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12345</td>
@@ -90,6 +102,7 @@
 			    <td>男</td>
 			    <td>18</td>
 			  	<td>软件工程</td>
+				<td>软件185</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12346</td>
@@ -97,20 +110,7 @@
 			    <td>女</td>
 			    <td>20</td>
 			  	<td>网络工程</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  				<td>软件工程</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  				<td>网络工程</td>
+				<td>网络183</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12345</td>
@@ -118,6 +118,7 @@
 			    <td>男</td>
 			    <td>18</td>
 			  	<td>软件工程</td>
+				<td>软件185</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12346</td>
@@ -125,6 +126,7 @@
 			    <td>女</td>
 			    <td>20</td>
 			  	<td>网络工程</td>
+				<td>网络183</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12345</td>
@@ -132,6 +134,7 @@
 			    <td>男</td>
 			    <td>18</td>
 			  	<td>软件工程</td>
+				<td>软件185</td>
 			  </tr>
 			  <tr onclick="student_chart_rowonlick()">
 			    <td>12346</td>
@@ -139,9 +142,26 @@
 			    <td>女</td>
 			    <td>20</td>
 			  	<td>网络工程</td>
+				<td>网络183</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>12345</td>
+			    <td>小明</td>
+			    <td>男</td>
+			    <td>18</td>
+			  	<td>软件工程</td>
+				<td>软件185</td>
+			  </tr>
+			  <tr onclick="student_chart_rowonlick()">
+			    <td>12346</td>
+			    <td>小红</td>
+			    <td>女</td>
+			    <td>20</td>
+			  	<td>网络工程</td>
+				<td>网络183</td>
 			  </tr>
 		</div>
-		<div>
+		<div style="text-align: center;">
 			<form>
 				学生学号：<input type="text" class="chart_input" />
 				学生姓名：<input type="text" class="chart_input" />

@@ -1,8 +1,9 @@
 //加载页面完成触发事件 显示教师个人信息
 function myFunction() {
-    document.getElementById("demo1").innerHTML = "1806300144";
-    document.getElementById("demo2").innerHTML = "王五";
-    document.getElementById("demo3").innerHTML = "男";
+    document.getElementById("teacherId").innerHTML = "1806300144";
+    document.getElementById("teacherName").innerHTML = "王五";
+    document.getElementById("teacherSex").innerHTML = "男";
+    // document.getElementById("manage_Class").innerHTML = "软件185";
 }
 
 //点击修改学生成绩按钮,实现修改学生成绩功能,更新数据库学生成绩表

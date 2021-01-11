@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -33,6 +33,13 @@
 						<li><a href="../Manager/Manager_Course_manage/Course_Add.html">添加课程</a></li>
 						<li><a href="../Manager/Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
 						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">查询课程</a></li>
+					</ul>
+				</li>
+				<li><a href="#">班级信息管理</a>
+					<ul>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Add.html">添加班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
 					</ul>
 				</li>
 				<li><a href="../login.html">退出登陆</a></li>
@@ -119,7 +126,7 @@
 				教师工号：<input type="text" class="chart_input"/>
 				教师姓名：<input type="text" class="chart_input"/>
 				教授课程：<input type="text" class="chart_input"/>
-				<input type="button" value="刷新" class="chart_input" onclick="get_newteacher()"/>
+				<input type="button" value="刷新" class="chart_buttun" onclick="get_newteacher()"/>
 				<input type="button" value="删除" class="chart_buttun" onclick="teacher_delect()"/>
 				<input type="button" value="导出" class="chart_buttun" onclick="teacher_chart_export()"/>
 			</form>
