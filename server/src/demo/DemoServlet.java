@@ -29,7 +29,7 @@ public class DemoServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try {
-            response.getWriter().println(Manager.queryStudent());
+            response.getWriter().println(Manager.queryCourse());
 //            List<List<String>> keylist = new ArrayList<>();
 //            List<String> item = new ArrayList<>();
 //            item.add("1806000435");

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerAddStudentServlet",urlPatterns = "manageraddstudent")
+@WebServlet(name = "ManagerAddStudentServlet",urlPatterns = "/manageraddstudent")
 public class ManagerAddStudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");

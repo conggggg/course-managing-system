@@ -35,5 +35,5 @@ public class LoginServlet extends HttpServlet {
 }
 
 /*
-    {"result":true或false,"type":用户类型}
+    {"result":true或false,"type":"教师"or"学生"or"管理员"]}
  */
