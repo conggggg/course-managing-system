@@ -30,3 +30,6 @@ public class ManagerAddStudentServlet extends HttpServlet {
         }
     }
 }
+/*
+    {“result”:true或false}
+ */

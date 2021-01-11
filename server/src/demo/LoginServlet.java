@@ -30,7 +30,10 @@ public class LoginServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 }
+
+/*
+    {"result":true或false,"type":用户类型}
+ */

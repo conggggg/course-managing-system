@@ -37,3 +37,6 @@ public class ManagerAddCourseServlet extends HttpServlet {
     }
 
 }
+/*
+    {"result":true或false}
+ */

@@ -40,3 +40,6 @@ public class ManagerQueryCourseServlet extends HttpServlet {
         }
     }
 }
+/*
+    {“data”:对象数组}
+ */

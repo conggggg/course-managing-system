@@ -34,3 +34,7 @@ public class UpdatePasswordServlet extends HttpServlet {
     }
 
 }
+
+/*
+{"result":true或false}
+ */
