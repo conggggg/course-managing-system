@@ -26,3 +26,6 @@ public class ManagerQueryClassServlet extends HttpServlet {
         }
     }
 }
+/*
+{"data",[{"profession":"软件工程","classId":"11181","grade":"2018","className":"软件181"}]}
+ */

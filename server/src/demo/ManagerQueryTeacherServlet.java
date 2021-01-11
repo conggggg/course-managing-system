@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerQueryTeacherServlet",urlPatterns = "managerqueryteacher")
+@WebServlet(name = "ManagerQueryTeacherServlet",urlPatterns = "/managerqueryteacher")
 public class ManagerQueryTeacherServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
@@ -26,3 +26,6 @@ public class ManagerQueryTeacherServlet extends HttpServlet {
         }
     }
 }
+/*
+{"data",[{"teacherId":"100103","teacherName":"桂丽萍","teacherSex":"女"}]}
+ */
