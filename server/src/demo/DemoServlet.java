@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import database.*;
 import model.Account;
 import model.CourseSelected;
+import model.Manager;
 import model.TheClass;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ public class DemoServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try {
+            response.getWriter().println(Manager.queryStudent());
 //            List<List<String>> keylist = new ArrayList<>();
 //            List<String> item = new ArrayList<>();
 //            item.add("1806000435");

@@ -7,6 +7,17 @@ public class Student {
     private String classId;
     private String account;
 
+    public Student() {
+    }
+
+    public Student(String studentId, String studentName, String studentSex, String classId, String account) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.studentSex = studentSex;
+        this.classId = classId;
+        this.account = account;
+    }
+
     public String getStudentId() {
         return studentId;
     }

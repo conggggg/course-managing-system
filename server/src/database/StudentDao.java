@@ -42,6 +42,7 @@ public class StudentDao implements ClassDao<Student,String>{
                 tmp.setClassId(rs.getString(2));
                 tmp.setStudentName(rs.getString(3));
                 tmp.setStudentSex(rs.getString(4));
+                tmp.setAccount(rs.getString(5));
                 list.add(tmp);
             }
 
@@ -65,7 +66,7 @@ public class StudentDao implements ClassDao<Student,String>{
 
     @Override
     public boolean update(List<Student> objs) throws Exception {
-        String sql = "update student set studentId = ? ,classId = ?,studentName = ?,studentSex,account = ?= ? where studentId = ?";
+        String sql = "update student set studentId = ? ,classId = ?,studentName = ?,studentSex = ?,account = ? where studentId = ?";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (Student s :objs){
             pst.setString(1, s.getStudentId());

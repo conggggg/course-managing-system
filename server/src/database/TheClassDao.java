@@ -31,6 +31,26 @@ public class TheClassDao implements ClassDao<TheClass,String>{
         return list;
     }
 
+    public List<TheClass> queryByClassNames(List<String> ClassNames)throws Exception{
+        String sql="select classId,className,profession,grade from theClass where className = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        List<TheClass> list = new ArrayList<>();
+        for (String className : ClassNames) {
+            pstmt.setString(1, className);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                TheClass tmp = new TheClass();
+                tmp.setClassId(rs.getString(1));
+                tmp.setClassName(rs.getString(2));
+                tmp.setProfession(rs.getString(3));
+                tmp.setGrade(rs.getString(4));
+                list.add(tmp);
+            }
+        }
+        pstmt.close();
+        return list;
+    }
+
     @Override
     public List<TheClass> query() throws Exception {
         String sql="select classId,className,profession,grade from theClass";
@@ -87,4 +107,5 @@ public class TheClassDao implements ClassDao<TheClass,String>{
         }
         return pst.getUpdateCount()!= 0;
     }
+
 }

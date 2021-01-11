@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerQueryCourseServlet",urlPatterns = "managerquerycourse")
-public class ManagerQueryCourseServlet extends HttpServlet {
+@WebServlet(name = "ManagerQueryStudentServlet",urlPatterns = "managerquerystudent")
+public class ManagerQueryStudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
             JSONObject result = new JSONObject();
-            result.put("data", Manager.queryCourse());
+            result.put("data", Manager.queryStudent());
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class ManagerQueryCourseServlet extends HttpServlet {
         response.setContentType("text/json");
         try {
             JSONObject result = new JSONObject();
-            result.put("data", Manager.queryCourse());
+            result.put("data", Manager.queryStudent());
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();
