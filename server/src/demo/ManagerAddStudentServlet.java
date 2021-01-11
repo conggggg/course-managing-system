@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet(name = "ManagerAddStudentServlet",urlPatterns = "/manageraddstudent")
 public class ManagerAddStudentServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
         response.setCharacterEncoding("UTF-8");

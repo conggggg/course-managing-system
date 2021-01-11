@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerQueryCourseServlet",urlPatterns = "/managerquerycourse")
-public class ManagerQueryCourseServlet extends HttpServlet {
+@WebServlet(name = "ManagerQueryClassServlet",urlPatterns = "/managerqueryclass")
+public class ManagerQueryClassServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
@@ -20,7 +20,7 @@ public class ManagerQueryCourseServlet extends HttpServlet {
         response.setContentType("text/json");
         try {
             JSONObject result = new JSONObject();
-            result.put("data", Manager.queryCourse());
+            result.put("data", Manager.queryClass());
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();
@@ -28,5 +28,5 @@ public class ManagerQueryCourseServlet extends HttpServlet {
     }
 }
 /*
-    {“data”:[{"courseCredit":"2","courseId":"1806000012","courseName":"计算机导论","coursePeriod":"16","courseType":"必修"}]}
+{"data",[{"profession":"软件工程","classId":"11181","grade":"2018","className":"软件181"}]}
  */

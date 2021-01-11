@@ -22,7 +22,7 @@ public class ManagerAddCourseServlet extends HttpServlet {
         try {
             JSONObject data = JSON.parseObject(request.getParameter("data"));
             //获取属性
-            String courseId = data.getString("coursename");
+            String courseId = data.getString("courseid");
             String courseName = data.getString("coursename");
             String courseCredit = data.getString("coursecredit");
             String coursePeriod = data.getString("courseperiod");

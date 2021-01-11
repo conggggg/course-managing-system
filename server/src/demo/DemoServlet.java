@@ -1,6 +1,7 @@
 package demo;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import database.*;
 import model.Account;
@@ -30,8 +31,10 @@ public class DemoServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try {
-            JSONObject obj = JSON.parseObject("{\"data\":\"123\"}");
-            System.out.println(obj.getString("data"));
+            response.getWriter().println(JSON.toJSONString(Manager.queryCourse()));
+            response.getWriter().println(JSON.toJSONString(Manager.queryStudent()));
+            response.getWriter().println(JSON.toJSONString(Manager.queryClass()));
+            response.getWriter().println(JSON.toJSONString(Manager.queryTeacher()));
 //            response.getWriter().println(Manager.queryCourse());
 //            List<List<String>> keylist = new ArrayList<>();
 //            List<String> item = new ArrayList<>();
