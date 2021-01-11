@@ -14,8 +14,7 @@ public class Course {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseType = courseType;
-        this.courseCredit = courseType;
-        this.coursePeriod = coursePeriod;
+        this.courseCredit = courseCredit;
         this.coursePeriod = coursePeriod;
     }
 

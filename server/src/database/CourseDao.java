@@ -57,7 +57,7 @@ public class CourseDao implements ClassDao<Course,String>{
             pst.setString(2,c.getCourseName());
             pst.setString(3,c.getCourseType());
             pst.setString(4,c.getCourseCredit());
-            pst.setString(6,c.getCoursePeriod());
+            pst.setString(5,c.getCoursePeriod());
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;
@@ -65,7 +65,7 @@ public class CourseDao implements ClassDao<Course,String>{
 
     @Override
     public boolean update(List<Course> objs) throws Exception {
-        String sql = "update Course set courseId = ? ,courseName = ?,courseType = ?,courseCredit,coursePeriod = ? where courseId = ? ";
+        String sql = "update Course set courseId = ? ,courseName = ?,courseType = ?,courseCredit = ?,coursePeriod = ? where courseId = ? ";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (Course c :objs){
             pst.setString(1, c.getCourseId());
@@ -80,14 +80,13 @@ public class CourseDao implements ClassDao<Course,String>{
     }
 
     @Override
-    public boolean delete(List<String> keys) throws Exception {
-        String sql = "delete from Course where courseId = ?";
-        PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
-        for (String key :keys){
-            pst.setString(1,key);
-            pst.setString(2,key);
-            pst.execute();
-        }
+        public boolean delete(List<String> keys) throws Exception {
+            String sql = "delete from Course where courseId = ?";
+            PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
+            for (String key :keys){
+                pst.setString(1,key);
+                pst.execute();
+            }
         return pst.getUpdateCount()!= 0;
     }
 }
