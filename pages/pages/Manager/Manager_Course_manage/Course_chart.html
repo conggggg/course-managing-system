@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body>
+	<body onload="get_course()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -42,7 +42,7 @@
 						<li><a href="../Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
 					</ul>
 				</li>
-				<li><a href="../../login.html">退出登陆</a></li>
+				<li><a href="#" onclick="logout()">退出登陆</a></li>
 			</ul>
 		</nav>
 		</div>
@@ -55,69 +55,23 @@
 			    <td align="right" height="25"></td>
 			  </tr>
 			</table>
-			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="courseTable">
 			  <tr>
-			    <td width="25%" class="btbg font-center titfont">课程号</td>
-			    <td width="25%" class="btbg font-center titfont" >课程名</td>
-			    <td width="25%" class="btbg font-center titfont" >先行课程</td>
-			    <td width="25%" class="btbg font-center titfont">学分</td>
+			    <td width="20%" class="btbg font-center titfont">课程号</td>
+			    <td width="20%" class="btbg font-center titfont" >课程名</td>
+			    <td width="20%" class="btbg font-center titfont" >学分</td>
+				<td width="20%" class="btbg font-center titfont">课时</td>
+				<td width="20%" class="btbg font-center titfont">课程类型</td>
 			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
+			  <!-- <tr>
 				<td>1560</td>
 			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			  				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			  				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td></td>
-			    <td>1</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1561</td>
-			    <td>算法分析与设计</td>
-			    <td>高等数学，线性代数</td>
-			    <td>2</td>
-			  </tr>
-			  <tr onclick="course_chart_rowonlick()">
-			    <td>1563</td>
-			    <td>人工智能导论</td>
-			    <td>离散数学</td>
-			    <td>2</td>
-			  </tr>
+			    <td>1.0</td>
+				<td>24</td>
+				<td>必修</td>
+			  </tr> -->
 		</div>
-		<div>
+		<!-- <div>
 			<form>
 				课程号：<input type="text" id="Chart_course_id" class="chart_input"/>
 				课程名：<input type="text" id="Chart_course_name" class="chart_input"/>
@@ -126,6 +80,6 @@
 				<input type="button" value="删除" onclick="course_delete()" class="chart_buttun"/>
 				<input type="button" value="导出" onclick="course_chart_export()" class="chart_buttun"/>
 			</form>
-		</div>
+		</div> -->
 	</body>
 </html>
