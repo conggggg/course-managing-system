@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "ManagerAddClassServlet",urlPatterns = "/manageraddclass")
-public class ManagerAddClassServlet extends HttpServlet {
+@WebServlet(name = "ManagerDeleteStudentServlet",urlPatterns = "/managerdeletestudent")
+public class ManagerDeleteStudentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
@@ -21,14 +21,9 @@ public class ManagerAddClassServlet extends HttpServlet {
         try {
             JSONObject data = JSON.parseObject(request.getParameter("data"));
             //获取属性
-            String classId = data.getString("classid");
-            String className = data.getString("classname");
-            String profession = data.getString("profession");
-            String grade = data.getString("grade");
-
-            //调用接口
+            String studentId = data.getString("studentid");
             JSONObject result = new JSONObject();
-            result.put("result", Manager.addClass(classId,className,profession,grade));
+            result.put("result", Manager.deleteClass(studentId));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();

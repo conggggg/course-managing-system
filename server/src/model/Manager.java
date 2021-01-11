@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Manager {
+    //数据库接口
     private static AccountDao adao = new AccountDao();
     private static TheClassDao classdao = new TheClassDao();
     private static StudentDao sdao = new StudentDao();
@@ -27,6 +28,10 @@ public class Manager {
         Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod);
         courseList.add(c);
         return cdao.update(courseList);
+    }
+    public static boolean deleteCourse(String courseID)throws Exception{
+        List<String> keys = new ArrayList<>();
+        return cdao.delete(keys);
     }
     public static JSONArray queryCourse()throws Exception{
         return JSON.parseArray(JSON.toJSONString(cdao.query()));
@@ -73,6 +78,24 @@ public class Manager {
 
         return sdao.update(studentList);
     }
+    public static boolean deleteStudent(String studentId)throws Exception{
+        //创建一个被删除项的主键列表
+        List<String> keys = new ArrayList<>();
+        keys.add(studentId);
+
+        //获取账号信息
+        List<Student> studentList = sdao.queryByKeys(keys);
+        List<String> accountIds = new ArrayList<>();
+        accountIds.add(studentList.get(0).getClassId());
+
+        //若删除学生成功，则返回删除账号的布尔值
+        if (sdao.delete(keys)) {
+            return adao.delete(accountIds);
+        }
+        //否则返回false
+        return false;
+
+    }
     public static JSONArray queryStudent()throws Exception{
         List<Student> studentList = sdao.query();
         JSONArray ary = new JSONArray();
@@ -117,6 +140,23 @@ public class Manager {
 
         return tdao.update(teacherList);
     }
+    public static boolean deleteTeacher(String teacherId)throws Exception{
+        //创建一个被删除项的主键列表
+        List<String> keys = new ArrayList<>();
+        keys.add(teacherId);
+
+        //获取账号信息
+        List<Teacher> studentList = tdao.queryByKeys(keys);
+        List<String> accountIds = new ArrayList<>();
+        accountIds.add(studentList.get(0).getTeacherId());
+
+        //若删除教师成功，则返回删除账号的布尔值
+        if (tdao.delete(keys)) {
+            return adao.delete(accountIds);
+        }
+        //否则返回false
+        return false;
+    }
     public static JSONArray queryTeacher()throws Exception{
         return JSON.parseArray(JSON.toJSONString(tdao.query()));
     }
@@ -132,6 +172,10 @@ public class Manager {
         TheClass c = new TheClass(classId,className,profession,grade);
         classList.add(c);
         return classdao.insert(classList);
+    }
+    public static boolean deleteClass(String classId)throws Exception{
+        List<String> keys = new ArrayList<>();
+        return classdao.delete(keys);
     }
     public static JSONArray queryClass()throws Exception{
         return JSON.parseArray(JSON.toJSONString(classdao.query()));

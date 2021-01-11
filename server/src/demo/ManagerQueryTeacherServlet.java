@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet(name = "ManagerQueryTeacherServlet",urlPatterns = "/managerqueryteacher")
 public class ManagerQueryTeacherServlet extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
         response.setCharacterEncoding("UTF-8");

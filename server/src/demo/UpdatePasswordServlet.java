@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "UpdatePasswordServlet",urlPatterns = "/updatepassword")
 public class UpdatePasswordServlet extends HttpServlet {
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
         response.setCharacterEncoding("UTF-8");
