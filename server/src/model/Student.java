@@ -1,8 +1,12 @@
 package model;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.mysql.cj.xdevapi.JsonArray;
+import database.CourseDao;
+import database.CourseSelectedDao;
 import database.StudentDao;
 import database.TheClassDao;
 
@@ -16,10 +20,15 @@ public class Student {
     private String studentSex;
     private String classId;
     private String account;
-    @JSONField(serialize = false,deserialize = false)
+    @JSONField(serialize = false, deserialize = false)
     private static StudentDao sdao = new StudentDao();
-    @JSONField(serialize = false,deserialize = false)
+    @JSONField(serialize = false, deserialize = false)
     private static TheClassDao classdao = new TheClassDao();
+    @JSONField(serialize = false, deserialize = false)
+    private static CourseSelectedDao csdao = new CourseSelectedDao();
+    @JSONField(serialize = false, deserialize = false)
+    private static CourseDao cdao = new CourseDao();
+
     public Student() {
     }
 
@@ -71,7 +80,7 @@ public class Student {
         this.account = account;
     }
 
-    public static JSONObject queryInfo(String studentId)throws Exception{
+    public static JSONObject queryInfo(String studentId) throws Exception {
         //查询学生信息
         List<String> keys = new ArrayList<>();
         keys.add(studentId);
@@ -84,25 +93,50 @@ public class Student {
         JSONObject obj = new JSONObject();
         //获取学生类中需要的信息
         Field[] fields = Student.class.getDeclaredFields();
-        for (int i =0 ;i <= 2;i++){
+        for (int i = 0; i <= 2; i++) {
             fields[i].setAccessible(true);
-            obj.put(fields[i].getName(),fields[i].get(s));
+            obj.put(fields[i].getName(), fields[i].get(s));
         }
         //获取班级类中需要的信息
         fields = TheClass.class.getDeclaredFields();
-        for (int i = 1 ;i <= fields.length;i++){
+        for (int i = 1; i < fields.length; i++) {
             fields[i].setAccessible(true);
-            obj.put(fields[i].getName(),fields[i].get(s));
+            obj.put(fields[i].getName(), fields[i].get(c));
         }
         return obj;
     }
 
-    public static JSONObject queryScore(String studentId)throws Exception{
+    public static JSONArray queryScore(String studentId) throws Exception {
         //查询学生信息
         List<String> keys = new ArrayList<>();
         keys.add(studentId);
-        Student s = sdao.queryByKeys(keys).get(0);
-        return null;
+        //查询学生选课信息
+        List<CourseSelected> courseSelectedList = csdao.queryByStudentId(sdao.queryByKeys(keys).get(0).getStudentId());
+        //查询课程信息
+        keys.clear();
+        for (CourseSelected cs : courseSelectedList) {
+            keys.add(cs.getCourseId());
+        }
+        List<Course> courseList = cdao.queryByKeys(keys);
+        //生成数据
+        JSONArray ary = new JSONArray();
+        for (int i =0 ;i<courseSelectedList.size();i++){
+            JSONObject obj = new JSONObject();
+            obj.put("score",courseSelectedList.get(i).getScore());
+            //分数转GPA
+            int score = Integer.valueOf(courseSelectedList.get(i).getScore());
+            double GPA;
+            if (score>=90) GPA = 4.0;
+            else if (score<=60) {
+                GPA = 1.0;
+            }else {
+                GPA = (score-60)/10.0;
+            }
+            obj.put("GPA",String.valueOf(GPA));
+            obj.put("courseId",courseList.get(i).getCourseId());
+            obj.put("courseName",courseList.get(i).getCourseName());
+            ary.add(obj);
+        }
+        return ary;
     }
-
 }

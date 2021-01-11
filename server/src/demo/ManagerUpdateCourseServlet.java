@@ -21,15 +21,17 @@ public class ManagerUpdateCourseServlet extends HttpServlet {
         try {
             JSONObject data = JSON.parseObject(request.getParameter("data"));
             //获取属性
-            String courseId = data.getString("coursename");
+            String courseId = data.getString("courseid");
             String courseName = data.getString("coursename");
             String courseCredit = data.getString("coursecredit");
             String coursePeriod = data.getString("courseperiod");
             String courseType = data.getString("coursetype");
+            String courseDay = data.getString("courseday");
+            String courseLesson = data.getString("courselesson");
 
             //调用接口
             JSONObject result = new JSONObject();
-            result.put("result", Manager.updateCourse(courseId,courseName,courseType,courseCredit,coursePeriod));
+            result.put("result", Manager.updateCourse(courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();

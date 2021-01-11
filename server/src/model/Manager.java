@@ -17,15 +17,15 @@ public class Manager {
     private static CourseDao cdao = new CourseDao();
     private static TeacherDao tdao =new TeacherDao();
     //课程操作
-    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod)throws Exception{
+    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
         List<Course> courseList = new ArrayList<>();
-        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod);
+        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
         return cdao.insert(courseList);
     }
-    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod)throws Exception{
+    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
         List<Course> courseList = new ArrayList<>();
-        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod);
+        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
         return cdao.update(courseList);
     }
