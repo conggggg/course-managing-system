@@ -17,8 +17,8 @@ public class CourseTeachingDao implements ClassDao<CourseTeaching,List<String>>{
         PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
         List<CourseTeaching> list = new ArrayList<>();
         for (List<String> key : keys) {
-            pstmt.setString(1, key.get(1));
-            pstmt.setString(2, key.get(2));
+            pstmt.setString(1, key.get(0));
+            pstmt.setString(2, key.get(1));
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 CourseTeaching tmp = new CourseTeaching();
@@ -78,8 +78,8 @@ public class CourseTeachingDao implements ClassDao<CourseTeaching,List<String>>{
         String sql = "delete from courseTeaching where courseId = ? and teacherId = ?";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (List<String> key :keys){
-            pst.setString(1, key.get(1));
-            pst.setString(2, key.get(2));
+            pst.setString(1, key.get(0));
+            pst.setString(2, key.get(1));
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;

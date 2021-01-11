@@ -4,6 +4,7 @@ package demo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import database.DBInfo;
+import model.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,34 +16,20 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "UpdatePasswordServlet",urlPatterns = "/updatepassword")
 public class UpdatePasswordServlet extends HttpServlet {
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        // 注册数据库驱动
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("Access-Control-Allow-Origin","*");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/json");
         try {
-            Class.forName(DBInfo.DRIVER);
+            String userName = request.getParameter("username");
+            String newPassWord = request.getParameter("newpassword");
+            System.out.println(userName);
+            System.out.println(newPassWord);
+            response.getWriter().println(JSON.toJSONString(Account.updatePassWord(userName,newPassWord)));
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String userName = request.getParameter("username");
-//        String newPassWord = request.getParameter("newpassword");
-//        response.setCharacterEncoding("UTF-8");
-//        response.setHeader("Access-Control-Allow-Origin","*");
-//        response.setContentType("text/json");
-//        try {
-//            boolean result = AccountProxy.updatePassWord(userName,newPassWord);
-//            //处理成JSON格式
-//            JSONObject obj = new JSONObject();
-//            obj.put("result",result);
-//            //输出
-//            PrintWriter out = response.getWriter();
-//            out.print(JSON.toJSONString(obj));
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
 
     }
 

@@ -1,7 +1,7 @@
-drop table course_teaching;
-drop table course_selected;
+drop table courseselected;
+drop table courseteaching;
 drop table student;
-drop table class;
+drop table theclass;
 drop table teacher;
 drop table course;
-drop table user_account;
+drop table account;

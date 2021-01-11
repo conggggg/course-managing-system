@@ -15,8 +15,8 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
         PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
         List<CourseSelected> list = new ArrayList<>();
         for ( List<String> key : keys) {
-            pstmt.setString(1, key.get(1));
-            pstmt.setString(2, key.get(2));
+            pstmt.setString(1, key.get(0));
+            pstmt.setString(2, key.get(1));
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 CourseSelected tmp = new CourseSelected();
@@ -81,8 +81,8 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
         String sql = "delete from courseSelected where courseId = ? and studentId = ?";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (List<String> key :keys){
-            pst.setString(1, key.get(1));
-            pst.setString(2, key.get(2));
+            pst.setString(1, key.get(0));
+            pst.setString(2, key.get(1));
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;

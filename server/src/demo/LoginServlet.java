@@ -18,26 +18,18 @@ import com.alibaba.fastjson.JSONObject;
 public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        System.out.println(username);
-//        System.out.println(password);
-//        response.setHeader("Access-Control-Allow-Origin","*");
-//        response.setCharacterEncoding("UTF-8");
-//        try {
-//            User user = AccountProxy.login(username,password);
-//
-//            JSONObject obj = new JSONObject();
-//            obj.put("result",user!=null);
-//            obj.put("identity",AccountProxy.getInstanceType(user));
-//
-//            response.setContentType("text/json");
-//            PrintWriter out = response.getWriter();
-//            out.print(JSON.toJSONString(obj));
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+        response.setHeader("Access-Control-Allow-Origin","*");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/json");
+        try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            System.out.println(username);
+            System.out.println(password);
+            response.getWriter().println(JSON.toJSONString(Account.login(username,password)));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
