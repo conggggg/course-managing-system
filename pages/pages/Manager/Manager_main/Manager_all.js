@@ -9,41 +9,42 @@ function logout() {
 
 //点击添加课程按钮,实现添加课程函数,更新数据库的值
 function course_add() {
-	if (xmlhttp.readyState == 4 || !xmlhttp.readyState) {
-		//获取各个属性的值
-		var course_id = document.getElementById("Course_Id");
-		var course_name = document.getElementById("Course_Name");
-		var course_mark = document.getElementById("Course_Mark");
-		var course_time = document.getElementById("Course_Time");
-		var course_type = document.getElementById("Course_Type");
-		var data = {
-			courseid: course_id,
-			coursename: course_name,
-			coursecredit: course_mark,
-			courseperiod: course_time,
-			coursetype: course_type,
-		}
-		//创建AJAX对象
-		var xmlhttp = new XMLHttpRequest();
-		//服务器返回数据回调函数
-		xmlhttp.onreadystatechange = function () {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				//解析json对象
-				let re = JSON.parse(xmlhttp.responseText);
-				console.log(re);
-				if (re.result) {
-					alert("添加成功！");
-				}
-				else {
-					alert("添加失败！");
-				}
-			}
-		};
-		//设置并提交申请
-		xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddcourse", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send("data=" + JSON.stringify(data));
+	//获取各个属性的值
+	var course_id = document.getElementById("Course_Id").value;
+	var course_name = document.getElementById("Course_Name").value;
+	var course_mark = document.getElementById("Course_Mark").value;
+	var course_time = document.getElementById("Course_Time").value;
+	var course_type = document.getElementById("Course_Type").value;
+	var data = {
+		courseid: course_id,
+		coursename: course_name,
+		coursecredit: course_mark,
+		courseperiod: course_time,
+		coursetype: course_type,
 	}
+	//创建AJAX对象
+	var xmlhttp = new XMLHttpRequest();
+	//服务器返回数据回调函数
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//解析json对象
+			let re = JSON.parse(xmlhttp.responseText);
+			console.log(re);
+			if (re.result) {
+				alert("添加成功！");
+			}
+			else {
+				alert("添加失败！");
+			}
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
+		}
+	};
+	//设置并提交申请
+	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddcourse", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+	xmlhttp.send("data=" + JSON.stringify(data));
 }
 
 //点击修改课程按钮,实现修改课程函数,更新数据库的值
@@ -78,21 +79,47 @@ function get_course() {
 			//解析json对象
 			let re = JSON.parse(xmlhttp.responseText);
 			console.log(re);
+			//获取表格DOM对象
+			let element = document.getElementById("courseTable");
+			for (let x in re.data) {
+				//表格栏DOM对象
+				let tr = document.createElement("tr");
+				//插入课程号
+				let courseId = document.createElement("td");
+				let courseIdNode = document.createTextNode(re.data[x].courseId);
+				courseId.appendChild(courseIdNode);
+				tr.appendChild(courseId)
+				//插入课程名
+				let courseName = document.createElement("td");
+				let courseNameNode = document.createTextNode(re.data[x].courseName);
+				courseName.appendChild(courseNameNode);
+				tr.appendChild(courseName)
+				//插入学分
+				let courseCredit = document.createElement("td");
+				let courseCreditNode = document.createTextNode(re.data[x].courseCredit);
+				courseCredit.appendChild(courseCreditNode);
+				tr.appendChild(courseCredit)
+				//插入课时
+				let coursePeriod = document.createElement("td");
+				let coursePeriodNode = document.createTextNode(re.data[x].coursePeriod);
+				coursePeriod.appendChild(coursePeriodNode);
+				tr.appendChild(coursePeriod)
+				//插入课程类型
+				let courseType = document.createElement("td");
+				let courseTypeNode = document.createTextNode(re.data[x].courseType);
+				courseType.appendChild(courseTypeNode);
+				tr.appendChild(courseType)
+				//将当前栏插进表格
+				element.appendChild(tr);
+			}
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/login", true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.send("type=" + type + "&data=" + JSON.stringify(data));
-	
-	let element = document.getElementById("courseTable");
-	var para = document.createElement("p");
-	var node = document.createTextNode("这是一个新的段落。");
-	para.appendChild(node);
-
-	
-	var child = document.getElementById("p1");
-	element.insertBefore(para, child);
+	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerquerycourse", true);
+	xmlhttp.send();
 }
 
 //点击添加学生按钮,实现添加学生功能,更新数据库学生信息表
@@ -118,6 +145,9 @@ function student_add() {
 			//解析json对象
 			let re = JSON.parse(xmlhttp.responseText);
 			console.log(re);
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
 		}
 	};
 	//设置并提交申请

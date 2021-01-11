@@ -1,6 +1,8 @@
 function onLoad() {
     //检查有没有已登录的cookie
     let type = getCookie("type");
+    console.log(document.cookie)
+    console.log(type)
     if (type != "") {
         //根据角色转跳页面
         if (type == "学生") {
