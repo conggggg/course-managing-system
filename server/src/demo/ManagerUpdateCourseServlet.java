@@ -18,12 +18,13 @@ public class ManagerUpdateCourseServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
+            JSONObject data = JSON.parseObject(request.getParameter("data"));
             //获取属性
-            String courseId = request.getParameter("courseid");
-            String courseName = request.getParameter("coursename");
-            String courseCredit = request.getParameter("coursecredit");
-            String coursePeriod = request.getParameter("courseperiod");
-            String courseType = request.getParameter("coursetype");
+            String courseId = data.getString("coursename");
+            String courseName = data.getString("coursename");
+            String courseCredit = data.getString("coursecredit");
+            String coursePeriod = data.getString("courseperiod");
+            String courseType = data.getString("coursetype");
 
             //调用接口
             JSONObject result = new JSONObject();

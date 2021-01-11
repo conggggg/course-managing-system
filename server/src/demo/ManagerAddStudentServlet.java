@@ -18,10 +18,12 @@ public class ManagerAddStudentServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
-            String studentName = request.getParameter("studentname");
-            String studentId = request.getParameter("studentid");
-            String studentSex = request.getParameter("studentsex");
-            String className =request.getParameter("classname");
+            JSONObject data = JSON.parseObject(request.getParameter("data"));
+
+            String studentName = data.getString("studentname");
+            String studentId = data.getString("studentid");
+            String studentSex = data.getString("studentsex");
+            String className = data.getString("classname");
             JSONObject result = new JSONObject();
             result.put("result", Manager.addStudent(studentId,studentName,studentSex,className));
             response.getWriter().println(JSON.toJSONString(result));
