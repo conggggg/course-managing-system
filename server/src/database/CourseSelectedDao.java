@@ -122,6 +122,12 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
         return pst.getUpdateCount()!= 0;
     }
 
-
+    public boolean deleteByCourseId(String courseId)throws Exception{
+        String sql = "delete from courseSelected where courseId = ? ";
+        PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
+        pst.setString(1, courseId);
+        pst.execute();
+        return pst.getUpdateCount()!= 0;
+    }
 
 }

@@ -76,7 +76,7 @@ public class CourseDao implements ClassDao<Course,String>{
         for (Course c :objs){
             pst.setString(1, c.getCourseId());
             pst.setString(2, c.getCourseName());
-            pst.setString(3, c.getCourseName());
+            pst.setString(3, c.getCourseType());
             pst.setString(4, c.getCourseCredit());
             pst.setString(5, c.getCoursePeriod());
             pst.setString(6, c.getCourseDay());
