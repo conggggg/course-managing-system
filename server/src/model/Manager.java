@@ -17,6 +17,7 @@ public class Manager {
     private static CourseDao cdao = new CourseDao();
     private static TeacherDao tdao =new TeacherDao();
     private static CourseTeachingDao ctdao = new CourseTeachingDao();
+    private static CourseSelectedDao csdao= new CourseSelectedDao();
     //课程操作
     public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson,String teacherId)throws Exception{
         List<String> teacherIds = new ArrayList<>();
@@ -228,5 +229,25 @@ public class Manager {
     public static JSONArray queryClass()throws Exception{
         return JSON.parseArray(JSON.toJSONString(classdao.query()));
     }
+
+
+    public static JSONArray queryStudentSelectCourse()throws Exception{
+        List<Course> courseList = cdao.query();
+        JSONArray ary = new JSONArray();
+        for (Course c:courseList){
+            JSONObject obj = new JSONObject();
+            obj.put("courseInfo",JSON.parseObject(JSON.toJSONString(c)));
+            List<CourseSelected> courseSelectedList = csdao.queryByCourseId(c.getCourseId());
+            List<String> studentIds = new ArrayList<>();
+            for (CourseSelected cs:courseSelectedList){
+                studentIds.add(cs.getStudentId());
+            }
+            List<Student> studentList = sdao.queryByKeys(studentIds);
+            obj.put("selectedStudent",JSON.parseArray(JSON.toJSONString(studentList)));
+            ary.add(obj);
+        }
+        return ary;
+    }
+
 }
 

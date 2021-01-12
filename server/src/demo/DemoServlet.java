@@ -28,7 +28,7 @@ public class DemoServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try {
-            response.getWriter().println(Manager.queryCourse());
+            response.getWriter().println(Manager.queryStudentSelectCourse());
 //            response.getWriter().println(Manager.queryCourse());
 //            List<List<String>> keylist = new ArrayList<>();
 //            List<String> item = new ArrayList<>();
