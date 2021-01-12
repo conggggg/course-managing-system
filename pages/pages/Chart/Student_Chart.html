@@ -5,9 +5,10 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="Chart.css">
 		<link rel="stylesheet" type="text/css" href="../Manager/Manager_main/Manager_main.css">
+		<script type="text/javascript" src="./Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager/Manager_main/Manager_all.js"></script>
 	</head>
-	<body>
+	<body onload="get_student()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -16,33 +17,33 @@
 					<ul>
 						<li><a href="../Manager/Manager_Student_manage/Student_Add.html">添加学生</a></li>
 						<li><a href="../Manager/Manager_Student_manage/Student_changeinfo.html">修改学生信息</a></li>
-						<li><a href="Student_Chart.html">学生信息表</a></li>
+						<li><a href="./Student_Chart.html">学生信息表</a></li>
 					</ul>
 				</li>
 				<li><a href="#">教师信息管理</a>
 					<ul>
 						<li><a href="../Manager/Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
 						<li><a href="../Manager/Manager_Teacher_manage/Teacher_Changeinfo.html">修改教师信息</a></li>
-						<li><a href="Teacher_Chart.html">教师信息表</a></li>
-						<li><a href="Teacher_Course.html">查询教师课程安排表</a></li>
-						<li><a href="Select_Course_Student.html">查询选课学生表</a></li>
+						<li><a href="./Teacher_Chart.html">教师信息表</a></li>
+						<li><a href="./Teacher_Course.html">教师课程安排表</a></li>
+						<li><a href="./Select_Course_Student.html">选课学生表</a></li>
 					</ul>
 				</li>
 				<li><a href="#">课程信息管理</a>
 					<ul>
 						<li><a href="../Manager/Manager_Course_manage/Course_Add.html">添加课程</a></li>
 						<li><a href="../Manager/Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
-						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">查询课程</a></li>
+						<li><a href="../Manager/Manager_Course_manage/Course_chart.html">课程信息表</a></li>
 					</ul>
 				</li>
 				<li><a href="#">班级信息管理</a>
 					<ul>
 						<li><a href="../Manager/Manager_CLass_manage/Class_Add.html">添加班级</a></li>
 						<li><a href="../Manager/Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
-						<li><a href="../Manager/Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+						<li><a href="../Manager/Manager_CLass_manage/Class_Chart.html">班级信息表</a></li>
 					</ul>
 				</li>
-				<li><a href="../login.html">退出登陆</a></li>
+				<li><a href="#" onclick="logout()">退出登陆</a></li>
 			</ul>
 		</nav>
 		</div>
@@ -55,113 +56,27 @@
 			    <td align="right" height="25"></td>
 			  </tr>
 			</table>
-			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="studentTable">
 			  <tr>
-			    <td width="20%" class="btbg font-center titfont">学生学号</td>
-			    <td width="20%" class="btbg font-center titfont" >学生姓名</td>
-			    <td width="10%" class="btbg font-center titfont" >性别</td>
-			    <td width="10%" class="btbg font-center titfont">年级</td>
-				<td width="20%" class="btbg font-center titfont">专业</td>
-				<td width="20%" class="btbg font-center titfont">班级</td>
+			    <td width="19%" class="btbg font-center titfont">学生学号</td>
+			    <td width="19%" class="btbg font-center titfont" >学生姓名</td>
+			    <td width="9%" class="btbg font-center titfont" >性别</td>
+			    <td width="9%" class="btbg font-center titfont">年级</td>
+				<td width="19%" class="btbg font-center titfont">专业</td>
+				<td width="19%" class="btbg font-center titfont">班级</td>
+				<td width="6%" class="btbg font-center titfont">操作</td>
 			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
+			  <tr>
 			    <td>12345</td>
 			    <td>小明</td>
 			    <td>男</td>
 			    <td>18</td>
 				<td>软件工程</td>
 				<td>软件183</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-				<td>网络工程</td>
-				<td>网络181</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  	<td>软件工程</td>
-				<td>软件183</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  	<td>网络工程</td>
-				<td>网络182</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  	<td>软件工程</td>
-				<td>软件185</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  	<td>网络工程</td>
-				<td>网络183</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  	<td>软件工程</td>
-				<td>软件185</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  	<td>网络工程</td>
-				<td>网络183</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  	<td>软件工程</td>
-				<td>软件185</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  	<td>网络工程</td>
-				<td>网络183</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12345</td>
-			    <td>小明</td>
-			    <td>男</td>
-			    <td>18</td>
-			  	<td>软件工程</td>
-				<td>软件185</td>
-			  </tr>
-			  <tr onclick="student_chart_rowonlick()">
-			    <td>12346</td>
-			    <td>小红</td>
-			    <td>女</td>
-			    <td>20</td>
-			  	<td>网络工程</td>
-				<td>网络183</td>
+				<td><button onclick="delete_student(this)">删除</button></td>
 			  </tr>
 		</div>
-		<div style="text-align: center;">
+		<!-- <div style="text-align: center;">
 			<form>
 				学生学号：<input type="text" class="chart_input" />
 				学生姓名：<input type="text" class="chart_input" />
@@ -170,6 +85,6 @@
 				<input type="button" value="删除" class="chart_buttun" onclick="student_delect()"/>
 				<input type="button" value="导出" class="chart_buttun" onclick="student_chart_export()"/>
 			</form>
-		</div>
+		</div> -->
 	</body>
 </html>

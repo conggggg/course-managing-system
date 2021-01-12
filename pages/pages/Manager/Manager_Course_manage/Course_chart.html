@@ -24,22 +24,22 @@
 						<li><a href="../Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
 						<li><a href="../Manager_Teacher_manage/Teacher_Changeinfo.html">修改教师信息</a></li>
 						<li><a href="../../Chart/Teacher_Chart.html">教师信息表</a></li>
-						<li><a href="../../Chart/Teacher_Course.html">导出教师课程安排表</a></li>
-						<li><a href="../../Chart/Select_Course_Student.html">导出选课学生表</a></li>
+						<li><a href="../../Chart/Teacher_Course.html">教师课程安排表</a></li>
+						<li><a href="../../Chart/Select_Course_Student.html">选课学生表</a></li>
 					</ul>
 				</li>
 				<li><a href="#">课程信息管理</a>
 					<ul>
 						<li><a href="../Manager_Course_manage/Course_Add.html">添加课程</a></li>
 						<li><a href="../Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
-						<li><a href="../Manager_Course_manage/Course_chart.html">查询课程</a></li>
+						<li><a href="../Manager_Course_manage/Course_chart.html">课程信息表</a></li>
 					</ul>
 				</li>
 				<li><a href="#">班级信息管理</a>
 					<ul>
 						<li><a href="../Manager_CLass_manage/Class_Add.html">添加班级</a></li>
 						<li><a href="../Manager_CLass_manage/Class_changeinfo.html">修改班级</a></li>
-						<li><a href="../Manager_CLass_manage/Class_Chart.html">查询班级</a></li>
+						<li><a href="../Manager_CLass_manage/Class_Chart.html">班级信息表</a></li>
 					</ul>
 				</li>
 				<li><a href="#" onclick="logout()">退出登陆</a></li>
@@ -57,19 +57,21 @@
 			</table>
 			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="courseTable">
 			  <tr>
-			    <td width="20%" class="btbg font-center titfont">课程号</td>
-			    <td width="20%" class="btbg font-center titfont" >课程名</td>
-			    <td width="20%" class="btbg font-center titfont" >学分</td>
-				<td width="20%" class="btbg font-center titfont">课时</td>
-				<td width="20%" class="btbg font-center titfont">课程类型</td>
+			    <td width="19%" class="btbg font-center titfont">课程号</td>
+			    <td width="19%" class="btbg font-center titfont" >课程名</td>
+			    <td width="19%" class="btbg font-center titfont" >学分</td>
+				<td width="19%" class="btbg font-center titfont">课时</td>
+				<td width="19%" class="btbg font-center titfont">课程类型</td>
+				<td width="5%" class="btbg font-center titfont">操作</td>
 			  </tr>
-			  <!-- <tr>
-				<td>1560</td>
-			    <td>计算机导论</td>
-			    <td>1.0</td>
+			  <tr>
+				<td>00000</td>
+			    <td>示例课程</td>
+			    <td>1</td>
 				<td>24</td>
 				<td>必修</td>
-			  </tr> -->
+				<td><button onclick="delete_course(this)">删除</button></td>
+			  </tr>
 		</div>
 		<!-- <div>
 			<form>
