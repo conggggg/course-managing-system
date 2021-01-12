@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../../Chart/Chart.css">
+		<link rel="stylesheet" type="text/css" href="../Chart/Chart.css">
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
@@ -56,11 +56,14 @@
 			</table>
 			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="courseTable">
 			  <tr>
-			    <td width="19%" class="btbg font-center titfont">课程号</td>
-			    <td width="19%" class="btbg font-center titfont" >课程名</td>
-			    <td width="19%" class="btbg font-center titfont" >学分</td>
-				<td width="19%" class="btbg font-center titfont">课时</td>
-				<td width="19%" class="btbg font-center titfont">课程类型</td>
+			    <td width="15%" class="btbg font-center titfont">课程号</td>
+			    <td width="15%" class="btbg font-center titfont" >课程名</td>
+			    <td width="9%" class="btbg font-center titfont" >学分</td>
+				<td width="9%" class="btbg font-center titfont">课时</td>
+				<td width="14%" class="btbg font-center titfont">课程类型</td>
+				<td width="9%" class="btbg font-center titfont">星期</td>
+				<td width="9%" class="btbg font-center titfont">节次</td>
+				<td width="15%" class="btbg font-center titfont">执教老师</td>
 				<td width="5%" class="btbg font-center titfont">操作</td>
 			  </tr>
 			  <tr>
@@ -69,7 +72,10 @@
 			    <td>1</td>
 				<td>24</td>
 				<td>必修</td>
-				<td><button onclick="delete_course(this)">删除</button></td>
+				<td>星期一</td>
+				<td>第3大节</td>
+				<td>张三</td>
+				<td><button onclick="to_course_changeinfo(this)">修改</button><button onclick="delete_course(this)">删除</button></td>
 			  </tr>
 		</div>
 		<!-- <div>

@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body>
+	<body onload="onChageCourseInfoLoad()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -49,12 +49,14 @@
 			<div style="position: absolute;left:850px;top:100px;">
 				<h1>修改课程信息</h1>
 			</div>
-			<form class="Write_form"><!--添加学生表单-->
-					课程编号：<input type="text" name="Course_Id" class="Write_input" id="Course_Id"/><br/>
+			<form class="Write_form">
 					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
 					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
 					课程课时：<input type="text" name="Coure_Time" class="Write_input" id="Coure_Time"/><br/>
 					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
+					上课星期：<input type="text" name="Course_Weekday" class="Write_input" id="Course_Weekday"/><br/><br />
+					上课节次：<input type="text" name="Course_Section" class="Write_input" id="Course_Section"/><br/><br />
+					执教教师号：<input type="text" name="Course_Teacher" class="Write_input" id="Course_Teacher"/><br/><br />
 					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程" onclick="course_change()"/>
 			</form>
 		</div>

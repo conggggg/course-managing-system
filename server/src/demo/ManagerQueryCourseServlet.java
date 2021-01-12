@@ -28,5 +28,5 @@ public class ManagerQueryCourseServlet extends HttpServlet {
     }
 }
 /*
-    {“data”:[{"courseCredit":"2","courseId":"1806000012","courseName":"计算机导论","coursePeriod":"16","courseType":"必修"}]}
+    {“data”:[{"courseName":"计算机导论","courseType":"必修","coursePeriod":"16","courseCredit":"2","courseLesson":"1","courseId":"1806000012","courseDay":"2"}]}
  */

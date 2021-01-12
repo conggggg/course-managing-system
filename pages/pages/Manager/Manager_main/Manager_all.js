@@ -29,6 +29,56 @@ function GetRequest() {
 	}
 }
 
+//将字符串数字转为星期
+function convertStringToWeekday(str){
+	if(str=="1"){
+		return "星期一"
+	}
+	else if(str=="2"){
+		return "星期二"
+	}
+	else if(str=="3"){
+		return "星期三"
+	}
+	else if(str=="4"){
+		return "星期四"
+	}
+	else if(str=="5"){
+		return "星期五"
+	}
+	else if(str=="6"){
+		return "星期六"
+	}
+	else if(str=="7"){
+		return "星期日"
+	}
+}
+
+//将字符串星期转为字符串数字
+function convertWeekdayToNumberString(day){
+	if(day=="星期一"){
+		return "1";
+	}
+	else if(day=="星期二"){
+		return "2";
+	}
+	else if(day=="星期三"){
+		return "3";
+	}
+	else if(day=="星期四"){
+		return "4";
+	}
+	else if(day=="星期五"){
+		return "5";
+	}
+	else if(day=="星期六"){
+		return "6";
+	}
+	else if(day=="星期日"){
+		return "7";
+	}
+}
+
 //学生增删改查----------------------------------------------------------------------------------------------------
 
 //点击添加学生按钮,实现添加学生功能,更新数据库学生信息表
@@ -408,7 +458,6 @@ function get_teacher(){
 	xmlhttp.send();
 }
 
-
 //课程增删改查----------------------------------------------------------------------------------------------------
 
 //点击添加课程按钮,实现添加课程函数,更新数据库的值
@@ -419,12 +468,18 @@ function course_add() {
 	var course_mark = document.getElementById("Course_Mark").value;
 	var course_time = document.getElementById("Course_Time").value;
 	var course_type = document.getElementById("Course_Type").value;
+	var course_weekday = document.getElementById("Course_Weekday").value;
+	var course_section = document.getElementById("Course_Section").value;
+	var course_teacher = document.getElementById("Course_Teacher").value;
 	var data = {
 		courseid: course_id,
 		coursename: course_name,
 		coursecredit: course_mark,
 		courseperiod: course_time,
 		coursetype: course_type,
+		courseday: course_weekday,
+		courselesson: course_section,
+		teacherid: course_teacher,
 	}
 	//创建AJAX对象
 	var xmlhttp = new XMLHttpRequest();
@@ -487,15 +542,67 @@ function delete_course(button){
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
 
+function to_course_changeinfo(button){
+	let info=button.parentNode.parentNode.children;
+	window.location.assign("../Manager_Course_manage/Course_Changeinfo.html"+"?courseId="+info[0].innerHTML+"&courseName="+info[1].innerHTML+"&courseMark="+info[2].innerHTML+"&courseTime="+info[3].innerHTML+"&courseType="+info[4].innerHTML+"&courseWeekday="+info[5].innerHTML+"&courseSection="+info[6].innerHTML+"&courseTeacher="+info[7].innerHTML);
+}
+
+function onChageCourseInfoLoad(){
+	document.getElementById("Course_Name").value=GetRequest().courseName;
+	document.getElementById("Course_Mark").value=GetRequest().courseMark;
+	document.getElementById("Coure_Time").value=GetRequest().courseTime;
+	document.getElementById("Course_Type").value=GetRequest().courseType;
+	document.getElementById("Course_Weekday").value=convertWeekdayToNumberString(GetRequest().courseWeekday);
+	document.getElementById("Course_Section").value=GetRequest().courseSection;
+	document.getElementById("Course_Teacher").value=GetRequest().courseTeacher;
+}
+
 //点击修改课程按钮,实现修改课程函数,更新数据库的值
 function course_change() {
-	var course_id = "", course_name = "", course_mark = "", course_time = "", course_type = "";//初始化变量,获取输入的值
-	course_id = document.getElementById("Course_Id");//获取各个属性的值
-	course_name = document.getElementById("Course_Name");
-	course_mark = document.getElementById("Course_Mark");
-	course_time = document.getElementById("Course_Time");
-	course_type = document.getElementById("Course_Type");
-	alert("修改课程");//修改课程函数,自己修改实现?
+	//获取各个属性的值
+	var course_id = GetRequest().courseId;
+	var course_name = document.getElementById("Course_Name");
+	var course_mark = document.getElementById("Course_Mark");
+	var course_time = document.getElementById("Course_Time");
+	var course_type = document.getElementById("Course_Type");
+	var course_weekday = document.getElementById("Course_Weekday");
+	var course_section = document.getElementById("Course_Section");
+	var course_teacher = document.getElementById("Course_Teacher");
+	var data = {
+		courseid: course_id,
+		coursename: course_name,
+		coursecredit: course_mark,
+		courseperiod: course_time
+		coursetype: course_type
+		courseday: course_weekday
+		courselesson: course_section
+	}
+	//创建AJAX对象
+	var xmlhttp = new XMLHttpRequest();
+	//服务器返回数据回调函数
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//解析json对象
+			let re = JSON.parse(xmlhttp.responseText);
+			console.log(re);
+			if (re.result) {
+				alert("修改成功！");
+				setTimeout(function() {
+					window.location.assign("../Manager_main/Manager_main.html")
+				},1000)
+			}
+			else {
+				alert("修改失败！请检查输入是否有误！");
+			}
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
+		}
+	};
+	//设置并提交申请
+	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerupdatecourse", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+	xmlhttp.send("data=" + JSON.stringify(data));
 }
 
 //根据信息,或者直接获取课程信息表
@@ -538,14 +645,31 @@ function get_course() {
 				let courseTypeNode = document.createTextNode(re.data[x].courseType);
 				courseType.appendChild(courseTypeNode);
 				tr.appendChild(courseType)
+				//插入星期
+				let courseDay = document.createElement("td");
+				let courseDayNode = document.createTextNode(convertStringToWeekday(re.data[x].courseDay));
+				courseDay.appendChild(courseDayNode);
+				tr.appendChild(courseDay)
+				//插入节次
+				let courseLesson = document.createElement("td");
+				let courseLessonNode = document.createTextNode("第"+re.data[x].courseLesson+"大节");
+				courseLesson.appendChild(courseLessonNode);
+				tr.appendChild(courseLesson)
+				//插入执教老师
+				
 				//添加删除按钮
-				let deleteTd = document.createElement("td");
+				let opTd = document.createElement("td");
+				let changeButton = document.createElement("button");
+				let changeButtonNode = document.createTextNode("修改");
+				changeButton.appendChild(changeButtonNode);
+				changeButton.setAttribute("onclick","to_course_changeinfo(this)");
+				opTd.appendChild(changeButton);
 				let deleteButton = document.createElement("button");
 				let deleteButtonNode = document.createTextNode("删除");
 				deleteButton.appendChild(deleteButtonNode);
 				deleteButton.setAttribute("onclick","delete_course(this)");
-				deleteTd.appendChild(deleteButton);
-				tr.appendChild(deleteTd)
+				opTd.appendChild(deleteButton);
+				tr.appendChild(opTd);
 				//将当前栏插进表格
 				element.appendChild(tr);
 			}
