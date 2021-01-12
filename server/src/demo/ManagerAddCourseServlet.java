@@ -29,10 +29,11 @@ public class ManagerAddCourseServlet extends HttpServlet {
             String courseType = data.getString("coursetype");
             String courseDay = data.getString("courseday");
             String courseLesson = data.getString("courselesson");
+            String teacherId = data.getString("teacherid");
 
             //调用接口
             JSONObject result = new JSONObject();
-            result.put("result", Manager.addCourse(courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson));
+            result.put("result", Manager.addCourse(courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson,teacherId));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();
