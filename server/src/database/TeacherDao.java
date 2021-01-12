@@ -9,9 +9,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherDao implements ClassDao<Teacher,String>{
+    public Teacher queryByKey(String teacherId)throws Exception{
+        String sql="select teacherId,teacherName,teacherSex,account from teacher where teacherId = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        pstmt.setString(1, teacherId);
+        ResultSet rs = pstmt.executeQuery();
+        Teacher tmp = new Teacher();
+        if (rs.next()) {
+            tmp.setTeacherId(rs.getString(1));
+            tmp.setTeacherName(rs.getString(2));
+            tmp.setTeacherSex(rs.getString(3));
+            tmp.setAccount(rs.getString(4));
+        }
+        pstmt.close();
+        return tmp;
+    }
+
     @Override
     public List<Teacher> queryByKeys(List<String> keys) throws Exception {
-        String sql="select teacherId,teacherName,teacherSex,account from teacher teacherId = ?";
+        String sql="select teacherId,teacherName,teacherSex,account from teacher where teacherId = ?";
         PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
         List<Teacher> list = new ArrayList<>();
         for (String key : keys) {
