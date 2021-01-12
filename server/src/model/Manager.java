@@ -17,15 +17,15 @@ public class Manager {
     private static CourseDao cdao = new CourseDao();
     private static TeacherDao tdao =new TeacherDao();
     //课程操作
-    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod)throws Exception{
+    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
         List<Course> courseList = new ArrayList<>();
-        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod);
+        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
         return cdao.insert(courseList);
     }
-    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod)throws Exception{
+    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
         List<Course> courseList = new ArrayList<>();
-        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod);
+        Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
         return cdao.update(courseList);
     }
@@ -86,7 +86,7 @@ public class Manager {
         //获取账号信息
         List<Student> studentList = sdao.queryByKeys(keys);
         List<String> accountIds = new ArrayList<>();
-        accountIds.add(studentList.get(0).getClassId());
+        accountIds.add(studentList.get(0).getAccount());
 
         //若删除学生成功，则返回删除账号的布尔值
         if (sdao.delete(keys)) {
@@ -121,7 +121,7 @@ public class Manager {
     public static boolean addTeacher(String teacherId,String teacherName,String teacherSex)throws Exception{
         //添加一个账号
         List<Account> accountList = new ArrayList<>();
-        Account account = new Account(teacherId,"123456","学生");
+        Account account = new Account(teacherId,"123456","教师");
         accountList.add(account);
         if (!adao.insert(accountList)) return false;
 

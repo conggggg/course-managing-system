@@ -6,16 +6,20 @@ public class Course {
     private String courseType;
     private String courseCredit;
     private String coursePeriod;
+    private String courseDay;
+    private String courseLesson;
 
     public Course() {
     }
 
-    public Course(String courseId,String courseName,String courseType,String courseCredit,String coursePeriod) {
+    public Course(String courseId,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson ) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseType = courseType;
         this.courseCredit = courseCredit;
         this.coursePeriod = coursePeriod;
+        this.courseDay = courseDay;
+        this.courseLesson = courseLesson;
     }
 
     public String getCourseId() {
@@ -57,4 +61,12 @@ public class Course {
     public void setCoursePeriod(String courseCeriod) {
         this.coursePeriod = courseCeriod;
     }
+
+    public String getCourseDay() { return courseDay; }
+
+    public void setCourseDay(String courseDay) { this.courseDay = courseDay; }
+
+    public String getCourseLesson() { return courseLesson; }
+
+    public void setCourseLesson(String courseLesson) { this.courseLesson = courseLesson; }
 }

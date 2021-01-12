@@ -1,5 +1,3 @@
-use coursedesign;
-
 CREATE TABLE Account(
 account VARCHAR(10) PRIMARY KEY,
 `passWord` VARCHAR(15),
@@ -11,7 +9,9 @@ courseId VARCHAR(10) PRIMARY KEY,
 courseName VARCHAR(10) NOT NULL,
 courseType VARCHAR(2) CHECK(courseType IN('必修','选修')),
 courseCredit VARCHAR(5),
-coursePeriod VARCHAR(2)
+coursePeriod VARCHAR(2),
+courseDay VARCHAR(2),
+courseLesson VARCHAR(2)
 );
 
 CREATE TABLE Teacher(
