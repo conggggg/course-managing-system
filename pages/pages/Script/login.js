@@ -5,13 +5,13 @@ function onLoad() {
     console.log(type)
     if (type != "") {
         //根据角色转跳页面
-        if (type == "学生") {
+        if (type == "student") {
             window.location.replace("Students/main_html/Student_main.html");
         }
-        else if (type == "老师") {
+        else if (type == "teacher") {
             window.location.replace("Teachers/teachers_main/Teachers_main.html");
         }
-        else if (type == "管理员") {
+        else if (type == "manager") {
             window.location.replace("Manager/Manager_main/Manager_main.html");
         }
     }
@@ -44,17 +44,19 @@ function loginfunc() {
 
                 //写入cookie
                 addCookie("username", username, 1)
-                addCookie("type", re.type, 1)
 
                 //根据角色转跳页面
                 if (re.type == "学生") {
                     window.location.replace("Students/main_html/Student_main.html");
+					addCookie("type", "student", 1)
                 }
                 else if (re.type == "老师") {
                     window.location.replace("Teachers/teachers_main/Teachers_main.html");
+					addCookie("type", "teacher", 1)
                 }
                 else if (re.type == "管理员") {
                     window.location.replace("Manager/Manager_main/Manager_main.html");
+					addCookie("type", "manager", 1)
                 }
             }
             else {

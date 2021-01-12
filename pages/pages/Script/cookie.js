@@ -1,5 +1,5 @@
 function addCookie(name, value, expiresHours) {
-    var cookieString = name + "=" + escape(value);
+    var cookieString = name + "=" + escape(value)+"; path=/";
     //判断是否设置过期时间 
     if (expiresHours > 0) {
         var date = new Date();
@@ -8,7 +8,6 @@ function addCookie(name, value, expiresHours) {
     }
     document.cookie = cookieString;
     console.log("Cookie added")
-    console.log(document.cookie);
 }
 
 function getCookie(name) {
@@ -29,6 +28,6 @@ function getCookie(name) {
 function deleteCookie(name) {
     var date = new Date();
     date.setTime(date.getTime() - 10000);
-    document.cookie = name + "=v; expires=" + date.toGMTString();
+    document.cookie = name + "="+getCookie(name)+"; expires=" + date.toGMTString()+"; path=/";
     console.log("Cookie deleted")
 } 

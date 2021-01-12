@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../common_css/mesage_input.css">
+		<link rel="stylesheet" type="text/css" href="Chart.css">
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body>
+	<body onload="get_teacher()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -46,15 +46,37 @@
 		</nav>
 		</div>
 		<div>
-			<div style="position: absolute;left:850px;top:100px;">
-				<h1>填写教师信息</h1>
-			</div>
-			<form class="Add_form"><!--添加学生表单-->
-					教师工号：<input type="number" name="Teacher_Id" class="Write_input" id="Teacher_Id"/><br/><br />
-					教师姓名：<input type="text" name="Teacher_Name" class="Write_input" id="Teacher_Name"/><br/><br />
-					性别	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<input type="text" name="Teacher_Sex" class="Write_input" id="Teacher_Sex"/><br/><br />
-					<input type="button" value="添加教师" class="Write_buttun" onclick="teacher_add()"/>
-				</form>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+			  <tr>
+			    <td align="center" class="biaoti" height="60">教师信息表</td>
+			  </tr>
+			  <tr>
+			    <td align="right" height="25"></td>
+			  </tr>
+			</table>
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="teacherTable">
+			  <tr>
+			    <td width="20%" class="btbg font-center titfont">教师工号</td>
+			    <td width="20%" class="btbg font-center titfont" >教师姓名</td>
+			    <td width="20%" class="btbg font-center titfont" >性别</td>
+				<td width="5%" class="btbg font-center titfont" >操作</td>
+			  </tr>
+			  <tr>
+			    <td>10012</td>
+			    <td>张三</td>
+			    <td>女</td>
+				<td><button onclick="to_teacher_changeinfo(this)">修改</button><button onclick="delete_teacher(this)">删除</button></td>
+			  </tr>
+		</div>
+		<div>
+			<form>
+				教师工号：<input type="text" class="chart_input"/>
+				教师姓名：<input type="text" class="chart_input"/>
+				教授课程：<input type="text" class="chart_input"/>
+				<input type="button" value="刷新" class="chart_buttun" onclick="get_newteacher()"/>
+				<input type="button" value="删除" class="chart_buttun" onclick="teacher_delect()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="teacher_chart_export()"/>
+			</form>
 		</div>
 	</body>
 </html>
