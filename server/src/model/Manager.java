@@ -16,12 +16,22 @@ public class Manager {
     private static StudentDao sdao = new StudentDao();
     private static CourseDao cdao = new CourseDao();
     private static TeacherDao tdao =new TeacherDao();
+    private static CourseTeachingDao ctdao = new CourseTeachingDao();
     //课程操作
-    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
+    public static boolean addCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson,String teacherId)throws Exception{
+        List<String> teacherIds = new ArrayList<>();
+        teacherIds.add(teacherId);
+        if (tdao.queryByKeys(teacherIds).size()==0) return false;
+        //添加课程
         List<Course> courseList = new ArrayList<>();
         Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
-        return cdao.insert(courseList);
+        if (!cdao.insert(courseList)) return false;
+        //添加开课老师
+        CourseTeaching ct = new CourseTeaching(courseID,teacherId);
+        List<CourseTeaching> courseTeachingList = new ArrayList<>();
+        courseTeachingList.add(ct);
+        return ctdao.insert(courseTeachingList);
     }
     public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
         List<Course> courseList = new ArrayList<>();
