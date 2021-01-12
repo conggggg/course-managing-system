@@ -191,7 +191,7 @@ function student_changeinfo() {
 			if (re.result) {
 				alert("修改成功！");
 				setTimeout(function() {
-					window.location.assign("../Manager_main/Manager_main.html")
+						window.history.back();location.reload();
 				},1000)
 			}
 			else {
@@ -384,7 +384,7 @@ function teacher_changeinfo() {
 			if (re.result) {
 				alert("修改成功！");
 				setTimeout(function() {
-					window.location.assign("../Manager_main/Manager_main.html")
+						window.history.back();location.reload();
 				},1000)
 			}
 			else {
@@ -544,38 +544,39 @@ function delete_course(button){
 
 function to_course_changeinfo(button){
 	let info=button.parentNode.parentNode.children;
-	window.location.assign("../Manager_Course_manage/Course_Changeinfo.html"+"?courseId="+info[0].innerHTML+"&courseName="+info[1].innerHTML+"&courseMark="+info[2].innerHTML+"&courseTime="+info[3].innerHTML+"&courseType="+info[4].innerHTML+"&courseWeekday="+info[5].innerHTML+"&courseSection="+info[6].innerHTML+"&courseTeacher="+info[7].innerHTML);
+	window.location.assign("../Manager_Course_manage/Course_Changeinfo.html"+"?courseId="+info[0].innerHTML+"&courseName="+info[1].innerHTML+"&courseMark="+info[2].innerHTML+"&courseTime="+info[3].innerHTML+"&courseType="+info[4].innerHTML+"&courseWeekday="+convertWeekdayToNumberString(info[5].innerHTML)+"&courseSection="+info[6].innerHTML.slice(1,-2)+"&courseTeacherId="+info[8].innerHTML);
 }
 
 function onChageCourseInfoLoad(){
 	document.getElementById("Course_Name").value=GetRequest().courseName;
 	document.getElementById("Course_Mark").value=GetRequest().courseMark;
-	document.getElementById("Coure_Time").value=GetRequest().courseTime;
+	document.getElementById("Course_Time").value=GetRequest().courseTime;
 	document.getElementById("Course_Type").value=GetRequest().courseType;
-	document.getElementById("Course_Weekday").value=convertWeekdayToNumberString(GetRequest().courseWeekday);
+	document.getElementById("Course_Weekday").value=GetRequest().courseWeekday;
 	document.getElementById("Course_Section").value=GetRequest().courseSection;
-	document.getElementById("Course_Teacher").value=GetRequest().courseTeacher;
+	document.getElementById("Course_TeacherId").value=GetRequest().courseTeacherId;
 }
 
 //点击修改课程按钮,实现修改课程函数,更新数据库的值
 function course_change() {
 	//获取各个属性的值
 	var course_id = GetRequest().courseId;
-	var course_name = document.getElementById("Course_Name");
-	var course_mark = document.getElementById("Course_Mark");
-	var course_time = document.getElementById("Course_Time");
-	var course_type = document.getElementById("Course_Type");
-	var course_weekday = document.getElementById("Course_Weekday");
-	var course_section = document.getElementById("Course_Section");
-	var course_teacher = document.getElementById("Course_Teacher");
+	var course_name = document.getElementById("Course_Name").value;
+	var course_mark = document.getElementById("Course_Mark").value;
+	var course_time = document.getElementById("Course_Time").value;
+	var course_type = document.getElementById("Course_Type").value;
+	var course_weekday = document.getElementById("Course_Weekday").value;
+	var course_section = document.getElementById("Course_Section").value;
+	var course_teacherId = document.getElementById("Course_TeacherId").value;
 	var data = {
 		courseid: course_id,
 		coursename: course_name,
 		coursecredit: course_mark,
-		courseperiod: course_time
-		coursetype: course_type
-		courseday: course_weekday
-		courselesson: course_section
+		courseperiod: course_time,
+		coursetype: course_type,
+		courseday: course_weekday,
+		courselesson: course_section,
+		teacherid:course_teacherId,
 	}
 	//创建AJAX对象
 	var xmlhttp = new XMLHttpRequest();
@@ -588,7 +589,7 @@ function course_change() {
 			if (re.result) {
 				alert("修改成功！");
 				setTimeout(function() {
-					window.location.assign("../Manager_main/Manager_main.html")
+					window.history.back();location.reload();
 				},1000)
 			}
 			else {
@@ -656,7 +657,15 @@ function get_course() {
 				courseLesson.appendChild(courseLessonNode);
 				tr.appendChild(courseLesson)
 				//插入执教老师
-				
+				let teacherName = document.createElement("td");
+				let teacherNameNode = document.createTextNode(re.data[x].teacherName);
+				teacherName.appendChild(teacherNameNode);
+				tr.appendChild(teacherName)
+				//插入执教老师编号
+				let teacherId = document.createElement("td");
+				let teacherIdNode = document.createTextNode(re.data[x].teacherId);
+				teacherId.appendChild(teacherIdNode);
+				tr.appendChild(teacherId)
 				//添加删除按钮
 				let opTd = document.createElement("td");
 				let changeButton = document.createElement("button");
@@ -680,5 +689,166 @@ function get_course() {
 	};
 	//设置并提交申请
 	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerquerycourse", true);
+	xmlhttp.send();
+}
+
+
+//教师课程表-----------------------------------------------------------------------------------------------------------
+
+function getTeacherTimetable(){
+	//创建AJAX对象
+	var xmlhttp = new XMLHttpRequest();
+	//服务器返回数据回调函数
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//解析json对象
+			let re = JSON.parse(xmlhttp.responseText);
+			console.log(re);
+			//获取表格区域DOM对象
+			let area = document.getElementById("tableArea");
+			//生成表
+			for(let x in re){
+				area.appendChild(document.createElement("br"));
+				//创建表对象
+				let table=document.createElement("table");
+				//设置表属性
+				table.setAttribute("width","100%");
+				table.setAttribute("border","0");
+				table.setAttribute("cellspacing","1");
+				table.setAttribute("cellpadding","4");
+				table.setAttribute("bgcolor","#cccccc");
+				table.setAttribute("class","tabtop13");
+				table.setAttribute("align","center");
+				//添加表头（老师信息）
+				let teacherInfo=document.createElement("p");
+				teacherInfo.appendChild(document.createTextNode(re[x].teacherProfile.teacherName+"（工号："+re[x].teacherProfile.teacherId+"）的课表："));
+				area.appendChild(teacherInfo);
+				//添加首行（星期）
+				let firstLine=document.createElement("tr");
+				let td=document.createElement("td")
+				td.setAttribute("width","12.5%");
+				td.setAttribute("class","btbg font-center titfont");
+				td.appendChild(document.createTextNode("节次"));
+				firstLine.appendChild(td);
+				//添加星期栏
+				for(let i=1;i<=7;i++){
+					let td=document.createElement("td")
+					td.setAttribute("width","12.5%");
+					td.setAttribute("class","btbg font-center titfont");
+					td.appendChild(document.createTextNode(convertStringToWeekday(String(i))));
+					firstLine.appendChild(td);
+				}
+				//将整一行(tr)加入表中
+				table.appendChild(firstLine);
+				//添加剩下行（节次）
+				for(let i=1;i<=6;i++){
+					let line=document.createElement("tr");
+					for(let j=0;j<8;j++){
+						let td=document.createElement("td")
+						if(j==0){
+							td.appendChild(document.createTextNode("第"+i+"大节"));
+						}
+						else{
+							td.appendChild(document.createTextNode(" "));
+						}
+						line.appendChild(td);
+					}
+					//将该行加进表
+					table.appendChild(line);
+				}
+				//处理每个课程
+				for(let k in re[x].course){
+					table.children[Number(re[x].course[k].courseLesson)].children[Number(re[x].course[k].courseDay)].innerHTML=re[x].course[k].courseName
+				}
+				//将表加入到页面中
+				area.appendChild(table);
+			}
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
+		}
+	};
+	//设置并提交申请
+	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerqueryteachertimetable", true);
+	xmlhttp.send();
+}
+
+//选课学生表-----------------------------------------------------------------------------------------------------------
+
+function getCourseSeletedStudentList(){
+	//创建AJAX对象
+	var xmlhttp = new XMLHttpRequest();
+	//服务器返回数据回调函数
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//解析json对象
+			let re = JSON.parse(xmlhttp.responseText);
+			console.log(re);
+			//获取表格区域DOM对象
+			let area = document.getElementById("tableArea");
+			//生成表
+			for(let x in re){
+				area.appendChild(document.createElement("br"));
+				//创建表对象
+				let table=document.createElement("table");
+				//设置表属性
+				table.setAttribute("width","100%");
+				table.setAttribute("border","0");
+				table.setAttribute("cellspacing","1");
+				table.setAttribute("cellpadding","4");
+				table.setAttribute("bgcolor","#cccccc");
+				table.setAttribute("class","tabtop13");
+				table.setAttribute("align","center");
+				//添加表头（老师信息）
+				let teacherInfo=document.createElement("p");
+				teacherInfo.appendChild(document.createTextNode(re[x].teacherProfile.teacherName+"（工号："+re[x].teacherProfile.teacherId+"）的课表："));
+				area.appendChild(teacherInfo);
+				//添加首行（星期）
+				let firstLine=document.createElement("tr");
+				let td=document.createElement("td")
+				td.setAttribute("width","12.5%");
+				td.setAttribute("class","btbg font-center titfont");
+				td.appendChild(document.createTextNode("节次"));
+				firstLine.appendChild(td);
+				//添加星期栏
+				for(let i=1;i<=7;i++){
+					let td=document.createElement("td")
+					td.setAttribute("width","12.5%");
+					td.setAttribute("class","btbg font-center titfont");
+					td.appendChild(document.createTextNode(convertStringToWeekday(String(i))));
+					firstLine.appendChild(td);
+				}
+				//将整一行(tr)加入表中
+				table.appendChild(firstLine);
+				//添加剩下行（节次）
+				for(let i=1;i<=6;i++){
+					let line=document.createElement("tr");
+					for(let j=0;j<8;j++){
+						let td=document.createElement("td")
+						if(j==0){
+							td.appendChild(document.createTextNode("第"+i+"大节"));
+						}
+						else{
+							td.appendChild(document.createTextNode(" "));
+						}
+						line.appendChild(td);
+					}
+					//将该行加进表
+					table.appendChild(line);
+				}
+				//处理每个课程
+				for(let k in re[x].course){
+					table.children[Number(re[x].course[k].courseLesson)].children[Number(re[x].course[k].courseDay)].innerHTML=re[x].course[k].courseName
+				}
+				//将表加入到页面中
+				area.appendChild(table);
+			}
+		}
+		else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
+		}
+	};
+	//设置并提交申请
+	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerqueryteachertimetable", true);
 	xmlhttp.send();
 }

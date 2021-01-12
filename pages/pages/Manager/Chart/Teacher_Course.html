@@ -8,177 +8,53 @@
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body>
+	<body onload="getTeacherTimetable()">
 		<div>
-		<nav>
-			<p>学生专业选课系统</p>
-			<ul>
-				<li><a href="#">学生信息管理</a>
-					<ul>
-						<li><a href="../Manager_Student_manage/Student_Add.html">添加学生</a></li>
-						<li><a href="../Chart/Student_Chart.html">学生信息表</a></li>
-					</ul>
-				</li>
-				<li><a href="#">教师信息管理</a>
-					<ul>
-						<li><a href="../Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
-						<li><a href="../Chart/Teacher_Chart.html">教师信息表</a></li>
-						<li><a href="../Chart/Teacher_Course.html">教师课程安排表</a></li>
-						<li><a href="../Chart/Select_Course_Student.html">选课学生表</a></li>
-					</ul>
-				</li>
-				<li><a href="#">课程信息管理</a>
-					<ul>
-						<li><a href="../Manager_Course_manage/Course_Add.html">添加课程</a></li>
-						<li><a href="../Manager_Course_manage/Course_Changeinfo.html">修改课程</a></li>
-						<li><a href="../Manager_Course_manage/Course_chart.html">课程信息表</a></li>
-					</ul>
-				</li>
-				<li><a href="#">班级信息管理</a>
-					<ul>
-						<li><a href="../Manager_Class_manage/Class_Add.html">添加班级</a></li>
-						<li><a href="../Manager_Class_manage/Class_changeinfo.html">修改班级</a></li>
-						<li><a href="../Manager_Class_manage/Class_Chart.html">班级信息表</a></li>
-					</ul>
-				</li>
-				<li><a href="#" onclick="logout()">退出登陆</a></li>
-			</ul>
-		</nav>
+			<nav>
+				<p>学生专业选课系统</p>
+				<ul>
+					<li><a href="#">学生信息管理</a>
+						<ul>
+							<li><a href="../Manager_Student_manage/Student_Add.html">添加学生</a></li>
+							<li><a href="../Chart/Student_Chart.html">学生信息表</a></li>
+						</ul>
+					</li>
+					<li><a href="#">教师信息管理</a>
+						<ul>
+							<li><a href="../Manager_Teacher_manage/Teacher_Add.html">添加教师</a></li>
+							<li><a href="../Chart/Teacher_Chart.html">教师信息表</a></li>
+							<li><a href="../Chart/Teacher_Course.html">教师课程安排表</a></li>
+							<li><a href="../Chart/Select_Course_Student.html">选课学生表</a></li>
+						</ul>
+					</li>
+					<li><a href="#">课程信息管理</a>
+						<ul>
+							<li><a href="../Manager_Course_manage/Course_Add.html">添加课程</a></li>
+							<li><a href="../Manager_Course_manage/Course_chart.html">课程信息表</a></li>
+						</ul>
+					</li>
+					<li><a href="#">班级信息管理</a>
+						<ul>
+							<li><a href="../Manager_Class_manage/Class_Add.html">添加班级</a></li>
+							<li><a href="../Manager_Class_manage/Class_changeinfo.html">修改班级</a></li>
+							<li><a href="../Manager_Class_manage/Class_Chart.html">班级信息表</a></li>
+						</ul>
+					</li>
+					<li><a href="#" onclick="logout()">退出登陆</a></li>
+				</ul>
+			</nav>
 		</div>
-		<div>
+		<div id="tableArea">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-			  <tr>
-			    <td align="center" class="biaoti" height="60">教师授课课程表</td>
-			  </tr>
-			  <tr>
-			    <td align="right" height="25"></td>
-			  </tr>
+				<tr>
+					<td align="center" class="biaoti" height="60">教师授课课程表</td>
+				</tr>
+				<tr>
+					<td align="right" height="25"></td>
+				</tr>
 			</table>
-			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
-			  <tr>
-			  	<td width="12.5%" class="btbg font-center titfont" > </td>
-			      <td width="12.5%" class="btbg font-center titfont">星期一</td>
-			      <td width="12.5%" class="btbg font-center titfont">星期二</td>
-			      <td width="12.5%" class="btbg font-center titfont">星期三</td>
-			      <td width="12.5%" class="btbg font-center titfont">星期四</td>
-			  	<td width="12.5%" class="btbg font-center titfont">星期五</td>
-			  	<td width="12.5%" class="btbg font-center titfont">星期六</td>
-			  	<td width="12.5%" class="btbg font-center titfont">星期日</td>
-			    </tr>
-			    <tr>
-					<td>8：30~9：15</td>
-					<td>软件工程（软件183）</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>离散数学（网络185）</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-			    </tr>
-			    <tr>
-					<td>9：20~10：05</td>
-					<td>软件工程（软件183）</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>离散数学（网络185）</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>10：25~11：10</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>软件工程（软件183）</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>11：00~12：00</td>
-			      <td>&nbsp;</td>
-			      <td>离散数学（网络184）</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			      
-			    </tr>
-			    <tr>
-			      <td>13：50~14：35</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>14：40~15：25</td>
-			      <td>&nbsp;</td>
-			      <td>离散数学（网络182）</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>15：45~16：30</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>软件工程（软件181）</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    </tr>
-			  <tr>
-			  	<td>16：45~17：20</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			    
-			  </tr>
-			  <tr>
-			  	<td>18：20~19：05</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  </tr>
-			  <tr>
-			  	<td>19：10~19：55</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  </tr>
-			  <tr>
-			  	<td>20：00~20：45</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  	<td>&nbsp;</td>
-			  </tr>
 		</div>
-		<div style="text-align: center;">
+		<!-- <div style="text-align: center;">
 			<form>
 				教师工号：<input type="text" class="chart_input"/>
 				教师姓名：<input type="text" class="chart_input"/>
@@ -186,6 +62,6 @@
 				<input type="button" value="删除课程" class="chart_buttun" onclick="teacher_course_delect()"/>
 				<input type="button" value="导出" class="chart_buttun" onclick="teacher_course_chart_export()"/>
 			</form>
-		</div>
+		</div> -->
 	</body>
 </html>
