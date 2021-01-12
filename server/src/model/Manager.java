@@ -46,7 +46,12 @@ public class Manager {
         return cdao.update(courseList);
     }
     public static boolean deleteCourse(String courseID)throws Exception{
+        //删除其他表上引用该值的项
+        csdao.deleteByCourseId(courseID);
+        ctdao.deleteByCourseId(courseID);
+
         List<String> keys = new ArrayList<>();
+        keys.add(courseID);
         return cdao.delete(keys);
     }
     public static JSONArray queryCourse()throws Exception{
