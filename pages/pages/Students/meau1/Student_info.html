@@ -3,19 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<title>查询个人信息</title>
+		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Student_js/Student.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/Student1.css">
-	<link rel="stylesheet" type="text/css" href="../css/Student2.css">
+		<link rel="stylesheet" type="text/css" href="../css/Student1.css">
+		<link rel="stylesheet" type="text/css" href="../css/Student2.css">
 	</head>
 	<body class="b2" onpageshow="get_info()">
 		<nav>
 			<p>学生专业选课系统</p>
 			<ul>
-				<li><a>个人信息管理</a>
+				<li><a href="#">个人信息管理</a>
 					<ul>
 						<li><a href="../meau1/Student_info.html">查询个人信息</a></li>
 						<li><a href="../meau1/Student_password.html">修改密码</a></li>
-						<li><a href="../../login.html">退出登录</a></li>
 					</ul>
 				</li>
 				<li><a href="../meau2/Student_selectcourse.html">选课</a></li>
@@ -24,18 +24,19 @@
 						<li><a href="../meau3/Student_course.html">查询课表</a></li>
 						<li><a href="../meau3/Student_GPA.html">查询成绩</a></li>
 					</ul>
-				</li>   
+				</li>
+				<li><a href="#" onclick="logout()">退出登陆</a></li>
 			</ul>
 		</nav>
 		<!-- <div class="f1"></div> -->
 		<div class="d1">
-         <img src="../image/people.png" class="p1">
-		</div>	
-		<div class="d2 boder" >学号：<text id="Sid"></text></div>
+			<img src="../image/people.png" class="p1">
+		</div>
+		<div class="d2 boder">学号：<text id="Sid"></text></div>
 		<div class="d2 boder">姓名：<text id="Sname"></text></div>
 		<div class="d2 boder">性别：<text id="Ssex"></text></div>
-		<div class="d2 boder">专业：<text id="Smajor"></text></div> 
-		<div class="d2 boder">年级：<text id="Sgrade"></text></div> 
-		<div class="d2 boder">班级：<text id="Sclass"></text></div> 
+		<div class="d2 boder">专业：<text id="Smajor"></text></div>
+		<div class="d2 boder">年级：<text id="Sgrade"></text></div>
+		<div class="d2 boder">班级：<text id="Sclass"></text></div>
 	</body>
 </html>
