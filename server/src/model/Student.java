@@ -163,4 +163,23 @@ public class Student {
         }
         return ary;
     }
+    public static JSONObject queryTimeTable(String studentId)throws Exception{
+        //获取学生信息
+        JSONObject obj = new JSONObject();
+        List<String> studentIds = new ArrayList<>();
+        studentIds.add(studentId);
+        Student s = sdao.queryByKeys(studentIds).get(0);
+
+        obj.put("studentProfile",JSON.parseObject(JSON.toJSONString(s)));
+        //获取学生选修的课程id并以此获取课程的信息
+        List<CourseSelected> courseSelectedList = csdao.queryByStudentId(studentId);
+        List<String> courseIds = new ArrayList<>();
+        for (CourseSelected cs:courseSelectedList){
+            courseIds.add(cs.getCourseId());
+        }
+        List<Course> courseList = cdao.queryByKeys(courseIds);
+        JSONArray tmp = JSON.parseArray(JSON.toJSONString(courseList));
+        obj.put("course",tmp);
+        return obj;
+    }
 }

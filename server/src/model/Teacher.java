@@ -136,5 +136,46 @@ public class Teacher {
         return csdao.update(courseSelectedList);
     }
 
+    public static JSONObject queryTimeTable(String teacherId)throws Exception{
+        JSONObject obj = new JSONObject();
+        Teacher t = tdao.queryByKey(teacherId);
+        obj.put("teacherProfile",JSON.parseObject(JSON.toJSONString(t)));
+        //获取老师教授的课程id并以此获取老师教授的信息
+        List<CourseTeaching> courseTeachingList = ctdao.queryByTeacherId(t.getTeacherId());
+        List<String> courseIds = new ArrayList<>();
+        for (CourseTeaching ct:courseTeachingList){
+            courseIds.add(ct.getCourseId());
+        }
+        List<Course> courseList = cdao.queryByKeys(courseIds);
+        JSONArray tmp = JSON.parseArray(JSON.toJSONString(courseList));
+        obj.put("course",tmp);
+        return obj;
+    }
+
+    public static JSONArray queryStudentSelectCourse(String teacherId)throws Exception{
+        //查询老师教授的课程
+        List<CourseTeaching> courseTeachingList = ctdao.queryByTeacherId(teacherId);
+        List<String> courseIds = new ArrayList<>();
+        for (CourseTeaching ct:courseTeachingList){
+            courseIds.add(ct.getCourseId());
+        }
+        List<Course> courseList = cdao.queryByKeys(courseIds);
+
+        JSONArray ary = new JSONArray();
+        for (Course c:courseList){
+            JSONObject obj = new JSONObject();
+            obj.put("courseInfo",JSON.parseObject(JSON.toJSONString(c)));
+            List<CourseSelected> courseSelectedList = csdao.queryByCourseId(c.getCourseId());
+            List<String> studentIds = new ArrayList<>();
+            for (CourseSelected cs:courseSelectedList){
+                studentIds.add(cs.getStudentId());
+            }
+            List<Student> studentList = sdao.queryByKeys(studentIds);
+            obj.put("selectedStudent",JSON.parseArray(JSON.toJSONString(studentList)));
+            ary.add(obj);
+        }
+        return ary;
+    }
+
 }
 //[{"courseid":,"coursename":,"studentinfo":[{"studentid":"123","studentname":"张三","score":"100"}]}]
