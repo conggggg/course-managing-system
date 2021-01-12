@@ -168,6 +168,8 @@ public class Student {
         JSONObject obj = new JSONObject();
         List<String> studentIds = new ArrayList<>();
         studentIds.add(studentId);
+        List<Student> studentList = sdao.queryByKeys(studentIds);
+        if (studentList.size()==0) return obj;
         Student s = sdao.queryByKeys(studentIds).get(0);
 
         obj.put("studentProfile",JSON.parseObject(JSON.toJSONString(s)));
