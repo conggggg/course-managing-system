@@ -105,7 +105,31 @@ public class Student {
         }
         return obj;
     }
+    public static boolean selectCourse(String studentId,String courseId)throws Exception{
+        List<String> courseIds = new ArrayList<>();
+        courseIds.add(courseId);
+        List<Course> courseList = cdao.queryByKeys(courseIds);
+        if (courseList.size()==0) return false;
 
+        List<String> studentIds = new ArrayList<>();
+        studentIds.add(studentId);
+        List<Student> studentList = sdao.queryByKeys(studentIds);
+        if (studentList.size()==0) return false;
+
+        List<String> cskey = new ArrayList<>();
+        cskey.add(courseId);cskey.add(studentId);
+        List<List<String>> cskeys = new ArrayList<>();
+        cskeys.add(cskey);
+        List<CourseSelected> courseSelectedList = csdao.queryByKeys(cskeys);
+        if (courseSelectedList.size()==0) return false;
+
+
+        CourseSelected cs = new CourseSelected(courseId,studentId,null);
+        courseSelectedList.clear();
+        courseSelectedList.add(cs);
+        return csdao.insert(courseSelectedList);
+
+    }
     public static JSONArray queryScore(String studentId) throws Exception {
         //查询学生信息
         List<String> keys = new ArrayList<>();
