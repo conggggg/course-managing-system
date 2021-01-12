@@ -11,6 +11,23 @@ import java.util.List;
 
 //先输入 课程编号 再输入 教师工号
 public class CourseTeachingDao implements ClassDao<CourseTeaching,List<String>>{
+
+    public List<CourseTeaching> queryByTeacherId(String teacherId)throws Exception{
+        String sql = "select courseId,teacherId from courseTeaching where teacherId = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        List<CourseTeaching> list = new ArrayList<>();
+        pstmt.setString(1, teacherId);
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            CourseTeaching tmp = new CourseTeaching();
+            tmp.setCourseId(rs.getString(1));
+            tmp.setTeacherId(rs.getString(2));
+            list.add(tmp);
+        }
+        pstmt.close();
+        return list;
+    }
+
     @Override
     public List<CourseTeaching> queryByKeys(List<List<String>> keys) throws Exception {
         String sql = "select courseId,teacherId from courseTeaching where courseId = ? and teacherId = ?";
