@@ -33,10 +33,15 @@ public class Manager {
         courseTeachingList.add(ct);
         return ctdao.insert(courseTeachingList);
     }
-    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson)throws Exception{
+    public static boolean updateCourse(String courseID,String courseName,String courseType,String courseCredit,String coursePeriod,String courseDay,String courseLesson,String teacherId)throws Exception{
         List<Course> courseList = new ArrayList<>();
         Course c = new Course(courseID,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson);
         courseList.add(c);
+
+        CourseTeaching ct = ctdao.queryByCourseId(courseID).get(0);
+        ct.setTeacherId(teacherId);
+        if (!ctdao.updateByCourseId(ct)) return false;
+
         return cdao.update(courseList);
     }
     public static boolean deleteCourse(String courseID)throws Exception{
@@ -44,7 +49,20 @@ public class Manager {
         return cdao.delete(keys);
     }
     public static JSONArray queryCourse()throws Exception{
-        return JSON.parseArray(JSON.toJSONString(cdao.query()));
+        JSONArray ary = new JSONArray();
+        List<Course> courseList = cdao.query();
+
+        for (int i = 0;i<courseList.size();i++){
+            List<CourseTeaching> courseTeachingList = ctdao.queryByCourseId(courseList.get(i).getCourseId());
+            for (int j = 0;j<courseTeachingList.size();j++) {
+                JSONObject obj = JSON.parseObject(JSON.toJSONString(courseList.get(i)));
+                obj.put("teacherName", tdao.queryByKey(courseTeachingList.get(j).getTeacherId()).getTeacherName());
+                obj.put("teacherId",courseTeachingList.get(j).getTeacherId());
+                ary.add(obj);
+            }
+        }
+
+        return ary;
     }
     //学生操作
     public static boolean addStudent(String studentId,String studentName,String studentSex,String className)throws Exception{
@@ -156,9 +174,9 @@ public class Manager {
         keys.add(teacherId);
 
         //获取账号信息
-        List<Teacher> studentList = tdao.queryByKeys(keys);
+        List<Teacher> teacherList = tdao.queryByKeys(keys);
         List<String> accountIds = new ArrayList<>();
-        accountIds.add(studentList.get(0).getTeacherId());
+        accountIds.add(teacherList.get(0).getTeacherId());
 
         //若删除教师成功，则返回删除账号的布尔值
         if (tdao.delete(keys)) {
@@ -169,6 +187,26 @@ public class Manager {
     }
     public static JSONArray queryTeacher()throws Exception{
         return JSON.parseArray(JSON.toJSONString(tdao.query()));
+    }
+    public static JSONArray queryTeacherTimetable()throws Exception{
+        JSONArray ary = new JSONArray();
+        List<Teacher> teacherList = tdao.query();
+        for (Teacher t:teacherList){
+            JSONObject obj = new JSONObject();
+            obj.put("teacherProfile",JSON.parseObject(JSON.toJSONString(t)));
+            //获取老师教授的课程id并以此获取老师教授的信息
+            List<CourseTeaching> courseTeachingList = ctdao.queryByTeacherId(t.getTeacherId());
+            List<String> courseIds = new ArrayList<>();
+            for (CourseTeaching ct:courseTeachingList){
+                courseIds.add(ct.getCourseId());
+            }
+            List<Course> courseList = cdao.queryByKeys(courseIds);
+            JSONArray tmp = JSON.parseArray(JSON.toJSONString(courseList));
+            obj.put("course",tmp);
+            ary.add(obj);
+        }
+
+        return ary;
     }
     //班级操作
     public static boolean addClass(String classId,String className,String profession,String grade)throws Exception{
