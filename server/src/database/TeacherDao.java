@@ -22,6 +22,7 @@ public class TeacherDao implements ClassDao<Teacher,String>{
                 tmp.setTeacherId(rs.getString(1));
                 tmp.setTeacherName(rs.getString(2));
                 tmp.setTeacherSex(rs.getString(3));
+                tmp.setAccount(rs.getString(4));
                 list.add(tmp);
             }
         }
@@ -40,6 +41,7 @@ public class TeacherDao implements ClassDao<Teacher,String>{
             tmp.setTeacherId(rs.getString(1));
             tmp.setTeacherName(rs.getString(2));
             tmp.setTeacherSex(rs.getString(3));
+            tmp.setAccount(rs.getString(4));
             list.add(tmp);
         }
 

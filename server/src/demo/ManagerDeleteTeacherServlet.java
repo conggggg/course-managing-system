@@ -23,7 +23,7 @@ public class ManagerDeleteTeacherServlet extends HttpServlet {
             //获取属性
             String teacherId = data.getString("teacherid");
             JSONObject result = new JSONObject();
-            result.put("result", Manager.deleteClass(teacherId));
+            result.put("result", Manager.deleteTeacher(teacherId));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();

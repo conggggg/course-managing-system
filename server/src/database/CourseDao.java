@@ -11,7 +11,7 @@ import java.util.List;
 public class CourseDao implements ClassDao<Course,String>{
     @Override
     public List<Course> queryByKeys(List<String> keys) throws Exception {
-        String sql = "select courseId,courseName,courseType,courseCredit,coursePeriod from course where courseId = ?";
+        String sql = "select courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson from course where courseId = ?";
         PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
         List<Course> list = new ArrayList<>();
         for (String key : keys) {
@@ -24,6 +24,8 @@ public class CourseDao implements ClassDao<Course,String>{
                 tmp.setCourseType(rs.getString(3));
                 tmp.setCourseCredit(rs.getString(4));
                 tmp.setCoursePeriod(rs.getString(5));
+                tmp.setCourseDay(rs.getString(6));
+                tmp.setCourseLesson(rs.getString(7));
                 list.add(tmp);
             }
         }
@@ -33,7 +35,7 @@ public class CourseDao implements ClassDao<Course,String>{
 
     @Override
     public List<Course> query() throws Exception {
-        String sql="select courseId,courseName,courseType,courseCredit,coursePeriod from course";
+        String sql="select courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson from course";
         ResultSet rs = DBcontroller.getConnection().createStatement().executeQuery(sql);
         List<Course> list = new ArrayList<>();
         while(rs.next()){
@@ -43,6 +45,8 @@ public class CourseDao implements ClassDao<Course,String>{
             tmp.setCourseType(rs.getString(3));
             tmp.setCourseCredit(rs.getString(4));
             tmp.setCoursePeriod(rs.getString(5));
+            tmp.setCourseDay(rs.getString(6));
+            tmp.setCourseLesson(rs.getString(7));
             list.add(tmp);
         }
         return list;
@@ -50,7 +54,7 @@ public class CourseDao implements ClassDao<Course,String>{
 
     @Override
     public boolean insert(List<Course> objs) throws Exception {
-        String sql = "insert into Course (courseId,courseName,courseType,courseCredit,coursePeriod) value (?,?,?,?,?)";
+        String sql = "insert into Course (courseId,courseName,courseType,courseCredit,coursePeriod,courseDay,courseLesson) value (?,?,?,?,?,?,?)";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (Course c :objs){
             pst.setString(1,c.getCourseId());
@@ -58,6 +62,8 @@ public class CourseDao implements ClassDao<Course,String>{
             pst.setString(3,c.getCourseType());
             pst.setString(4,c.getCourseCredit());
             pst.setString(5,c.getCoursePeriod());
+            pst.setString(6,c.getCourseDay());
+            pst.setString(7,c.getCourseLesson());
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;
@@ -65,7 +71,7 @@ public class CourseDao implements ClassDao<Course,String>{
 
     @Override
     public boolean update(List<Course> objs) throws Exception {
-        String sql = "update Course set courseId = ? ,courseName = ?,courseType = ?,courseCredit = ?,coursePeriod = ? where courseId = ? ";
+        String sql = "update Course set courseId = ? ,courseName = ?,courseType = ?,courseCredit = ?,coursePeriod = ?,courseDay = ?,courseLesson = ? where courseId = ? ";
         PreparedStatement pst = DBcontroller.getConnection().prepareStatement(sql);
         for (Course c :objs){
             pst.setString(1, c.getCourseId());
@@ -73,7 +79,9 @@ public class CourseDao implements ClassDao<Course,String>{
             pst.setString(3, c.getCourseName());
             pst.setString(4, c.getCourseCredit());
             pst.setString(5, c.getCoursePeriod());
-            pst.setString(6, c.getCourseId());
+            pst.setString(6, c.getCourseDay());
+            pst.setString(7, c.getCourseLesson());
+            pst.setString(8, c.getCourseId());
             pst.execute();
         }
         return pst.getUpdateCount()!= 0;

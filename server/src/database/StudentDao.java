@@ -24,6 +24,7 @@ public class StudentDao implements ClassDao<Student,String>{
                 tmp.setClassId(rs.getString(2));
                 tmp.setStudentName(rs.getString(3));
                 tmp.setStudentSex(rs.getString(4));
+                tmp.setAccount(rs.getString(5));
                 list.add(tmp);
             }
     }

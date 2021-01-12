@@ -9,6 +9,40 @@ import java.util.List;
 //先输入 课程编号 再输入 学生学号
 public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
 
+    public List<CourseSelected> queryByStudentId(String studentId)throws Exception{
+        String sql = "select courseId,studentId,score from courseSelected where studentId = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        List<CourseSelected> list = new ArrayList<>();
+        pstmt.setString(1, studentId);
+        ResultSet rs = pstmt.executeQuery();
+        while(rs.next()) {
+            CourseSelected tmp = new CourseSelected();
+            tmp.setCourseId(rs.getString(1));
+            tmp.setStudentId(rs.getString(2));
+            tmp.setScore(rs.getString(3));
+            list.add(tmp);
+        }
+        pstmt.close();
+        return list;
+    }
+
+    public List<CourseSelected> queryByCourseId(String courseId)throws Exception{
+        String sql = "select courseId,studentId,score from courseSelected where courseId = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        List<CourseSelected> list = new ArrayList<>();
+        pstmt.setString(1, courseId);
+        ResultSet rs = pstmt.executeQuery();
+        while(rs.next()) {
+            CourseSelected tmp = new CourseSelected();
+            tmp.setCourseId(rs.getString(1));
+            tmp.setStudentId(rs.getString(2));
+            tmp.setScore(rs.getString(3));
+            list.add(tmp);
+        }
+        pstmt.close();
+        return list;
+    }
+
     @Override
     public List<CourseSelected> queryByKeys(List<List<String>> keys) throws Exception {
         String sql = "select courseId,studentId,score from courseSelected where courseId = ? and studentId = ?";
@@ -25,7 +59,7 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
                 tmp.setScore(rs.getString(3));
                 list.add(tmp);
             }
-            }
+        }
         pstmt.close();
         return list;
     }

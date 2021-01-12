@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import database.*;
-import model.Account;
-import model.CourseSelected;
-import model.Manager;
-import model.TheClass;
+import model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,10 +28,8 @@ public class DemoServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         try {
-            response.getWriter().println(JSON.toJSONString(Manager.queryCourse()));
-            response.getWriter().println(JSON.toJSONString(Manager.queryStudent()));
-            response.getWriter().println(JSON.toJSONString(Manager.queryClass()));
-            response.getWriter().println(JSON.toJSONString(Manager.queryTeacher()));
+            response.getWriter().println(Student.queryInfo("180610001"));
+            response.getWriter().println(Student.queryScore("180610001"));
 //            response.getWriter().println(Manager.queryCourse());
 //            List<List<String>> keylist = new ArrayList<>();
 //            List<String> item = new ArrayList<>();
