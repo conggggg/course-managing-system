@@ -1,5 +1,5 @@
-var ipPool=["172.18.41.15:8080","172.18.43.143:8080"]
-var ipPort=ipPool[1];
+var ipPool=["172.18.41.23:8080","172.18.43.143:8080"]
+var ipPort=ipPool[0];
 
 function addCookie(name, value, expiresHours) {
     var cookieString = name + "=" + escape(value)+"; path=/";

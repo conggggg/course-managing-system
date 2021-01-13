@@ -50,7 +50,7 @@ function loginfunc() {
                     window.location.replace("Students/main_html/Student_main.html");
 					addCookie("type", "student", 1)
                 }
-                else if (re.type == "老师") {
+                else if (re.type == "教师") {
                     window.location.replace("Teachers/teachers_main/Teachers_main.html");
 					addCookie("type", "teacher", 1)
                 }

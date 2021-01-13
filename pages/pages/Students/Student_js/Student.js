@@ -90,7 +90,7 @@ function change_password() {
 			}
 		};
 		//设置并提交申请
-		xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentquerytimetable", true);
+		xmlhttp.open("POST", "http://" + ipPort + "/testdoc/updatepassword", true);
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 		xmlhttp.send("data=" + JSON.stringify(data));
 	} else {
@@ -205,7 +205,7 @@ function selete_course(button) {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentseletecourse", true);
+	xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentselectcourse", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -257,7 +257,8 @@ function get_GPA(){
 			console.log(re);
 			//获取表格DOM对象
 			let element = document.getElementById("table").children[1];
-			if(re.data.length!=0){
+			//如果有成绩信息
+			if(re.data){
 				element.removeChild(document.getElementById("emptyWarn"));
 			}
 			for (let x in re.data) {

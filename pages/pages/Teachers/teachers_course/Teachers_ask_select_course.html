@@ -2,7 +2,7 @@
 <html lang="zh">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>课程安排表</title>
 		<link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script src="../common_js/Teachers_manage.js"></script>
@@ -10,39 +10,56 @@
 			.tabtop13 {
 				margin-top: 13px;
 			}
-			.tabtop13 td{
-				background-color:#ffffff;
-				height:25px;
-				line-height:150%;
+
+			.tabtop13 td {
+				background-color: #ffffff;
+				height: 25px;
+				line-height: 150%;
 			}
-			.font-center{ text-align:center}
-			.btbg{background:#e9faff !important;}
-			.btbg1{background:#f2fbfe !important;}
-			.btbg2{background:#f3f3f3 !important;}
-			.biaoti{
+
+			.font-center {
+				text-align: center
+			}
+
+			.btbg {
+				background: #e9faff !important;
+			}
+
+			.btbg1 {
+				background: #f2fbfe !important;
+			}
+
+			.btbg2 {
+				background: #f3f3f3 !important;
+			}
+
+			.biaoti {
 				font-family: 微软雅黑;
 				font-size: 26px;
 				font-weight: bold;
-				border-bottom:1px dashed #CCCCCC;
+				border-bottom: 1px dashed #CCCCCC;
 				color: #255e95;
 			}
+
 			.titfont {
-				
+
 				font-family: 微软雅黑;
 				font-size: 16px;
 				font-weight: bold;
 				color: #255e95;
 				background: url(../images/ico3.gif) no-repeat 15px center;
-				background-color:#e9faff;
+				background-color: #e9faff;
 			}
+
 			.tabtxt2 {
 				font-family: 微软雅黑;
 				font-size: 14px;
 				font-weight: bold;
 				text-align: right;
 				padding-right: 10px;
-				color:#327cd1;
+				color: #327cd1;
 			}
+
 			.tabtxt3 {
 				font-family: 微软雅黑;
 				font-size: 14px;
@@ -54,7 +71,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="get_course()">
 		<nav>
 			<p>学生专业选课系统</p>
 			<ul>
@@ -89,7 +106,7 @@
 			</table>
 			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
 				<tr>
-					<td width="12.5%" class="btbg font-center titfont"> </td>
+					<td width="12.5%" class="btbg font-center titfont">节次</td>
 					<td width="12.5%" class="btbg font-center titfont">星期一</td>
 					<td width="12.5%" class="btbg font-center titfont">星期二</td>
 					<td width="12.5%" class="btbg font-center titfont">星期三</td>
@@ -99,18 +116,8 @@
 					<td width="12.5%" class="btbg font-center titfont">星期日</td>
 				</tr>
 				<tr>
-					<td>08：30~09：15</td>
-					<td>&nbsp;计算机网络实验</td>
+					<td>第1大节</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>09：20~10：05</td>
-					<td>&nbsp;计算机网络实验</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
@@ -119,28 +126,38 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td>10：25~11：10</td>
+					<td>第2大节</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;机器学习实验</td>
+					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td>11：15~12：00</td>
+					<td>第3大节</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;机器学习实验</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>第4大节</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 
 				</tr>
 				<tr>
-					<td>13：50~14：35</td>
+					<td>第5大节</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
@@ -150,72 +167,22 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td>14：40~15：25</td>
+					<td>第6大节</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>15：45~16：30</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>16：45~17：20</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>18：20~19：05</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;机器学习</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>19：10~19：55</td>
-					<td>&nbsp;计算机网络</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td>20：00~20：45</td>
-					<td>&nbsp;计算机网络</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;机器学习</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 				</tr>
 		</div>
-		<div>
+		<!-- <div>
 			<form>
 				<input type="button" value="刷新" style="margin-left: 900px;background-color: #54B7FF;color: white;width: 50px;"
 				 onclick="get_teacher_course()" />
 				<input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;" onclick="export_teacher_course()" />
 			</form>
-		</div>
+		</div> -->
 	</body>
 </html>
