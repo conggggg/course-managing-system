@@ -320,7 +320,7 @@ function get_student_score() {
 				//如果选课人数为零的情况
 				if (re[x].studentinfo.length == 0) {
 					let line = document.createElement("tr");
-					for (let i = 0; i < 4; i++) {
+					for (let i = 0; i < 6; i++) {
 						let td = document.createElement("td");
 						td.appendChild(document.createTextNode(" "));
 						line.appendChild(td);

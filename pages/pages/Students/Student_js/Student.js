@@ -228,7 +228,7 @@ function get_course() {
 			let table = document.getElementById("table");
 			//处理每一个课程
 			for (let x in re.course) {
-				table.children[1].children[Number(re.course[x].courseLesson)].children[Number(re.course[x].courseDay)].innerHTML =
+				table.children[1].children[Number(re.course[x].courseLesson)-1].children[Number(re.course[x].courseDay)].innerHTML =
 					re.course[x].courseName;
 			}
 		} else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
