@@ -258,30 +258,30 @@ function get_GPA(){
 			//获取表格DOM对象
 			let element = document.getElementById("table").children[1];
 			//如果有成绩信息
-			if(re.data){
+			if(re){
 				element.removeChild(document.getElementById("emptyWarn"));
 			}
-			for (let x in re.data) {
+			for (let x in re) {
 				//表格栏DOM对象
 				let tr = document.createElement("tr");
 				//插入课程号
 				let courseId = document.createElement("td");
-				let courseIdNode = document.createTextNode(re.data[x].courseId);
+				let courseIdNode = document.createTextNode(re[x].courseId);
 				courseId.appendChild(courseIdNode);
 				tr.appendChild(courseId);
 				//插入课程名称
 				let courseName = document.createElement("td");
-				let courseNameNode = document.createTextNode(re.data[x].courseName);
+				let courseNameNode = document.createTextNode(re[x].courseName);
 				courseName.appendChild(courseNameNode);
 				tr.appendChild(courseName);
 				//插入成绩
 				let score = document.createElement("td");
-				let scoreNode = document.createTextNode(re.data[x].score);
+				let scoreNode = document.createTextNode(re[x].score=="-1"?"尚无成绩":re[x].score);
 				score.appendChild(scoreNode);
 				tr.appendChild(score);
 				//插入绩点
 				let GPA = document.createElement("td");
-				let GPANode = document.createTextNode(re.data[x].GPA);
+				let GPANode = document.createTextNode(re[x].GPA=="0.0"?"尚无成绩":re[x].GPA);
 				GPA.appendChild(GPANode);
 				tr.appendChild(GPA);
 				//将当前栏插进表格
