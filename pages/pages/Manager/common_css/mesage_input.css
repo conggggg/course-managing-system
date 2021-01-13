@@ -10,7 +10,7 @@ body{
 	}
 .Write_form{
 	width:300px;
-	height:350px;
+	height:450px;
 	background-color: aliceblue;
 	background-position:right;
 	border-style: groove;
@@ -43,6 +43,6 @@ body{
 	}
 .Write_input{
 	margin-left: 10px;
-	margin-top: 30px;
+	margin-top: 20px;
 	align:center;
 	}

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
-    <script type="text/javascript" src="../common_js/Teachers_manage.js"></script>
-    <style>
-        .tabtop13 {
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../Teachers/common_css/Teachers_manage.css">
+		<script type="text/javascript" src="../../Script/cookie.js"></script>
+		<script type="text/javascript" src="../common_js/Teachers_manage.js"></script>
+		<style>
+			.tabtop13 {
             margin-top: 13px;
             width:100%;
             border:0;
@@ -59,106 +60,105 @@
         }
 
     </style>
-</head>
-<body>
-    <nav>
-        <p>学生专业选课系统</p>
-        <ul>
-            <li><a href="#">个人信息管理</a>
-                <ul>
-                    <li><a href="../teachers_info/Teachers_search_own_info.html">查看个人信息</a></li>
-                    <li><a href="../teachers_info/Teachers_change_password.html">修改登录密码</a></li>
-                    <li><a href="../../login.html">退出登录</a></li>
-                </ul>
-            </li>
-            <li><a href="#">课程信息管理</a>
-                <ul>
-                    <li><a href="../teachers_course/Teachers_ask_select_course.html">查看排课表</a></li>
-                    <li><a href="../teachers_course/Teachers_ask_course_student.html">查看选课学生表</a></li>
-                </ul>
-            </li>
-            <li><a href="#">学生成绩管理</a>
-                <ul>
-                    <li><a href="../teachers_student/Teachers_search_student_grade.html">查看学生成绩</a></li>
-                    <li><a href="../teachers_student/Teachers_modify_student_grade.html">修改学生成绩</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <div>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-          <tr>
-            <td align="center" class="biaoti" height="60">课程学生成绩表</td>
-          </tr>
-          <tr>
-            <td align="right" height="25"></td>
-          </tr>
-        </table>
-        <table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
-          <tr>
-            <td width="20%" class="btbg font-center titfont">课程编号</td>
-            <td width="20%" class="btbg font-center titfont">课程名</td>
-            <td width="20%" class="btbg font-center titfont">学号</td>
-            <td width="20%" class="btbg font-center titfont">姓名</td>
-            <td width="20%" class="btbg font-center titfont">成绩</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;00001</td>
-            <td>&nbsp;机器学习</td>
-            <td>&nbsp;1806300001</td>
-            <td>&nbsp;刘思</td> 
-            <td>&nbsp;80分</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr onclick="student_grade_chart_rowonlick()">
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-    </div>
-    <div style="text-align: center;">
-        <form>
-            课程编号：<input type="text" name="course_num" style="width: 200px;" id="search_course_Id"/>
-            课程名：<input type="text" name="course_name" style="width:200px" id="search_course_Name"/>
-            <input type="button" value="查找" style="background-color: #54B7FF;color: white;width: 50px;" onclick="get_student_grade()"/>
-            <input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;" onclick="export_student_grade()"/>
-        </form>
-    </div>
-</body>
+	</head>
+	<body>
+		<nav>
+			<p>学生专业选课系统</p>
+			<ul>
+				<li><a href="#">个人信息管理</a>
+					<ul>
+						<li><a href="../teachers_info/Teachers_search_own_info.html">查看个人信息</a></li>
+						<li><a href="../teachers_info/Teachers_change_password.html">修改登录密码</a></li>
+					</ul>
+				</li>
+				<li><a href="#">课程信息管理</a>
+					<ul>
+						<li><a href="../teachers_course/Teachers_ask_select_course.html">排课表</a></li>
+						<li><a href="../teachers_course/Teachers_ask_course_student.html">选课学生表</a></li>
+					</ul>
+				</li>
+				<li><a href="#">学生成绩管理</a>
+					<ul>
+						<li><a href="../teachers_student/Teachers_search_student_grade.html">选课学生成绩表</a></li>
+					</ul>
+				</li>
+				<li><a href="#" onclick="logout()">退出登陆</a></li>
+			</ul>
+		</nav>
+		<div>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr>
+					<td align="center" class="biaoti" height="60">课程学生成绩表</td>
+				</tr>
+				<tr>
+					<td align="right" height="25"></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center">
+				<tr>
+					<td width="20%" class="btbg font-center titfont">课程编号</td>
+					<td width="20%" class="btbg font-center titfont">课程名</td>
+					<td width="20%" class="btbg font-center titfont">学号</td>
+					<td width="20%" class="btbg font-center titfont">姓名</td>
+					<td width="20%" class="btbg font-center titfont">成绩</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;00001</td>
+					<td>&nbsp;机器学习</td>
+					<td>&nbsp;1806300001</td>
+					<td>&nbsp;刘思</td>
+					<td>&nbsp;80分</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr onclick="student_grade_chart_rowonlick()">
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+		</div>
+		<div style="text-align: center;">
+			<form>
+				课程编号：<input type="text" name="course_num" style="width: 200px;" id="search_course_Id" />
+				课程名：<input type="text" name="course_name" style="width:200px" id="search_course_Name" />
+				<input type="button" value="查找" style="background-color: #54B7FF;color: white;width: 50px;" onclick="get_student_grade()" />
+				<input type="button" value="导出" style="background-color: #54B7FF;color: white;width: 50px;" onclick="export_student_grade()" />
+			</form>
+		</div>
+	</body>
 </html>
