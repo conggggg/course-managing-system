@@ -18,7 +18,8 @@ public class StudentQueryInformationServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
-            String studentId = request.getParameter("studentid");
+            JSONObject data = JSON.parseObject(request.getParameter("data"));
+            String studentId = data.getString("studentid");
             JSONObject result = new JSONObject();
             result.put("data",Student.queryInfo(studentId));
             response.getWriter().println(JSON.toJSONString(result));
