@@ -19,7 +19,8 @@ public class TeacherQueryInformationServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
-            String teacherId = request.getParameter("teacherid");
+            JSONObject data = JSON.parseObject(request.getParameter("data"));
+            String teacherId = data.getString("teacherid");
             JSONObject result = new JSONObject();
             result.put("data", Teacher.queryInfo(teacherId));
             response.getWriter().println(JSON.toJSONString(result));
