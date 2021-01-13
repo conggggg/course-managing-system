@@ -948,10 +948,10 @@ function getCourseSeletedStudentList() {
 				table.setAttribute("class", "tabtop13");
 				table.setAttribute("align", "center");
 				//添加表头（课程信息）
-				let teacherInfo = document.createElement("p");
-				teacherInfo.appendChild(document.createTextNode(re[x].courseInfo.courseName + "（课程编号：" + re[x].courseInfo.courseId +
+				let courseInfo = document.createElement("p");
+				courseInfo.appendChild(document.createTextNode(re[x].courseInfo.courseName + "（课程编号：" + re[x].courseInfo.courseId +
 					"）的选课学生表："));
-				area.appendChild(teacherInfo);
+				area.appendChild(courseInfo);
 				//添加首行
 				let firstLine = document.createElement("tr");
 				//添加学号
