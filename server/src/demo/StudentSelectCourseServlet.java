@@ -24,7 +24,7 @@ public class StudentSelectCourseServlet extends HttpServlet {
             String courseId = data.getString("courseid");
             String studentId = data.getString("studentid");
             JSONObject result = new JSONObject();
-            result.put("result", Student.selectCourse(courseId,studentId));
+            result.put("result", Student.selectCourse(studentId,courseId));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();

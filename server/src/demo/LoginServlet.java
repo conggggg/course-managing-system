@@ -24,8 +24,6 @@ public class LoginServlet extends HttpServlet {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            System.out.println(username);
-            System.out.println(password);
             response.getWriter().println(JSON.toJSONString(Account.login(username,password)));
         }catch (Exception e){
             e.printStackTrace();

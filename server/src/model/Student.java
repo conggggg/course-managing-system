@@ -125,7 +125,7 @@ public class Student {
         List<List<String>> cskeys = new ArrayList<>();
         cskeys.add(cskey);
         List<CourseSelected> courseSelectedList = csdao.queryByKeys(cskeys);
-        if (courseSelectedList.size()==0) return false;
+        if (courseSelectedList.size()!=0) return false;
 
 
         CourseSelected cs = new CourseSelected(courseId,studentId,null);
