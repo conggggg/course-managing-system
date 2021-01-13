@@ -135,11 +135,14 @@ public class Student {
 
     }
     public static JSONArray queryScore(String studentId) throws Exception {
+        JSONArray ary = new JSONArray();
         //查询学生信息
         List<String> keys = new ArrayList<>();
         keys.add(studentId);
         //查询学生选课信息
-        List<CourseSelected> courseSelectedList = csdao.queryByStudentId(sdao.queryByKeys(keys).get(0).getStudentId());
+        List<Student> studentList = sdao.queryByKeys(keys);
+        if (studentList.size()==0) return ary;
+        List<CourseSelected> courseSelectedList = csdao.queryByStudentId(studentList.get(0).getStudentId());
         //查询课程信息
         keys.clear();
         for (CourseSelected cs : courseSelectedList) {
@@ -147,7 +150,6 @@ public class Student {
         }
         List<Course> courseList = cdao.queryByKeys(keys);
         //生成数据
-        JSONArray ary = new JSONArray();
         for (int i =0 ;i<courseSelectedList.size();i++){
             JSONObject obj = new JSONObject();
             obj.put("score",courseSelectedList.get(i).getScore());
