@@ -81,16 +81,20 @@ public class Student {
     }
 
     public static JSONObject queryInfo(String studentId) throws Exception {
+        JSONObject obj = new JSONObject();
         //查询学生信息
         List<String> keys = new ArrayList<>();
         keys.add(studentId);
+        List<Student> studentList = sdao.queryByKeys(keys);
+        if (studentList.size()==0) return obj;
         Student s = sdao.queryByKeys(keys).get(0);
         //查询班级信息
         keys.clear();
         keys.add(s.classId);
+        List<TheClass> classList = classdao.queryByKeys(keys);
+        if (classList.size()==0) return obj;
         TheClass c = classdao.queryByKeys(keys).get(0);
         //生成信息
-        JSONObject obj = new JSONObject();
         //获取学生类中需要的信息
         Field[] fields = Student.class.getDeclaredFields();
         for (int i = 0; i <= 2; i++) {
@@ -168,6 +172,8 @@ public class Student {
         JSONObject obj = new JSONObject();
         List<String> studentIds = new ArrayList<>();
         studentIds.add(studentId);
+        List<Student> studentList = sdao.queryByKeys(studentIds);
+        if (studentList.size()==0) return obj;
         Student s = sdao.queryByKeys(studentIds).get(0);
 
         obj.put("studentProfile",JSON.parseObject(JSON.toJSONString(s)));

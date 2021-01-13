@@ -26,7 +26,7 @@ FOREIGN KEY (account) REFERENCES Account(account)
 
 CREATE TABLE TheClass(
 classId VARCHAR(10) PRIMARY KEY,
-className VARCHAR(5) NOT NULL,
+className VARCHAR(10) NOT NULL,
 profession VARCHAR(10),
 grade VARCHAR(5)
 );

@@ -193,3 +193,6 @@ INSERT INTO courseSelected VALUES
 ('1806000435','180610010','74'),
 ('1806000435','180610011','91');
 
+
+insert into Account(account, password, accounttype)
+value ("root","123456","管理员");

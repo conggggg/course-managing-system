@@ -10,6 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TheClassDao implements ClassDao<TheClass,String>{
+
+    public TheClass queryByClassId(String classId)throws Exception{
+        String sql="select classId,className,profession,grade from theClass where classId = ?";
+        PreparedStatement pstmt = DBcontroller.getConnection().prepareStatement(sql);
+        pstmt.setString(1, classId);
+        ResultSet rs = pstmt.executeQuery();
+        TheClass tmp = new TheClass();
+        if (rs.next()) {
+            tmp.setClassId(rs.getString(1));
+            tmp.setClassName(rs.getString(2));
+            tmp.setProfession(rs.getString(3));
+            tmp.setGrade(rs.getString(4));
+        }
+        return tmp;
+    }
+
     @Override
     public List<TheClass> queryByKeys(List<String> keys) throws Exception {
         String sql="select classId,className,profession,grade from theClass where classId = ?";

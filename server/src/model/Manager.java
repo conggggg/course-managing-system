@@ -225,10 +225,11 @@ public class Manager {
         List<TheClass> classList = new ArrayList<>();
         TheClass c = new TheClass(classId,className,profession,grade);
         classList.add(c);
-        return classdao.insert(classList);
+        return classdao.update(classList);
     }
     public static boolean deleteClass(String classId)throws Exception{
         List<String> keys = new ArrayList<>();
+        keys.add(classId);
         return classdao.delete(keys);
     }
     public static JSONArray queryClass()throws Exception{
@@ -248,7 +249,16 @@ public class Manager {
                 studentIds.add(cs.getStudentId());
             }
             List<Student> studentList = sdao.queryByKeys(studentIds);
-            obj.put("selectedStudent",JSON.parseArray(JSON.toJSONString(studentList)));
+            JSONArray tmp = new JSONArray();
+            for (Student s:studentList){
+                JSONObject t = JSON.parseObject(JSON.toJSONString(s));
+                TheClass theClass = classdao.queryByClassId(s.getClassId());
+                t.put("className",theClass.getClassName());
+                t.put("profession",theClass.getProfession());
+                t.put("grade",theClass.getGrade());
+                tmp.add(t);
+            }
+            obj.put("selectedStudent",tmp);
             ary.add(obj);
         }
         return ary;
