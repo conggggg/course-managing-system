@@ -1,0 +1,38 @@
+13-Jan-2021 09:02:34.635 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/8.5.61
+13-Jan-2021 09:02:34.635 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Dec 3 2020 14:03:28 UTC
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      8.5.61.0
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     D:\Program Files\Java\jdk-11.0.8
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    11.0.8+10-LTS
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     D:\Git\course-managing-system\apache-tomcat-8.5.61
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     D:\Git\course-managing-system\apache-tomcat-8.5.61
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=D:\Git\course-managing-system\apache-tomcat-8.5.61\conf\logging.properties
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=D:\Git\course-managing-system\apache-tomcat-8.5.61
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=D:\Git\course-managing-system\apache-tomcat-8.5.61
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=D:\Git\course-managing-system\apache-tomcat-8.5.61\temp
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.25]。
+13-Jan-2021 09:02:34.651 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
+13-Jan-2021 09:02:34.666 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
+13-Jan-2021 09:02:34.760 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1g  21 Apr 2020]
+13-Jan-2021 09:02:34.838 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+13-Jan-2021 09:02:35.604 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+13-Jan-2021 09:02:35.619 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1978 ms
+13-Jan-2021 09:02:35.775 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+13-Jan-2021 09:02:35.775 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.61
+13-Jan-2021 09:02:35.791 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor 正在部署部署描述符[D:\Git\course-managing-system\apache-tomcat-8.5.61\conf\Catalina\localhost\testdoc.xml]。
+13-Jan-2021 09:02:36.104 警告 [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion 未知版本字符串 [4.0]。将使用默认版本。
+13-Jan-2021 09:02:37.478 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+13-Jan-2021 09:02:38.213 警告 [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom 使用[SHA1PRNG]创建会话ID生成的SecureRandom实例花费了[656]毫秒。
+13-Jan-2021 09:02:38.259 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDescriptor 部署描述符[D:\Git\course-managing-system\apache-tomcat-8.5.61\conf\Catalina\localhost\testdoc.xml]的部署已在[2,468]ms内完成
+13-Jan-2021 09:02:38.259 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+13-Jan-2021 09:02:38.275 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 2650 ms

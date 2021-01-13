@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:02:43 +0800] "GET /testdoc/ HTTP/1.1" 404 712
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:02:43 +0800] "GET /favicon.ico HTTP/1.1" 404 648
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:03:06 +0800] "GET /testdoc/test HTTP/1.1" 200 8827
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:03:12 +0800] "GET /testdoc/test/login HTTP/1.1" 404 726
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:04:53 +0800] "GET /testdoc/pages HTTP/1.1" 404 717
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:11 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:12 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:13 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:13 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:13 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 404 742
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:35 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 200 1782
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:35 +0800] "GET /testdoc/pages/pages/Script/cookie.js HTTP/1.1" 200 837
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:35 +0800] "GET /testdoc/pages/pages/Script/login.js HTTP/1.1" 200 2592
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:35 +0800] "GET /testdoc/pages/pages/Students/image/back3.png HTTP/1.1" 200 15348
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:05:35 +0800] "GET /testdoc/pages/pages/Students/image/back5.png HTTP/1.1" 200 57277
+0:0:0:0:0:0:0:1 - - [13/Jan/2021:09:06:04 +0800] "GET /testdoc/pages/pages/login.html HTTP/1.1" 304 -
