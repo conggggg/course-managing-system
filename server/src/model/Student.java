@@ -154,15 +154,17 @@ public class Student {
         //生成数据
         for (int i =0 ;i<courseSelectedList.size();i++){
             JSONObject obj = new JSONObject();
-            obj.put("score",courseSelectedList.get(i).getScore());
+            obj.put("score",courseSelectedList.get(i).getScore()==null?"-1":courseSelectedList.get(i).getScore());
             //分数转GPA
-            int score = Integer.valueOf(courseSelectedList.get(i).getScore());
+            int score = Integer.valueOf((courseSelectedList.get(i).getScore()==null)?"-1":courseSelectedList.get(i).getScore());
             double GPA;
-            if (score>=90) GPA = 4.0;
-            else if (score<=60) {
+            if (score == -1) GPA = 0.0;
+            else if (score>=90) {
+                GPA = 4.0;
+            }else if (score < 60){
                 GPA = 1.0;
             }else {
-                GPA = (score-60)/10.0;
+                GPA = (score - 60)/10.0;
             }
             obj.put("GPA",String.valueOf(GPA));
             obj.put("courseId",courseList.get(i).getCourseId());
@@ -198,13 +200,14 @@ public class Student {
         List<Course> courseList = cdao.query();
 
         for (int i = 0;i<courseList.size();i++){
+            //遍历每个课程查询课程所教授的老师
             List<CourseTeaching> courseTeachingList = ctdao.queryByCourseId(courseList.get(i).getCourseId());
             for (int j = 0;j<courseTeachingList.size();j++) {
                 JSONObject obj = JSON.parseObject(JSON.toJSONString(courseList.get(i)));
                 obj.put("teacherName", tdao.queryByKey(courseTeachingList.get(j).getTeacherId()).getTeacherName());
                 obj.put("teacherId",courseTeachingList.get(j).getTeacherId());
                 List<String> key = new ArrayList<>();
-                key.add(courseList.get(j).getCourseId());key.add(studentId);
+                key.add(courseList.get(i).getCourseId());key.add(studentId);
                 List<List<String>> keys = new ArrayList<>();
                 keys.add(key);
                 obj.put("status",csdao.queryByKeys(keys).size()!=0);
@@ -213,5 +216,12 @@ public class Student {
         }
         return ary;
     }
-
+    public static boolean quitCourse(String studentId,String courseId)throws Exception{
+        List<String> key = new ArrayList<>();
+        key.add(courseId);
+        key.add(studentId);
+        List<List<String>> keys = new ArrayList<>();
+        keys.add(key);
+        return csdao.delete(keys);
+    }
 }
