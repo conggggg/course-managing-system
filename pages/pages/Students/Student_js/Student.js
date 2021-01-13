@@ -101,7 +101,10 @@ function change_password() {
 }
 
 //加载选课表
-function seleteCourseOnLoad() {
+function selectCourseOnLoad() {
+	let data={
+		studentid:getCookie("username"),
+	}
 	//创建AJAX对象
 	var xmlhttp = new XMLHttpRequest();
 	//服务器返回数据回调函数
@@ -160,12 +163,15 @@ function seleteCourseOnLoad() {
 				let teacherIdNode = document.createTextNode(re.data[x].teacherId);
 				teacherId.appendChild(teacherIdNode);
 				tr.appendChild(teacherId)
-				//添加删除按钮
+				//添加选课/退选按钮
 				let opTd = document.createElement("td");
 				let seleteButton = document.createElement("button");
-				let seleteButtonNode = document.createTextNode("选课");
+				let seleteButtonNode = document.createTextNode(re.data[x].status==false?"选课":"退选");
 				seleteButton.appendChild(seleteButtonNode);
-				seleteButton.setAttribute("onclick", "selete_course(this)");
+				seleteButton.setAttribute("onclick", re.data[x].status==false?"selete_course(this)":"quit_course(this)");
+				if(re.data[x].status){
+					seleteButton.setAttribute("style", "color: #FF0000;");
+				}
 				opTd.appendChild(seleteButton);
 				tr.appendChild(opTd);
 				//将当前栏插进表格
@@ -176,8 +182,9 @@ function seleteCourseOnLoad() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://" + ipPort + "/testdoc/managerquerycourse", true);
-	xmlhttp.send();
+	xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentqueryselectcoursestatus", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+	xmlhttp.send("data=" + JSON.stringify(data));
 }
 
 //学生选课
