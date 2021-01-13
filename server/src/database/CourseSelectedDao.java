@@ -19,7 +19,7 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
             CourseSelected tmp = new CourseSelected();
             tmp.setCourseId(rs.getString(1));
             tmp.setStudentId(rs.getString(2));
-            tmp.setScore(rs.getString(3)==null?"null":rs.getString(3));
+            tmp.setScore(rs.getString(3)==null?"-1":rs.getString(3));
             list.add(tmp);
         }
         pstmt.close();
@@ -36,7 +36,7 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
             CourseSelected tmp = new CourseSelected();
             tmp.setCourseId(rs.getString(1));
             tmp.setStudentId(rs.getString(2));
-            tmp.setScore(rs.getString(3)==null?"null":rs.getString(3));
+            tmp.setScore(rs.getString(3)==null?"-1":rs.getString(3));
             list.add(tmp);
         }
         pstmt.close();
@@ -56,7 +56,7 @@ public class CourseSelectedDao implements ClassDao<CourseSelected,List<String>>{
                 CourseSelected tmp = new CourseSelected();
                 tmp.setCourseId(rs.getString(1));
                 tmp.setStudentId(rs.getString(2));
-                tmp.setScore(rs.getString(3)==null?"null":rs.getString(3));
+                tmp.setScore(rs.getString(3)==null?"-1":rs.getString(3));
                 list.add(tmp);
             }
         }
