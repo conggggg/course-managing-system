@@ -103,7 +103,7 @@ function student_add() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddstudent", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/manageraddstudent", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -134,7 +134,7 @@ function delete_student(button) {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerdeletestudent", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerdeletestudent", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -184,7 +184,7 @@ function student_changeinfo() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerupdatestudent", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerupdatestudent", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -255,7 +255,7 @@ function get_student() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerquerystudent", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerquerystudent", true);
 	xmlhttp.send();
 }
 
@@ -293,7 +293,7 @@ function teacher_add() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddteacher", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/manageraddteacher", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -323,7 +323,7 @@ function delete_teacher(button) {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerdeleteteacher", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerdeleteteacher", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -369,7 +369,7 @@ function teacher_changeinfo() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerupdateteacher", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerupdateteacher", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -426,7 +426,7 @@ function get_teacher() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerqueryteacher", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerqueryteacher", true);
 	xmlhttp.send();
 }
 
@@ -474,7 +474,7 @@ function course_add() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddcourse", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/manageraddcourse", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -505,7 +505,7 @@ function delete_course(button) {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerdeletecourse", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerdeletecourse", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -568,7 +568,7 @@ function course_change() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerupdatecourse", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerupdatecourse", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -654,7 +654,7 @@ function get_course() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerquerycourse", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerquerycourse", true);
 	xmlhttp.send();
 }
 
@@ -694,7 +694,7 @@ function add_class() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/manageraddclass", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/manageraddclass", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -725,7 +725,7 @@ function delete_class(button) {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerdeleteclass", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerdeleteclass", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -776,7 +776,7 @@ function Class_changeinfo() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/managerupdateclass", true);
+	xmlhttp.open("POST", "http://"+ipPort+"/testdoc/managerupdateclass", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }
@@ -837,7 +837,7 @@ function get_class() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerqueryclass", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerqueryclass", true);
 	xmlhttp.send();
 }
 
@@ -917,7 +917,7 @@ function getTeacherTimetable() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerqueryteachertimetable", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerqueryteachertimetable", true);
 	xmlhttp.send();
 }
 
@@ -1032,6 +1032,6 @@ function getCourseSeletedStudentList() {
 		}
 	};
 	//设置并提交申请
-	xmlhttp.open("GET", "http://172.18.41.15:8080/testdoc/managerquerystudentselectcourse", true);
+	xmlhttp.open("GET", "http://"+ipPort+"/testdoc/managerquerystudentselectcourse", true);
 	xmlhttp.send();
 }

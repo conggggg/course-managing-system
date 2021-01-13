@@ -1,3 +1,6 @@
+var ipPool=["172.18.41.15:8080"]
+var ipPort=ipPool[0];
+
 function addCookie(name, value, expiresHours) {
     var cookieString = name + "=" + escape(value)+"; path=/";
     //判断是否设置过期时间 
