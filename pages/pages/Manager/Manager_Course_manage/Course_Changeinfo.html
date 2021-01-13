@@ -50,11 +50,31 @@
 			<form class="Write_form">
 					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
 					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
-					课程课时：<input type="text" name="Course_Time" class="Write_input" id="Course_Time"/><br/>
-					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
+					课程课时：<input type="number" name="Course_Time" class="Write_input" id="Course_Time"/><br/>
+					<!--课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
 					上课星期：<input type="text" name="Course_Weekday" class="Write_input" id="Course_Weekday"/><br/><br />
 					上课节次：<input type="text" name="Course_Section" class="Write_input" id="Course_Section"/><br/><br />
-					执教教师号：<input type="text" name="Course_TeacherId" class="Write_input" id="Course_TeacherId"/><br/><br />
+					执教教师号：<input type="text" name="Course_TeacherId" class="Write_input" id="Course_TeacherId"/><br/><br />-->
+					课程类型 ：<input type="radio" name="Compulsory" class="Write_input" value="Compulsory" >必修
+					<input type="radio" name="Optional" class="Write_input" value="Optional">选修<br />
+					星期     ：<select name="xingqi" class="Write_input" id="Course_Weekday">
+					<option value="Monday">星期一</option>
+					<option value="Tuesday">星期二</option>
+					<option value="Wednesday">星期三</option>
+					<option value="Thursday">星期四</option>
+					<option value="Friday">星期五</option>
+					<option value="Saturday">星期六</option>
+					<option value="Sunday">星期日</option>
+					</select><br />
+					节次     ：<select name="Course_time" class="Write_input" id="Course_time">
+					<option value="Monday">第一大节</option>
+					<option value="Tuesday">第二大节</option>
+					<option value="Wednesday">第三大节</option>
+					<option value="Thursday">第四大节</option>
+					<option value="Friday">第五大节</option>
+					<option value="Saturday">第六大节</option>
+					</select><br />
+					执教教师号：<input type="text" name="Course_Teacher" class="Write_input" id="Course_Teacher"/><br/><br />
 					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程" onclick="course_change()"/>
 			</form>
 		</div>
