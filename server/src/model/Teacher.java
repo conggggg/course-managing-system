@@ -76,12 +76,15 @@ public class Teacher {
     }
 
     public static JSONObject queryInfo(String teacherId)throws Exception{
-        List<String> keys = new ArrayList<>();
-        keys.add(teacherId);
-        Teacher t = tdao.queryByKeys(keys).get(0);
-
         //生成数据
         JSONObject obj = new JSONObject();
+
+        List<String> keys = new ArrayList<>();
+        keys.add(teacherId);
+        List<Teacher> teacherList =tdao.queryByKeys(keys);
+        if (teacherList.size()==0) return obj;
+        Teacher t = teacherList.get(0);
+
         Field[] fields = Teacher.class.getDeclaredFields();
         for (int i =0;i<4;i++){
             fields[i].setAccessible(true);

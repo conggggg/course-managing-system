@@ -5,10 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.mysql.cj.xdevapi.JsonArray;
-import database.CourseDao;
-import database.CourseSelectedDao;
-import database.StudentDao;
-import database.TheClassDao;
+import database.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -28,6 +25,11 @@ public class Student {
     private static CourseSelectedDao csdao = new CourseSelectedDao();
     @JSONField(serialize = false, deserialize = false)
     private static CourseDao cdao = new CourseDao();
+    @JSONField(serialize = false, deserialize = false)
+    private static CourseTeachingDao ctdao = new CourseTeachingDao();
+    @JSONField(serialize = false, deserialize = false)
+    private static TeacherDao tdao = new TeacherDao();
+
 
     public Student() {
     }
@@ -190,4 +192,26 @@ public class Student {
         obj.put("course",tmp);
         return obj;
     }
+
+    public static JSONArray querySelectCourseStatus(String studentId)throws Exception{
+        JSONArray ary = new JSONArray();
+        List<Course> courseList = cdao.query();
+
+        for (int i = 0;i<courseList.size();i++){
+            List<CourseTeaching> courseTeachingList = ctdao.queryByCourseId(courseList.get(i).getCourseId());
+            for (int j = 0;j<courseTeachingList.size();j++) {
+                JSONObject obj = JSON.parseObject(JSON.toJSONString(courseList.get(i)));
+                obj.put("teacherName", tdao.queryByKey(courseTeachingList.get(j).getTeacherId()).getTeacherName());
+                obj.put("teacherId",courseTeachingList.get(j).getTeacherId());
+                List<String> key = new ArrayList<>();
+                key.add(courseList.get(j).getCourseId());key.add(studentId);
+                List<List<String>> keys = new ArrayList<>();
+                keys.add(key);
+                obj.put("status",csdao.queryByKeys(keys).size()!=0);
+                ary.add(obj);
+            }
+        }
+        return ary;
+    }
+
 }
