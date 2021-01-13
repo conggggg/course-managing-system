@@ -204,6 +204,10 @@ function selete_course(button) {
 			console.log(re);
 			if (re.result) {
 				alert("选课成功！");
+				//更改视图层的显示效果
+				button.innerHTML="退选"
+				button.setAttribute("style", "color: #FF0000;");
+				button.setAttribute("onclick","quit_course(this)");
 			} else {
 				alert("选课失败！");
 			}
@@ -213,6 +217,39 @@ function selete_course(button) {
 	};
 	//设置并提交申请
 	xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentselectcourse", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+	xmlhttp.send("data=" + JSON.stringify(data));
+}
+
+function quit_course(button){
+	console.log(button.parentNode.parentNode.children[0].innerHTML) //选中的课程号
+	var data = {
+		courseid: button.parentNode.parentNode.children[0].innerHTML,
+		studentid: getCookie("username"),
+	}
+	//创建AJAX对象
+	var xmlhttp = new XMLHttpRequest();
+	//服务器返回数据回调函数
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//解析json对象
+			let re = JSON.parse(xmlhttp.responseText);
+			console.log(re);
+			if (re.result) {
+				alert("退选成功！");
+				//更改视图层的显示效果
+				button.innerHTML="选课"
+				button.removeAttribute("style");
+				button.setAttribute("onclick","selete_course(this)");
+			} else {
+				alert("退选失败！");
+			}
+		} else if (xmlhttp.readyState == 4 && xmlhttp.status != 200) {
+			alert("网络错误！");
+		}
+	};
+	//设置并提交申请
+	xmlhttp.open("POST", "http://" + ipPort + "/testdoc/studentquitcourse", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 	xmlhttp.send("data=" + JSON.stringify(data));
 }

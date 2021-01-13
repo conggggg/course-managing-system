@@ -29,6 +29,18 @@ function GetRequest() {
 	}
 }
 
+//获取单选框选中的值
+function getRadioVal(nameVal){
+    var inputs=document.getElementsByName(nameVal);
+    var checkVal="";
+    for(var i=0, len=inputs.length;i<len;i++){
+        if(inputs[i].checked){
+            checkVal=inputs[i].value;
+        }
+    }
+    return checkVal;
+}
+
 //将字符串数字转为星期
 function convertStringToWeekday(str) {
 	if (str == "1") {
@@ -439,9 +451,9 @@ function course_add() {
 	var course_name = document.getElementById("Course_Name").value;
 	var course_mark = document.getElementById("Course_Mark").value;
 	var course_time = document.getElementById("Course_Time").value;
-	var course_type = document.getElementById("Course_Type").value;
+	var course_type = getRadioVal("Course_Type");
 	var course_weekday = document.getElementById("Course_Weekday").value;
-	var course_section = document.getElementById("Course_Section").value;
+	var course_section = document.getElementById("Course_time").value;
 	var course_teacher = document.getElementById("Course_Teacher").value;
 	var data = {
 		courseid: course_id,
@@ -522,10 +534,11 @@ function onChangeCourseInfoLoad() {
 	document.getElementById("Course_Name").value = GetRequest().courseName;
 	document.getElementById("Course_Mark").value = GetRequest().courseMark;
 	document.getElementById("Course_Time").value = GetRequest().courseTime;
-	document.getElementById("Course_Type").value = GetRequest().courseType;
+	document.getElementById("Coure_Type1").checked = GetRequest().courseType=="必修"?true:false;
+	document.getElementById("Coure_Type2").checked = GetRequest().courseType=="必修"?false:true;
 	document.getElementById("Course_Weekday").value = GetRequest().courseWeekday;
-	document.getElementById("Course_Section").value = GetRequest().courseSection;
-	document.getElementById("Course_TeacherId").value = GetRequest().courseTeacherId;
+	document.getElementById("Course_time").value = GetRequest().courseSection;
+	document.getElementById("Course_Teacher").value = GetRequest().courseTeacherId;
 }
 
 //点击修改课程按钮,实现修改课程函数,更新数据库的值
@@ -535,10 +548,10 @@ function course_change() {
 	var course_name = document.getElementById("Course_Name").value;
 	var course_mark = document.getElementById("Course_Mark").value;
 	var course_time = document.getElementById("Course_Time").value;
-	var course_type = document.getElementById("Course_Type").value;
+	var course_type = getRadioVal("Course_Type");
 	var course_weekday = document.getElementById("Course_Weekday").value;
-	var course_section = document.getElementById("Course_Section").value;
-	var course_teacherId = document.getElementById("Course_TeacherId").value;
+	var course_section = document.getElementById("Course_time").value;
+	var course_teacherId = document.getElementById("Course_Teacher").value;
 	var data = {
 		courseid: course_id,
 		coursename: course_name,
