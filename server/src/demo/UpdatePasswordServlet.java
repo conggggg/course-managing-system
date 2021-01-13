@@ -22,10 +22,9 @@ public class UpdatePasswordServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
-            String userName = request.getParameter("username");
-            String newPassWord = request.getParameter("newpassword");
-            System.out.println(userName);
-            System.out.println(newPassWord);
+            JSONObject data = JSON.parseObject(request.getParameter("data"));
+            String userName = data.getString("username");
+            String newPassWord = data.getString("newpassword");
             response.getWriter().println(JSON.toJSONString(Account.updatePassWord(userName,newPassWord)));
         }catch (Exception e){
             e.printStackTrace();
