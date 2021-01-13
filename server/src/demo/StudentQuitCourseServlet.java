@@ -11,24 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "StudentQueryScoreServlet",urlPatterns = "/studentqueryscore")
-public class StudentQueryScoreServlet extends HttpServlet {
-    @Override
+@WebServlet(name = "StudentQuitCourseServlet",urlPatterns = "/studentquitcourse")
+public class StudentQuitCourseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin","*");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/json");
         try {
             JSONObject data = JSON.parseObject(request.getParameter("data"));
+            String courseId = data.getString("courseid");
             String studentId = data.getString("studentid");
             JSONObject result = new JSONObject();
-            result.put("data", Student.queryScore(studentId));
+            result.put("result", Student.quitCourse(studentId,courseId));
             response.getWriter().println(JSON.toJSONString(result));
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 }
-/*
-    {"data":[{"score":"90","courseName":"编译原理","GPA":"4.0","courseId":"1806000171"},{"score":"93","courseName":"组网技术","GPA":"4.0","courseId":"1806000211"}]}
- */
