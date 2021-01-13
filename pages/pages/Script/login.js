@@ -66,7 +66,7 @@ function loginfunc() {
         }
     };
     //设置并提交申请
-    xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/login", true);
+    xmlhttp.open("POST", "http://"+ipPort+"/testdoc/login", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("username=" + username + "&password=" + password);
 }

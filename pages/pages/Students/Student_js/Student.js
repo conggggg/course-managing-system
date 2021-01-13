@@ -185,7 +185,7 @@ function selete_course(button) {
 	console.log(button.parentNode.parentNode.children[0].innerHTML) //选中的课程号
 	var data = {
 		courseid: button.parentNode.parentNode.children[0].innerHTML,
-		studentid: getCookie("username");
+		studentid: getCookie("username"),
 	}
 	//创建AJAX对象
 	var xmlhttp = new XMLHttpRequest();
@@ -280,7 +280,7 @@ function get_GPA(){
 				tr.appendChild(score);
 				//插入绩点
 				let GPA = document.createElement("td");
-				let GPA = document.createTextNode(re.data[x].GPA);
+				let GPANode = document.createTextNode(re.data[x].GPA);
 				GPA.appendChild(GPANode);
 				tr.appendChild(GPA);
 				//将当前栏插进表格
