@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../common_css/mesage_input.css">
+		<link rel="stylesheet" type="text/css" href="Chart.css">
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body onload="onChangeCourseInfoLoad()">
+	<body onload="get_student()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -44,20 +44,34 @@
 		</nav>
 		</div>
 		<div>
-			<div style="position: absolute;left:850px;top:100px;">
-				<h1>修改课程信息</h1>
-			</div>
-			<form class="Write_form">
-					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
-					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
-					课程课时：<input type="text" name="Course_Time" class="Write_input" id="Course_Time"/><br/>
-					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
-					上课星期：<input type="text" name="Course_Weekday" class="Write_input" id="Course_Weekday"/><br/><br />
-					上课节次：<input type="text" name="Course_Section" class="Write_input" id="Course_Section"/><br/><br />
-					执教教师号：<input type="text" name="Course_TeacherId" class="Write_input" id="Course_TeacherId"/><br/><br />
-					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程" onclick="course_change()"/>
-			</form>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+			  <tr>
+			    <td align="center" class="biaoti" height="60">学生信息表</td>
+			  </tr>
+			  <tr>
+			    <td align="right" height="25"></td>
+			  </tr>
+			</table>
+			<table width="100%" border="0" cellspacing="1" cellpadding="4" bgcolor="#cccccc" class="tabtop13" align="center" id="studentTable">
+			  <tr>
+			    <td width="19%" class="btbg font-center titfont">学生学号</td>
+			    <td width="19%" class="btbg font-center titfont" >学生姓名</td>
+			    <td width="9%" class="btbg font-center titfont" >性别</td>
+			    <td width="9%" class="btbg font-center titfont">年级</td>
+				<td width="19%" class="btbg font-center titfont">专业</td>
+				<td width="19%" class="btbg font-center titfont">班级</td>
+				<td width="6%" class="btbg font-center titfont">操作</td>
+			  </tr>
 		</div>
+		<!-- <div style="text-align: center;">
+			<form>
+				学生学号：<input type="text" class="chart_input" />
+				学生姓名：<input type="text" class="chart_input" />
+				专业：<input type="text" class="chart_input" />
+				<input type="button" value="刷新" class="chart_buttun" onclick="get_newstudent()"/>
+				<input type="button" value="删除" class="chart_buttun" onclick="student_delect()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="student_chart_export()"/>
+			</form>
+		</div> -->
 	</body>
 </html>
-

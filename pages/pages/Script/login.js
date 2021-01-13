@@ -1,15 +1,17 @@
 function onLoad() {
     //检查有没有已登录的cookie
-    let identity = getCookie("identity");
-    if (identity != "") {
+    let type = getCookie("type");
+    console.log(document.cookie)
+    console.log(type)
+    if (type != "") {
         //根据角色转跳页面
-        if (identity == "学生") {
+        if (type == "student") {
             window.location.replace("Students/main_html/Student_main.html");
         }
-        else if (identity == "老师") {
+        else if (type == "teacher") {
             window.location.replace("Teachers/teachers_main/Teachers_main.html");
         }
-        else if (identity == "管理员") {
+        else if (type == "manager") {
             window.location.replace("Manager/Manager_main/Manager_main.html");
         }
     }
@@ -42,17 +44,19 @@ function loginfunc() {
 
                 //写入cookie
                 addCookie("username", username, 1)
-                addCookie("identity", re.identity, 1)
 
                 //根据角色转跳页面
-                if (re.identity == "student") {
+                if (re.type == "学生") {
                     window.location.replace("Students/main_html/Student_main.html");
+					addCookie("type", "student", 1)
                 }
-                else if (re.identity == "teacher") {
+                else if (re.type == "老师") {
                     window.location.replace("Teachers/teachers_main/Teachers_main.html");
+					addCookie("type", "teacher", 1)
                 }
-                else if (re.identity == "manager") {
+                else if (re.type == "管理员") {
                     window.location.replace("Manager/Manager_main/Manager_main.html");
+					addCookie("type", "manager", 1)
                 }
             }
             else {
@@ -62,7 +66,7 @@ function loginfunc() {
         }
     };
     //设置并提交申请
-    xmlhttp.open("POST", "http://172.18.41.15:8080/testdoc/login", true);
+    xmlhttp.open("POST", "http://"+ipPort+"/testdoc/login", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("username=" + username + "&password=" + password);
 }

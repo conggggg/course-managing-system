@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../common_css/mesage_input.css">
+		<link rel="stylesheet" type="text/css" href="Chart.css">
 		<link rel="stylesheet" type="text/css" href="../Manager_main/Manager_main.css">
 		<script type="text/javascript" src="../../Script/cookie.js"></script>
 		<script type="text/javascript" src="../Manager_main/Manager_all.js"></script>
 	</head>
-	<body onload="onChangeCourseInfoLoad()">
+	<body onload="getCourseSeletedStudentList()">
 		<div>
 		<nav>
 			<p>学生专业选课系统</p>
@@ -43,21 +43,23 @@
 			</ul>
 		</nav>
 		</div>
-		<div>
-			<div style="position: absolute;left:850px;top:100px;">
-				<h1>修改课程信息</h1>
-			</div>
-			<form class="Write_form">
-					课程名称：<input type="text" name="Course_Name" class="Write_input" id="Course_Name"/><br/>
-					课程学分：<input type="number" name="Course_Mark" class="Write_input" id="Course_Mark"/><br/>
-					课程课时：<input type="text" name="Course_Time" class="Write_input" id="Course_Time"/><br/>
-					课程类型：<input type="text" name="Course_Type" class="Write_input" id="Course_Type"/><br/><br />
-					上课星期：<input type="text" name="Course_Weekday" class="Write_input" id="Course_Weekday"/><br/><br />
-					上课节次：<input type="text" name="Course_Section" class="Write_input" id="Course_Section"/><br/><br />
-					执教教师号：<input type="text" name="Course_TeacherId" class="Write_input" id="Course_TeacherId"/><br/><br />
-					<input type="button" class="Write_buttun" name="Course_Changeinfo" value="修改课程" onclick="course_change()"/>
-			</form>
+		<div id="tableArea">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+			  <tr>
+			    <td align="center" class="biaoti" height="60">课程选课学生表</td>
+			  </tr>
+			  <tr>
+			    <td align="right" height="25"></td>
+			  </tr>
+			</table>
 		</div>
+		<!-- <div style="text-align: center;">
+			<form>
+				课程号：<input type="text" class="chart_input" />
+				<input type="button" value="刷新"class="chart_buttun" onclick="get_select_student()"/>
+				<input type="button" value="删除"class="chart_buttun" onclick="delete_select_student()"/>
+				<input type="button" value="导出" class="chart_buttun" onclick="select_course_chart_export()"/>
+			</form>
+		</div> -->
 	</body>
 </html>
-
