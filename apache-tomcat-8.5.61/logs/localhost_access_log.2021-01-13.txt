@@ -40,3 +40,5 @@
 172.18.43.143 - - [13/Jan/2021:11:18:53 +0800] "GET /testdoc/managerquerycourse HTTP/1.1" 500 1436
 172.18.43.143 - - [13/Jan/2021:11:18:59 +0800] "GET /testdoc/managerquerycourse HTTP/1.1" 500 1436
 172.18.43.143 - - [13/Jan/2021:11:18:59 +0800] "GET /favicon.ico HTTP/1.1" 404 648
+172.18.43.143 - - [13/Jan/2021:11:21:37 +0800] "POST /testdoc/login HTTP/1.1" 200 36
+172.18.43.143 - - [13/Jan/2021:11:21:40 +0800] "GET /testdoc/managerquerycourse HTTP/1.1" 500 2110
