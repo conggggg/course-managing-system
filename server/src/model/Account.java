@@ -77,7 +77,7 @@ public class Account {
         List<Account> queryresult = dao.queryByKeys(keys);
 
         JSONObject result = new JSONObject();
-        if (queryresult.size()>0&&!newPassWord.equals(queryresult.get(0).passWord)){
+        if (queryresult.size()>0){
             queryresult.get(0).passWord = newPassWord;
             result.put("result",dao.update(queryresult));
         }else result.put("result",false);
