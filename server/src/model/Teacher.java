@@ -30,6 +30,9 @@ public class Teacher {
 
     @JSONField(serialize = false,deserialize = false)
     private static CourseDao cdao = new CourseDao();
+
+    @JSONField(serialize = false,deserialize = false)
+    private static TheClassDao classdao = new TheClassDao();
     public Teacher() {
     }
 
@@ -73,14 +76,17 @@ public class Teacher {
     }
 
     public static JSONObject queryInfo(String teacherId)throws Exception{
-        List<String> keys = new ArrayList<>();
-        keys.add(teacherId);
-        Teacher t = tdao.queryByKeys(keys).get(0);
-
         //生成数据
         JSONObject obj = new JSONObject();
+
+        List<String> keys = new ArrayList<>();
+        keys.add(teacherId);
+        List<Teacher> teacherList =tdao.queryByKeys(keys);
+        if (teacherList.size()==0) return obj;
+        Teacher t = teacherList.get(0);
+
         Field[] fields = Teacher.class.getDeclaredFields();
-        for (int i =0;i<fields.length-1;i++){
+        for (int i =0;i<4;i++){
             fields[i].setAccessible(true);
             obj.put(fields[i].getName(),fields[i].get(t));
         }
@@ -171,7 +177,16 @@ public class Teacher {
                 studentIds.add(cs.getStudentId());
             }
             List<Student> studentList = sdao.queryByKeys(studentIds);
-            obj.put("selectedStudent",JSON.parseArray(JSON.toJSONString(studentList)));
+            JSONArray tmp = new JSONArray();
+            for (Student s:studentList){
+                JSONObject t = JSON.parseObject(JSON.toJSONString(s));
+                TheClass theClass = classdao.queryByClassId(s.getClassId());
+                t.put("className",theClass.getClassName());
+                t.put("profession",theClass.getProfession());
+                t.put("grade",theClass.getGrade());
+                tmp.add(t);
+            }
+            obj.put("selectedStudent",tmp);
             ary.add(obj);
         }
         return ary;
